@@ -1,0 +1,191 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Modifications des couleurs principales pour un bleu plus élégant */
+:root {
+    --primary-blue: #0A4DA6;
+    /* Bleu royal profond */
+    --secondary-blue: #1E3A8A;
+    /* Bleu marine élégant */
+    --accent-blue: #3B82F6;
+    /* Bleu clair pour les accents */
+    --light-blue: #93C5FD;
+    /* Bleu clair pour les survols */
+    --text-white: #ffffff;
+    --text-light: #F3F4F6;
+    --bg-dark: #111827;
+    --bg-darker: #000000;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.timeline-dot::before {
+    content: '';
+    position: absolute;
+    left: -39px;
+    width: 20px;
+    height: 20px;
+    background: #7c3aed;
+    border-radius: 50%;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 50%;
+    min-width: 120px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.text-tech-green {
+    color: var(--text-white);
+}
+
+.border-tech-green {
+    border-color: var(--primary-blue);
+}
+
+/* Style pour le texte normal avec la nouvelle police */
+p,
+li,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav-link,
+.button,
+.countdown-item {
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+}
+
+.techies-bg {
+    background-color: black;
+    background-image: repeating-linear-gradient(45deg,
+            rgba(55, 55, 55, 0.1) 0px,
+            rgba(55, 55, 55, 0.1) 2px,
+            transparent 2px,
+            transparent 6px);
+}
+
+.neon-text {
+    color: var(--light-blue);
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    font-weight: 600;
+}
+
+/* Ajout d'un style plus marqué pour les titres */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid #7c3aed;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 10px rgba(10, 77, 166, 0.2);
+}
+
+.form-group input::placeholder {
+    color: #4B5563;
+}
+
+.form-group select option {
+    background-color: #111827;
+    color: white;
+}
+
+/* Modifier les éléments avec la couleur #CCFF00 */
+.bg-[#CCFF00] {
+    background-color: var(--primary-blue);
+}
+
+.text-[#CCFF00] {
+    color: var(--accent-blue);
+}
+
+.border-[#CCFF00] {
+    border-color: var(--primary-blue);
+}
+
+/* Modifier les hover states */
+.hover\:text-\[\#CCFF00\]:hover {
+    color: var(--light-blue);
+}
+
+/* Modifier les boutons et éléments interactifs */
+.button-primary {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    transition: all 0.3s ease;
+}
+
+.button-primary:hover {
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Modifier les bordures et accents */
+.border-accent {
+    border-color: var(--primary-blue);
+}
+
+.timeline-item::before {
+    background: var(--primary-blue);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Modifier les éléments de formulaire */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 10px rgba(10, 77, 166, 0.2);
+}
