@@ -8,6 +8,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 
 
@@ -15,26 +17,26 @@
 
 <body class="bg-gray-900 text-white">
     <!-- Barre de réseaux sociaux -->
-    <div class="fixed top-0 w-full bg-black py-2 z-50">
+    <div class="fixed top-0 w-full bg-gray-300 py-2 z-50">
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center">
                 <div class="text-blue-500 text-sm">
                     Suivez-nous sur les réseaux sociaux
                 </div>
                 <div class="flex space-x-6">
-                    <a href="https://facebook.com/INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
+                    <a href="https://facebook.com/INPTIC" target="_blank" class="text-black hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
                         </svg>
                         <span class="ml-2 hidden sm:inline">Facebook</span>
                     </a>
-                    <a href="https://youtube.com/INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
+                    <a href="https://youtube.com/INPTIC" target="_blank" class="text-black hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.5,6.2A3,3,0,0,0,21.4,4c-2-.2-6.2-.3-10.4-.3S2.6,3.8.6,4A3,3,0,0,0-1.5,6.2,31.8,31.8,0,0,0-2,12a31.8,31.8,0,0,0,.5,5.8A3,3,0,0,0,.6,20c2,.2,6.2.3,10.4.3s8.4-.1,10.4-.3a3,3,0,0,0,2.1-2.2A31.8,31.8,0,0,0,24,12,31.8,31.8,0,0,0,23.5,6.2ZM9.5,15.8V8.2l6.7,3.8Z" />
                         </svg>
                         <span class="ml-2 hidden sm:inline">YouTube</span>
                     </a>
-                    <a href="https://tiktok.com/@INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
+                    <a href="https://tiktok.com/@INPTIC" target="_blank" class="text-black hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19.59,6.69a4.83,4.83,0,0,1-3.77-4.25V2h-3.45V13.67a2.89,2.89,0,0,1-5.2,1.74,2.89,2.89,0,0,1,2.31-4.64,2.93,2.93,0,0,1,.88.13V7.42a6.84,6.84,0,0,0-1-.05A6.33,6.33,0,0,0,5,20.1a6.34,6.34,0,0,0,10.86-4.43v-7a8.16,8.16,0,0,0,4.77,1.52v-3.4a4.85,4.85,0,0,1-1-.1Z" />
                         </svg>
@@ -49,10 +51,21 @@
     <nav class="fixed w-full z-50 gradient-bg" style="top: 40px;">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
+                <!-- Logo et titre -->
                 <div class="flex items-center space-x-4">
-                    <img src="assets/logoinptic.png" alt="Logo INPTIC" class="h-12 w-auto">
-                    <div class="text-2xl font-bold">Innovation Days 2025</div>
+                    <img src="assets/logoinptic.png" alt="Logo INPTIC" class="h-8 md:h-12 w-auto">
+                    <div class="text-xl md:text-2xl font-bold">Innovation Days 2025</div>
                 </div>
+
+                <!-- Menu hamburger pour mobile -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path class="menu-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path class="menu-close hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <!-- Menu de navigation desktop -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#accueil" class="hover:text-purple-300 transition">Accueil</a>
                     <a href="#apropos" class="hover:text-purple-300 transition">À propos</a>
@@ -62,11 +75,23 @@
                     <a href="#inscription" class="hover:text-purple-300 transition">Inscription</a>
                 </div>
             </div>
+
+            <!-- Menu mobile -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="flex flex-col space-y-4 mt-4 bg-gray-900 rounded-lg p-4">
+                    <a href="#accueil" class="text-white hover:text-purple-300 transition py-2">Accueil</a>
+                    <a href="#apropos" class="text-white hover:text-purple-300 transition py-2">À propos</a>
+                    <a href="#criteres" class="text-white hover:text-purple-300 transition py-2">Critères</a>
+                    <a href="#programme" class="text-white hover:text-purple-300 transition py-2">Programme</a>
+                    <a href="#recompenses" class="text-white hover:text-purple-300 transition py-2">Récompenses</a>
+                    <a href="#inscription" class="text-white hover:text-purple-300 transition py-2">Inscription</a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="accueil" class="h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="accueil" class="h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-0">
         <!-- Vidéo en arrière-plan -->
         <video
             autoplay
@@ -81,40 +106,78 @@
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600/80 to-purple-600/80 z-10"></div>
 
         <!-- Contenu -->
-        <div class="text-center relative z-20" data-aos="fade-up">
-            <h1 class="text-6xl font-bold mb-6 text-white">Innovation Days 2025</h1>
-            <p class="text-2xl mb-4 text-white">72 Heures pour Innover</p>
-
-            <p class="text-xl mb-8 text-white">23-25 Mars 2025 • INPTIC</p>
-
+        <div class="text-center relative z-20 px-4 md:px-0" data-aos="fade-up">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
+                Innovation Days 2025
+            </h1>
+            <p class="text-xl sm:text-2xl mb-2 md:mb-4 text-white">
+                72 Heures pour Innover
+            </p>
+            <p class="text-lg sm:text-xl mb-6 md:mb-8 text-white">
+                23-25 Mars 2025 • INPTIC
+            </p>
 
             <!-- Countdown Timer -->
-            <div class="flex justify-center gap-8 mb-12" id="countdown">
-                <div class="countdown-item">
-                    <div class="text-4xl font-bold" id="days">00</div>
-                    <div class="text-sm text-purple-200">Jours</div>
+            <div class="grid grid-cols-2 sm:flex sm:justify-center gap-4 sm:gap-6 md:gap-8 mb-8 md:mb-12" id="countdown">
+                <div class="countdown-item bg-black/30 backdrop-blur-sm p-3 rounded-lg">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="days">00</div>
+                    <div class="text-xs sm:text-sm text-purple-200">Jours</div>
                 </div>
-                <div class="countdown-item">
-                    <div class="text-4xl font-bold" id="hours">00</div>
-                    <div class="text-sm text-purple-200">Heures</div>
+                <div class="countdown-item bg-black/30 backdrop-blur-sm p-3 rounded-lg">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="hours">00</div>
+                    <div class="text-xs sm:text-sm text-purple-200">Heures</div>
                 </div>
-                <div class="countdown-item">
-                    <div class="text-4xl font-bold" id="minutes">00</div>
-                    <div class="text-sm text-purple-200">Minutes</div>
+                <div class="countdown-item bg-black/30 backdrop-blur-sm p-3 rounded-lg">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="minutes">00</div>
+                    <div class="text-xs sm:text-sm text-purple-200">Minutes</div>
                 </div>
-                <div class="countdown-item">
-                    <div class="text-4xl font-bold" id="seconds">00</div>
-                    <div class="text-sm text-purple-200">Secondes</div>
+                <div class="countdown-item bg-black/30 backdrop-blur-sm p-3 rounded-lg">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="seconds">00</div>
+                    <div class="text-xs sm:text-sm text-purple-200">Secondes</div>
                 </div>
             </div>
 
-
-
-
-            <a href="#inscription" class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-green-500 hover:text-black transition-all animate-pulse-zoom">Inscription</a>
+            <a href="#inscription"
+                class="inline-block bg-white text-blue-600 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold 
+                      hover:bg-green-500 hover:text-black transition-all animate-pulse-zoom
+                      text-sm sm:text-base">
+                Inscription
+            </a>
         </div>
-
     </section>
+
+    <style>
+        @keyframes pulse-zoom {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-pulse-zoom {
+            animation: pulse-zoom 2s infinite;
+        }
+
+        .countdown-item {
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 640px) {
+            .countdown-item {
+                width: 100%;
+            }
+        }
+    </style>
 
     <!-- À propos Section avec plus de détails -->
     <section id="apropos" class="py-20 px-6">
@@ -486,9 +549,7 @@
 
                     <!-- Contact -->
                     <div class="mt-8">
-                        <button class="bg-white text-black font-bold py-2 px-6 rounded-lg mb-4">
-                            CONTACTEZ-NOUS
-                        </button>
+
                         <div class="bg-[#CCFF00] text-black p-4 rounded-lg">
                             <p>Des questions sur l'événement ? Contactez-nous à contact@innovationdays.com<br>
                                 ou suivez-nous sur les réseaux sociaux @INPTIC pour les dernières actualités !</p>
@@ -693,221 +754,188 @@
     </section>
 
     <!-- Section FAQ avec carrousel -->
-    <section id="faq" class="py-20 px-6 bg-black">
+    <section id="faq" class="py-20 px-6 bg-gray-900">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-4xl font-bold text-center mb-12">
                 <span class="text-white">Questions</span>
                 <span class="text-[#0A4DA6]">Fréquentes</span>
             </h2>
 
-            <!-- Container FAQ avec carrousel -->
-            <div class="faq-carousel relative h-[400px] overflow-hidden">
-                <div class="faq-items space-y-4 transition-transform duration-500">
-                    <!-- Question 1 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">Comment former une équipe ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Pour former une équipe, vous devez :</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Constituer une équipe de 4 personnes</li>
-                                <li>Avoir 2 développeurs (front-end/back-end)</li>
-                                <li>Avoir 1 technicien réseau</li>
-                                <li>Avoir 1 marketeur/designer UX</li>
-                                <li>Vous pouvez former votre équipe à l'avance ou sur place</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Question 2 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">Quel matériel dois-je apporter ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Vous devez apporter :</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Votre ordinateur portable</li>
-                                <li>Chargeur et adaptateurs nécessaires</li>
-                                <li>Une multiprise si possible</li>
-                                <li>Vos périphériques préférés (souris, clavier, etc.)</li>
-                                <li>Un bloc-notes et des stylos</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Question 3 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">Quels sont les critères d'évaluation ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Les projets seront évalués selon les critères suivants :</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Innovation (30%) - Originalité et créativité de la solution</li>
-                                <li>Utilité (25%) - Impact et pertinence pour les utilisateurs</li>
-                                <li>Présentation (20%) - Qualité du pitch et de la démonstration</li>
-                                <li>Collaboration (15%) - Travail d'équipe et organisation</li>
-                                <li>Prototype (10%) - Qualité technique et fonctionnelle</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Question 4 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">Y aura-t-il un accompagnement pendant l'événement ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Oui, vous bénéficierez de :</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Mentors techniques et business disponibles 24/7</li>
-                                <li>Workshops et sessions de formation</li>
-                                <li>Support technique pour l'infrastructure</li>
-                                <li>Conseils personnalisés pour votre projet</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Question 5 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">Que se passe-t-il après le hackathon ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Après l'événement :</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Les équipes gagnantes intègrent le programme d'incubation</li>
-                                <li>Possibilité de continuer le développement du projet</li>
-                                <li>Mise en relation avec des investisseurs potentiels</li>
-                                <li>Accès à des ressources et formations supplémentaires</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Question 6 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">Quels sont les horaires du hackathon ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Le hackathon se déroule sur 72 heures :</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Jour 1 : 8h00 - 18h00 (Accueil et lancement)</li>
-                                <li>Jour 2 : 8h00 - 18h00 (Développement)</li>
-                                <li>Jour 3 : 8h00 - 18h00 (Finalisation et présentation)</li>
-                                <li>Les repas sont fournis pendant toute la durée de l'événement</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Question 7 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">La participation est-elle gratuite ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Oui, la participation est entièrement gratuite et inclut :</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>L'accès à l'événement pendant 3 jours</li>
-                                <li>Les repas et collations</li>
-                                <li>L'accès aux mentors et formations</li>
-                                <li>Le matériel de base nécessaire</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Question 8 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">Puis-je participer si je suis débutant ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Oui, les débutants sont les bienvenus !</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Des mentors seront là pour vous guider</li>
-                                <li>Des workshops d'introduction seront proposés</li>
-                                <li>L'important est votre motivation et créativité</li>
-                                <li>Vous serez intégré dans une équipe équilibrée</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Question 9 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">Y a-t-il une limite d'âge ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Les conditions de participation sont :</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Âge minimum : 18 ans</li>
-                                <li>Pas de limite d'âge maximum</li>
-                                <li>Être étudiant ou jeune professionnel</li>
-                                <li>Avoir une passion pour l'innovation</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Question 10 -->
-                    <div class="faq-item bg-gray-800 rounded-lg overflow-hidden">
-                        <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center">
-                            <span class="text-lg font-semibold">Puis-je garder les droits de mon projet ?</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div class="faq-answer px-6 py-4 bg-gray-700 hidden">
-                            <p>Oui, vous gardez vos droits :</p>
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Vous restez propriétaire de votre code</li>
-                                <li>Vous conservez les droits de propriété intellectuelle</li>
-                                <li>Possibilité de déposer des brevets</li>
-                                <li>Liberté de commercialiser votre solution</li>
-                            </ul>
-                        </div>
+            <!-- Container FAQ -->
+            <div class="space-y-4">
+                <!-- Question 1 -->
+                <div class="faq-item bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center text-white">
+                        <span class="text-lg font-semibold">Comment former une équipe ?</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
+                        <p class="text-gray-200">Pour former une équipe, vous devez :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                            <li>Constituer une équipe de 4 personnes</li>
+                            <li>Avoir 2 développeurs (front-end/back-end)</li>
+                            <li>Avoir 1 technicien réseau</li>
+                            <li>Avoir 1 marketeur/designer UX</li>
+                            <li>Vous pouvez former votre équipe à l'avance ou sur place</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Boutons de navigation -->
-                <button class="carousel-prev absolute left-1/2 top-0 transform -translate-x-1/2 bg-[#0A4DA6] text-white p-2 rounded-full opacity-50 hover:opacity-100 transition-opacity">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                    </svg>
-                </button>
-                <button class="carousel-next absolute left-1/2 bottom-0 transform -translate-x-1/2 bg-[#0A4DA6] text-white p-2 rounded-full opacity-50 hover:opacity-100 transition-opacity">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
+                <!-- Question 2 -->
+                <div class="faq-item bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center text-white">
+                        <span class="text-lg font-semibold">Quel matériel dois-je apporter ?</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                            <li>Un ordinateur portable avec vos outils de développement</li>
+                            <li>Un chargeur et éventuellement une multiprise</li>
+                            <li>Une clé USB pour les sauvegardes</li>
+                            <li>Un casque ou des écouteurs pour le travail en groupe</li>
+                            <li>Un carnet et des stylos pour la prise de notes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="faq-item bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center text-white">
+                        <span class="text-lg font-semibold">Quels sont les critères d'évaluation ?</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                            <li>Innovation et créativité (30%)</li>
+                            <li>Utilité et impact potentiel (25%)</li>
+                            <li>Qualité de la présentation (20%)</li>
+                            <li>Collaboration d'équipe (15%)</li>
+                            <li>Qualité technique du prototype (10%)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="faq-item bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center text-white">
+                        <span class="text-lg font-semibold">Y aura-t-il un accompagnement pendant l'événement ?</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
+                        <p class="text-gray-200">Oui, vous bénéficierez de :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                            <li>Mentors techniques expérimentés</li>
+                            <li>Experts métier pour vous guider</li>
+                            <li>Ateliers et workshops</li>
+                            <li>Support technique 24/7</li>
+                            <li>Conseils en présentation et pitch</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="faq-item bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center text-white">
+                        <span class="text-lg font-semibold">Que se passe-t-il après le hackathon ?</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                            <li>Accompagnement post-événement pour les projets prometteurs</li>
+                            <li>Possibilité d'intégrer un programme d'incubation</li>
+                            <li>Mise en relation avec des investisseurs potentiels</li>
+                            <li>Suivi personnalisé pendant 6 mois</li>
+                            <li>Accès à des ressources et formations complémentaires</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="faq-item bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center text-white">
+                        <span class="text-lg font-semibold">Quels sont les horaires du hackathon ?</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                            <li>Jour 1 : 8h00 - 18h00 (Accueil et lancement)</li>
+                            <li>Jour 2 : 8h00 - 18h00 (Développement et mentorat)</li>
+                            <li>Jour 3 : 8h00 - 18h00 (Finalisation et présentation)</li>
+                            <li>Les repas sont fournis pendant toute la durée de l'événement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="faq-item bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center text-white">
+                        <span class="text-lg font-semibold">La participation est-elle gratuite ?</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
+                        <p class="text-gray-200">Oui, la participation est entièrement gratuite et inclut :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                            <li>L'accès à l'événement pendant 3 jours</li>
+                            <li>Les repas et collations</li>
+                            <li>L'accès aux mentors et experts</li>
+                            <li>Le matériel de présentation</li>
+                            <li>Les goodies et surprises</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="faq-item bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center text-white">
+                        <span class="text-lg font-semibold">Puis-je participer si je suis débutant ?</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
+                        <p class="text-gray-200">Oui, absolument ! Voici pourquoi :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                            <li>Des mentors seront là pour vous guider</li>
+                            <li>Les équipes sont constituées pour être complémentaires</li>
+                            <li>Des ateliers d'initiation sont prévus</li>
+                            <li>L'important est votre motivation et votre créativité</li>
+                            <li>C'est une excellente opportunité d'apprentissage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="faq-item bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-4 text-left flex justify-between items-center text-white">
+                        <span class="text-lg font-semibold">Y a-t-il une limite d'âge ?</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
+                        <p class="text-gray-200">Les conditions de participation sont :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                            <li>Âge minimum : 18 ans</li>
+                            <li>Pas de limite d'âge maximum</li>
+                            <li>Être étudiant ou professionnel</li>
+                            <li>Avoir une passion pour l'innovation</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -916,7 +944,7 @@
         <div class="container mx-auto px-6 text-center">
             <p class="text-gray-400">Innovation Days 2025 - INPTIC</p>
             <div class="mt-4">
-            <div class="flex space-x-6">
+                <div class="flex space-x-6">
                     <a href="https://facebook.com/INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
@@ -1207,22 +1235,286 @@
             button.addEventListener('click', () => {
                 const answer = button.nextElementSibling;
                 const icon = button.querySelector('svg');
+                const isOpen = !answer.classList.contains('hidden');
 
-                // Toggle la réponse
-                answer.classList.toggle('hidden');
-
-                // Rotate l'icône
-                icon.style.transform = answer.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-
-                // Ferme les autres réponses
+                // Ferme toutes les autres réponses
                 document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
                     if (otherAnswer !== answer && !otherAnswer.classList.contains('hidden')) {
                         otherAnswer.classList.add('hidden');
                         otherAnswer.previousElementSibling.querySelector('svg').style.transform = 'rotate(0deg)';
                     }
                 });
+
+                // Toggle la réponse actuelle
+                answer.classList.toggle('hidden');
+                icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+
+                // Fait défiler jusqu'à la question si elle est ouverte
+                if (!isOpen) {
+                    button.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
             });
         });
+    </script>
+
+    <!-- Ajoutez ce script juste avant la fermeture de la balise body -->
+    <script>
+        // Gestion du menu mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpen = document.querySelector('.menu-open');
+        const menuClose = document.querySelector('.menu-close');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuOpen.classList.toggle('hidden');
+            menuClose.classList.toggle('hidden');
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuOpen.classList.remove('hidden');
+                menuClose.classList.add('hidden');
+            });
+        });
+
+        // Fermer le menu mobile lors du redimensionnement de la fenêtre
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) { // 768px est le breakpoint md de Tailwind
+                mobileMenu.classList.add('hidden');
+                menuOpen.classList.remove('hidden');
+                menuClose.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animation d'affichage des grands titres au chargement
+        window.addEventListener('load', () => {
+            // Sélection de tous les grands titres
+            const mainTitles = [
+                "Innovation Days 2025",
+                "À propos",
+                "Critères d'évaluation",
+                "Récompenses",
+                "Informations pratiques",
+                "Programme",
+                "Questions Fréquentes",
+                "Support & Mentorat"
+            ];
+
+            // Création d'un conteneur pour les titres
+            const titleContainer = document.createElement('div');
+            titleContainer.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 2rem;
+                border-radius: 1rem;
+                width: 80%;
+                max-width: 800px;
+            `;
+
+            // Ajout des titres au conteneur
+            mainTitles.forEach(title => {
+                const titleElement = document.createElement('h2');
+                titleElement.textContent = title;
+                titleElement.style.cssText = `
+                    font-size: 2rem;
+                    margin: 1rem 0;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    color: #0A4DA6;
+                    font-weight: bold;
+                `;
+                titleContainer.appendChild(titleElement);
+            });
+
+            document.body.appendChild(titleContainer);
+
+            // Animation des titres en cascade
+            const titles = titleContainer.querySelectorAll('h2');
+            gsap.to(titles, {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                stagger: 0.2,
+                ease: "power2.out",
+                onComplete: () => {
+                    // Pause de 1 seconde après l'affichage de tous les titres
+                    setTimeout(() => {
+                        // Animation de sortie
+                        gsap.to(titleContainer, {
+                            opacity: 0,
+                            scale: 0.8,
+                            duration: 0.5,
+                            ease: "power2.in",
+                            onComplete: () => {
+                                titleContainer.remove();
+                                // Démarrer les autres animations après
+                                startMainAnimations();
+                            }
+                        });
+                    }, 1000);
+                }
+            });
+        });
+
+        // Fonction pour démarrer les animations principales
+        function startMainAnimations() {
+            // Ici, on garde toutes les animations précédentes
+            // ... (le reste du code d'animation précédent) ...
+        }
+
+        // Le reste du code d'animation précédent reste inchangé
+        // ... existing animation code ...
+    </script>
+
+    <script>
+        // ... autres animations ...
+
+        // Animation spécifique pour la section FAQ
+        const faqItems = gsap.utils.toArray('.faq-item');
+        faqItems.forEach(item => {
+            const button = item.querySelector('.faq-button');
+            const answer = item.querySelector('.faq-answer');
+            const icon = button.querySelector('svg');
+
+            // Style initial avec fond clair pour la visibilité
+            gsap.set(item, {
+                backgroundColor: '#1E293B', // Fond bleu foncé
+                borderRadius: '8px',
+                margin: '8px 0'
+            });
+
+            gsap.set(button, {
+                color: '#FFFFFF' // Texte blanc pour le contraste
+            });
+
+            gsap.set(answer, {
+                height: 0,
+                opacity: 0,
+                display: 'none',
+                backgroundColor: '#0F172A' // Fond légèrement plus foncé pour la réponse
+            });
+
+            button.addEventListener('click', () => {
+                const isOpen = answer.style.display !== 'none';
+
+                if (!isOpen) {
+                    // Ouvrir la réponse
+                    answer.style.display = 'block';
+                    gsap.to(answer, {
+                        height: 'auto',
+                        opacity: 1,
+                        duration: 0.5,
+                        ease: 'power2.out'
+                    });
+
+                    // Rotation de l'icône
+                    gsap.to(icon, {
+                        rotation: 180,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+
+                    // Animation du bouton
+                    gsap.to(button, {
+                        backgroundColor: '#0A4DA6',
+                        color: '#FFFFFF',
+                        duration: 0.3
+                    });
+                } else {
+                    // Fermer la réponse
+                    gsap.to(answer, {
+                        height: 0,
+                        opacity: 0,
+                        duration: 0.5,
+                        ease: 'power2.in',
+                        onComplete: () => {
+                            answer.style.display = 'none';
+                        }
+                    });
+
+                    // Rotation inverse de l'icône
+                    gsap.to(icon, {
+                        rotation: 0,
+                        duration: 0.3,
+                        ease: 'power2.in'
+                    });
+
+                    // Retour à l'état initial du bouton
+                    gsap.to(button, {
+                        backgroundColor: '#1E293B',
+                        color: '#FFFFFF',
+                        duration: 0.3
+                    });
+                }
+            });
+
+            // Animation au survol
+            button.addEventListener('mouseenter', () => {
+                if (answer.style.display === 'none') {
+                    gsap.to(button, {
+                        backgroundColor: '#2D3748',
+                        scale: 1.02,
+                        duration: 0.3
+                    });
+                }
+            });
+
+            button.addEventListener('mouseleave', () => {
+                if (answer.style.display === 'none') {
+                    gsap.to(button, {
+                        backgroundColor: '#1E293B',
+                        scale: 1,
+                        duration: 0.3
+                    });
+                }
+            });
+        });
+
+        // Animation de la section FAQ au scroll
+        gsap.from('#faq', {
+            scrollTrigger: {
+                trigger: '#faq',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power2.out'
+        });
+
+        // Animation des questions individuelles au scroll
+        faqItems.forEach((item, index) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 90%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                delay: index * 0.1,
+                ease: 'power2.out'
+            });
+        });
+
+        // ... autres animations ...
     </script>
 </body>
 
