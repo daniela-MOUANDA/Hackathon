@@ -70,7 +70,7 @@
                         </div>
                     </div>
 
-                    <form id="registration-form" enctype="multipart/form-data" method="POST">
+                    <form id="registration-form" action="traitement.php" method="POST" enctype="multipart/form-data">
                         <!-- Étape 1 -->
                         <div class="form-step" id="step1">
                             <div class="form-group">
@@ -199,7 +199,9 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
-                            <button type="button" id="submitBtn" onclick="submitForm()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center">
+
+                            <!-- Bouton de soumission -->
+                            <button type="submit" id="submitBtn" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center">
                                 Soumettre
                                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -420,96 +422,7 @@
     </div>
 </section>
 
-<!-- Section Programme -->
-<section id="programme" class="py-20 px-6 bg-gray-900">
-    <div class="container mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 neon-text">Programme</h2>
 
-        <!-- Timeline des 3 jours -->
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Jour 1 -->
-            <div class="bg-black p-8 rounded-xl border border-blue-500 timeline-day">
-                <h3 class="text-2xl font-bold text-blue-500 mb-6">Jour 1: Lancement</h3>
-                <ul class="space-y-6">
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">08:00</span>
-                        <h4 class="text-white font-bold mb-2">Accueil et Inscription</h4>
-                        <p class="text-gray-300">Accueil des participants et finalisation des inscriptions</p>
-                    </li>
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">09:30</span>
-                        <h4 class="text-white font-bold mb-2">Cérémonie d'ouverture</h4>
-                        <p class="text-gray-300">Présentation du déroulement, introduction des mentors et des juges</p>
-                    </li>
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">11:00</span>
-                        <h4 class="text-white font-bold mb-2">Formation des Équipes</h4>
-                        <p class="text-gray-300">Constitution des équipes et networking</p>
-                    </li>
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">14:00</span>
-                        <h4 class="text-white font-bold mb-2">Présentation du Défi</h4>
-                        <p class="text-gray-300">Annonce de la thématique et des objectifs</p>
-                    </li>
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">15:00</span>
-                        <h4 class="text-white font-bold mb-2">Début du Hackathon</h4>
-                        <p class="text-gray-300">Lancement officiel des travaux</p>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Jour 2 -->
-            <div class="bg-black p-8 rounded-xl border border-blue-500 timeline-day">
-                <h3 class="text-2xl font-bold text-blue-500 mb-6">Jour 2: Développement</h3>
-                <ul class="space-y-6">
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">09:00</span>
-                        <h4 class="text-white font-bold mb-2">Sessions de Mentorat</h4>
-                        <p class="text-gray-300">Accompagnement personnalisé par des experts</p>
-                    </li>
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">11:00</span>
-                        <h4 class="text-white font-bold mb-2">Ateliers Techniques</h4>
-                        <p class="text-gray-300">Formation sur les APIs, UX/UI et bonnes pratiques</p>
-                    </li>
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">14:00</span>
-                        <h4 class="text-white font-bold mb-2">Check-in avec les Juges</h4>
-                        <p class="text-gray-300">Feedback intermédiaire sur les projets</p>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Jour 3 -->
-            <div class="bg-black p-8 rounded-xl border border-blue-500 timeline-day">
-                <h3 class="text-2xl font-bold text-blue-500 mb-6">Jour 3: Finalisation</h3>
-                <ul class="space-y-6">
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">09:00</span>
-                        <h4 class="text-white font-bold mb-2">Finalisation des Projets</h4>
-                        <p class="text-gray-300">Dernières touches aux prototypes</p>
-                    </li>
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">14:00</span>
-                        <h4 class="text-white font-bold mb-2">Présentations Finales</h4>
-                        <p class="text-gray-300">Pitch des projets devant le jury</p>
-                    </li>
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">16:00</span>
-                        <h4 class="text-white font-bold mb-2">Délibération du Jury</h4>
-                        <p class="text-gray-300">Évaluation selon les critères établis</p>
-                    </li>
-                    <li class="timeline-item">
-                        <span class="text-purple-400 font-bold">17:30</span>
-                        <h4 class="text-white font-bold mb-2">Cérémonie de Clôture</h4>
-                        <p class="text-gray-300">Annonce des gagnants et remise des prix</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Ajoutez ceci juste avant la fermeture du body -->
 <div id="cguModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 overflow-y-auto">
@@ -1051,12 +964,55 @@
         dot.style.cursor = 'pointer';
     });
 
-    document.getElementById('registration-form').addEventListener('submit', (e) => {
+    document.getElementById('registration-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        if (validateStep(currentStep)) {
-            // Ajoutez ici la logique de soumission du formulaire
-            console.log('Formulaire soumis avec succès');
-        }
+
+        // Afficher le message de chargement
+        Swal.fire({
+            title: '<span class="text-[#CCFF00]">Envoi en cours...</span>',
+            html: '<p class="text-white">Veuillez patienter...</p>',
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            background: '#1a1a1a'
+        });
+
+        // Envoyer le formulaire
+        fetch('traitement.php', {
+                method: 'POST',
+                body: new FormData(this)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        title: '<span class="text-[#CCFF00]">Succès!</span>',
+                        html: '<p class="text-white">Inscription réussie!</p>',
+                        icon: 'success',
+                        background: '#1a1a1a',
+                        confirmButtonColor: '#CCFF00',
+                        confirmButtonText: '<span class="text-black">OK</span>'
+                    });
+                } else {
+                    Swal.fire({
+                        title: '<span class="text-red-500">Erreur!</span>',
+                        html: `<p class="text-white">${data.message}</p>`,
+                        icon: 'error',
+                        background: '#1a1a1a',
+                        confirmButtonColor: '#dc3545',
+                        confirmButtonText: '<span class="text-white">Fermer</span>'
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    title: '<span class="text-red-500">Erreur technique</span>',
+                    html: '<p class="text-white">Une erreur est survenue lors de l\'envoi du formulaire.</p>',
+                    icon: 'error',
+                    background: '#1a1a1a',
+                    confirmButtonColor: '#dc3545',
+                    confirmButtonText: '<span class="text-white">Fermer</span>'
+                });
+            });
     });
 
     // Initialisation du formulaire
@@ -1223,22 +1179,26 @@
         const remainingNet = 1 - networkTechs;
         const remainingMkt = 1 - marketers;
 
-        // Mise à jour du message de statut
+        // Mise à jour du message de statut avec du HTML stylisé
         const statusMessage = `
-            Profils restants à sélectionner :
-            ${remainingDev > 0 ? `\n- ${remainingDev} développeur(s)` : ''}
-            ${remainingNet > 0 ? `\n- ${remainingNet} technicien réseau` : ''}
-            ${remainingMkt > 0 ? `\n- ${remainingMkt} marketeur` : ''}
-            ${(remainingDev <= 0 && remainingNet <= 0 && remainingMkt <= 0) ? '\nComposition complète !' : ''}
+            <div class="text-left">
+                <p class="text-[#CCFF00] font-bold mb-2">Profils restants à sélectionner :</p>
+                ${remainingDev > 0 ? `<p class="text-white">- ${remainingDev} développeur(s)</p>` : ''}
+                ${remainingNet > 0 ? `<p class="text-white">- ${remainingNet} technicien réseau</p>` : ''}
+                ${remainingMkt > 0 ? `<p class="text-white">- ${remainingMkt} marketeur</p>` : ''}
+                ${(remainingDev <= 0 && remainingNet <= 0 && remainingMkt <= 0) ? 
+                    '<p class="text-green-400 font-bold mt-2">Composition complète !</p>' : ''}
+            </div>
         `;
 
-        // Afficher le statut dans une petite notification
+        // Afficher le statut dans une petite notification avec HTML activé
         if (document.querySelector('select[name="chef_role"]').value ||
             document.querySelector('select[name="membre1_role"]').value) {
             Swal.fire({
-                title: 'Statut de la composition',
-                text: statusMessage,
+                title: '<span class="text-[#CCFF00]">Statut de la composition</span>',
+                html: statusMessage,
                 icon: 'info',
+                background: '#1a1a1a',
                 timer: 3000,
                 timerProgressBar: true,
                 showConfirmButton: false
@@ -1249,92 +1209,6 @@
     // Ajout des écouteurs d'événements pour les sélecteurs de profil
     document.querySelectorAll('select[name$="_role"]').forEach(select => {
         select.addEventListener('change', updateTeamComposition);
-    });
-
-    function submitForm() {
-        const form = document.getElementById('registration-form');
-        const formData = new FormData(form);
-
-        // Debug des données du formulaire
-        for (let pair of formData.entries()) {
-            console.log(pair[0] + ': ' + pair[1]);
-        }
-
-        // Afficher l'indicateur de chargement
-        Swal.fire({
-            title: 'Envoi en cours...',
-            html: 'Veuillez patienter pendant le traitement de votre inscription',
-            allowOutsideClick: false,
-            showConfirmButton: false,
-            willOpen: () => {
-                Swal.showLoading();
-            }
-        });
-
-        // Obtenir le chemin absolu vers traitement.php
-        const currentPath = window.location.pathname;
-        const basePath = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-        
-        $.ajax({
-            url: basePath + 'traitement.php', // Utilisation du chemin relatif correct
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log('Réponse reçue:', response);
-                Swal.close();
-                
-                if (response.success) {
-                    Swal.fire({
-                        title: 'Succès!',
-                        text: 'Votre équipe a été inscrite avec succès!',
-                        icon: 'success',
-                        confirmButtonColor: '#28a745'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = response.redirect;
-                        }
-                    });
-                } else {
-                    Swal.fire({
-                        title: 'Erreur!',
-                        html: `Erreur: ${response.error}<br>Détails: ${JSON.stringify(response.details)}`,
-                        icon: 'error',
-                        confirmButtonColor: '#dc3545'
-                    });
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Erreur AJAX:', {xhr, status, error});
-                Swal.close();
-                
-                let errorMessage = 'Une erreur est survenue lors de l\'envoi du formulaire.';
-                try {
-                    const response = JSON.parse(xhr.responseText);
-                    if (response.error) {
-                        errorMessage = response.error;
-                    }
-                } catch(e) {
-                    console.error('Erreur parsing:', e);
-                }
-                
-                Swal.fire({
-                    title: 'Erreur technique',
-                    text: errorMessage,
-                    icon: 'error',
-                    confirmButtonColor: '#dc3545'
-                });
-            }
-        });
-    }
-
-    // Permettre la soumission avec la touche Entrée
-    document.getElementById('registration-form').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            submitForm();
-        }
     });
 </script>
 

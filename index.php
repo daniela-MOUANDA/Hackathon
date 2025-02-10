@@ -20,23 +20,23 @@
     <div class="fixed top-0 w-full bg-gray-300 py-2 z-50">
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center">
-                <div class="text-blue-500 text-sm">
+                <div class="text-white text-sm">
                     Suivez-nous sur les réseaux sociaux
                 </div>
                 <div class="flex space-x-6">
-                    <a href="https://facebook.com/INPTIC" target="_blank" class="text-black hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
+                    <a href="https://facebook.com/INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
                         </svg>
                         <span class="ml-2 hidden sm:inline">Facebook</span>
                     </a>
-                    <a href="https://youtube.com/INPTIC" target="_blank" class="text-black hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
+                    <a href="https://youtube.com/INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.5,6.2A3,3,0,0,0,21.4,4c-2-.2-6.2-.3-10.4-.3S2.6,3.8.6,4A3,3,0,0,0-1.5,6.2,31.8,31.8,0,0,0-2,12a31.8,31.8,0,0,0,.5,5.8A3,3,0,0,0,.6,20c2,.2,6.2.3,10.4.3s8.4-.1,10.4-.3a3,3,0,0,0,2.1-2.2A31.8,31.8,0,0,0,24,12,31.8,31.8,0,0,0,23.5,6.2ZM9.5,15.8V8.2l6.7,3.8Z" />
                         </svg>
                         <span class="ml-2 hidden sm:inline">YouTube</span>
                     </a>
-                    <a href="https://tiktok.com/@INPTIC" target="_blank" class="text-black hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
+                    <a href="https://tiktok.com/@INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19.59,6.69a4.83,4.83,0,0,1-3.77-4.25V2h-3.45V13.67a2.89,2.89,0,0,1-5.2,1.74,2.89,2.89,0,0,1,2.31-4.64,2.93,2.93,0,0,1,.88.13V7.42a6.84,6.84,0,0,0-1-.05A6.33,6.33,0,0,0,5,20.1a6.34,6.34,0,0,0,10.86-4.43v-7a8.16,8.16,0,0,0,4.77,1.52v-3.4a4.85,4.85,0,0,1-1-.1Z" />
                         </svg>
@@ -136,17 +136,30 @@
                     <div class="text-xs sm:text-sm text-purple-200">Secondes</div>
                 </div>
             </div>
-
             <a href="#inscription"
-                class="inline-block bg-white text-blue-600 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold 
-                      hover:bg-green-500 hover:text-black transition-all animate-pulse-zoom
-                      text-sm sm:text-base">
+                class="inline-block bg-red-600 text-blue-600 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold 
+               hover:bg-green-500 hover:text-black transition-all animate-pulse-zoom
+               text-sm sm:text-base">
                 Inscription
             </a>
+
         </div>
     </section>
 
     <style>
+        /* Ajout d'une règle globale pour le texte */
+        * {
+            color: white !important;
+        }
+
+        /* Exception pour les éléments qui doivent garder leur couleur spécifique */
+        .text-\[#CCFF00\],
+        .text-purple-400,
+        .hover\:text-\[#CCFF00\]:hover,
+        .hover\:text-purple-300:hover {
+            color: inherit !important;
+        }
+
         @keyframes pulse-zoom {
 
             0%,
@@ -182,10 +195,10 @@
     <!-- À propos Section avec plus de détails -->
     <section id="apropos" class="py-20 px-6">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">À propos</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">À propos</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
-                    <p class="text-gray-300 mb-6 text-lg">
+                    <p class="text-white mb-6 text-lg">
                         Innovation Days est bien plus qu'un simple hackathon. C'est une expérience immersive de 72 heures où l'innovation,
                         la créativité et la technologie convergent pour créer l'avenir. Notre mission est de transformer des idées
                         audacieuses en solutions concrètes, tout en développant les compétences pratiques essentielles dans le monde
@@ -193,7 +206,7 @@
                     </p>
                     <div class="bg-gray-800 p-6 rounded-lg mb-6">
                         <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Objectifs clés :</h3>
-                        <ul class="space-y-3 text-gray-300">
+                        <ul class="space-y-3 text-white">
                             <li class="flex items-center">
                                 <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
                                 Stimuler l'innovation et la créativité dans le domaine tech
@@ -216,7 +229,7 @@
                 <div class="space-y-6" data-aos="fade-left">
                     <div class="bg-gray-800 p-6 rounded-lg">
                         <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Participants éligibles</h3>
-                        <ul class="space-y-3 text-gray-300">
+                        <ul class="space-y-3 text-white">
                             <li class="flex items-center">
                                 <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
                                 Étudiants de l'INPTIC
@@ -237,8 +250,8 @@
                     </div>
                     <div class="bg-gray-800 p-6 rounded-lg">
                         <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Composition des équipes</h3>
-                        <p class="text-gray-300 mb-4">Une équipe équilibrée de 4 experts :</p>
-                        <ul class="space-y-3 text-gray-300">
+                        <p class="text-white mb-4">Une équipe équilibrée de 4 experts :</p>
+                        <ul class="space-y-3 text-white">
                             <li class="flex items-center">
                                 <span class="w-4 h-4 bg-blue-500 rounded-full mr-2"></span>
                                 2 développeurs (Front-end/Back-end)
@@ -261,7 +274,7 @@
     <!-- Critères Section -->
     <section id="criteres" class="py-20 px-6 bg-gray-800">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Critères d'évaluation</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Critères d'évaluation</h2>
             <div class="grid md:grid-cols-5 gap-6">
                 <div class="bg-gray-700 p-6 rounded-lg text-center hover-scale" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-3xl font-bold text-purple-400 mb-2">30%</div>
@@ -290,7 +303,7 @@
     <!-- Récompenses Section -->
     <section id="recompenses" class="py-20 px-6">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Récompenses</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Récompenses</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-gray-800 p-6 rounded-lg hover-scale" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-xl font-bold mb-4 text-purple-400">Formation & Mentorat</h3>
@@ -323,7 +336,7 @@
     <!-- Informations pratiques -->
     <section id="infos" class="py-20 px-6 bg-gray-800">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Informations pratiques</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Informations pratiques</h2>
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="bg-gray-700 p-6 rounded-lg" data-aos="fade-right">
                     <h3 class="text-xl font-bold mb-4">Lieu et horaires</h3>
@@ -362,7 +375,7 @@
                 <div class="md:w-1/2">
                     <h2 class="text-4xl font-bold mb-6" style="font-family: 'Orbitron', sans-serif;">
                         <span class="text-white">REJOIGNEZ</span><br>
-                        <span class="text-[#0A4DA6] bg-gradient-to-r from-[#0A4DA6] to-[#3B82F6] bg-clip-text text-transparent">INNOVATION DAYS 2025</span>
+                        <span class="text-white">INNOVATION DAYS 2025</span>
                     </h2>
 
                     <!-- Boîte avec texte -->
@@ -425,8 +438,8 @@
                     </div>
 
                     <!-- Texte descriptif -->
-                    <div class="bg-white text-black p-6 rounded-xl mt-8">
-                        <p>Vous avez une passion pour l'innovation et la technologie ? Que vous soyez étudiant en informatique, en réseaux, en marketing digital ou passionné de tech, l'Innovation Days 2024 est fait pour vous ! Rejoignez-nous pour 72 heures intenses de création et d'innovation à l'INPTIC.</p>
+                    <div class="bg-white/10 text-white p-6 rounded-xl mt-8">
+                        <p style="color: #00D1FF;">Vous avez une passion pour l'innovation et la technologie ? Que vous soyez étudiant en informatique, en réseaux, en marketing digital ou passionné de tech, l'Innovation Days 2024 est fait pour vous ! Rejoignez-nous pour 72 heures intenses de création et d'innovation à l'INPTIC.</p>
                     </div>
 
                     <!-- Bouton Participer -->
@@ -445,7 +458,7 @@
                     <!-- Contact -->
                     <div class="mt-8">
 
-                        <div class="bg-[#CCFF00] text-black p-4 rounded-lg">
+                        <div class="bg-[#CCFF00]/10 text-white p-4 rounded-lg">
                             <p>Des questions sur l'événement ? Contactez-nous à contact@innovationdays.com<br>
                                 ou suivez-nous sur les réseaux sociaux @INPTIC pour les dernières actualités !</p>
                         </div>
@@ -467,7 +480,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
                     <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Accompagnement Technique</h3>
-                    <ul class="space-y-3 text-gray-300">
+                    <ul class="space-y-3 text-white">
                         <li>✓ Mentors experts en développement</li>
                         <li>✓ Support infrastructure cloud</li>
                         <li>✓ Ressources techniques dédiées</li>
@@ -476,7 +489,7 @@
                 </div>
                 <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
                     <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Support Business</h3>
-                    <ul class="space-y-3 text-gray-300">
+                    <ul class="space-y-3 text-white">
                         <li>✓ Conseils en business model</li>
                         <li>✓ Stratégie de mise sur le marché</li>
                         <li>✓ Pitch coaching</li>
@@ -485,7 +498,7 @@
                 </div>
                 <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
                     <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Suivi Post-Hackathon</h3>
-                    <ul class="space-y-3 text-gray-300">
+                    <ul class="space-y-3 text-white">
                         <li>✓ Accompagnement personnalisé</li>
                         <li>✓ Accès aux investisseurs</li>
                         <li>✓ Programme d'incubation</li>
@@ -504,7 +517,7 @@
                 <div class="space-y-6">
                     <div class="bg-gray-800 p-6 rounded-lg">
                         <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Livrables Requis</h3>
-                        <ul class="space-y-3 text-gray-300">
+                        <ul class="space-y-3 text-white">
                             <li>✅ Prototype fonctionnel</li>
                             <li>📊 Présentation détaillée</li>
                             <li>📝 Documentation technique</li>
@@ -514,7 +527,7 @@
                     </div>
                     <div class="bg-gray-800 p-6 rounded-lg">
                         <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Critères d'Évaluation</h3>
-                        <ul class="space-y-3 text-gray-300">
+                        <ul class="space-y-3 text-white">
                             <li>🎯 Innovation (30%) - Originalité et créativité</li>
                             <li>💡 Utilité (25%) - Impact et pertinence</li>
                             <li>🤝 Collaboration (15%) - Travail d'équipe</li>
@@ -528,7 +541,7 @@
                         <div class="space-y-4">
                             <div>
                                 <h4 class="font-bold text-white">Formation & Mentorat</h4>
-                                <ul class="text-gray-300">
+                                <ul class="text-white">
                                     <li>✨ Programme d'incubation personnalisé</li>
                                     <li>✨ Formations techniques avancées</li>
                                     <li>✨ Accès VIP aux conférences tech</li>
@@ -536,7 +549,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-white">Opportunités</h4>
-                                <ul class="text-gray-300">
+                                <ul class="text-white">
                                     <li>🌍 Learning Expeditions internationales</li>
                                     <li>📚 Abonnements premium aux plateformes</li>
                                     <li>🚀 Accompagnement business sur 6 mois</li>
@@ -544,7 +557,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-white">Équipement Tech</h4>
-                                <ul class="text-gray-300">
+                                <ul class="text-white">
                                     <li>💻 Ordinateurs dernière génération</li>
                                     <li>📱 Tablettes professionnelles</li>
                                     <li>⌚ Équipement connecté premium</li>
@@ -560,7 +573,7 @@
     <!-- Section Programme -->
     <section id="programme" class="py-20 px-6 bg-gray-900">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 neon-text">Programme</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Programme</h2>
 
             <!-- Timeline des 3 jours -->
             <div class="grid md:grid-cols-3 gap-8">
@@ -653,7 +666,7 @@
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-4xl font-bold text-center mb-12">
                 <span class="text-white">Questions</span>
-                <span class="text-[#0A4DA6]">Fréquentes</span>
+                <span class="text-white">Fréquentes</span>
             </h2>
 
             <!-- Container FAQ -->
@@ -667,8 +680,8 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
-                        <p class="text-gray-200">Pour former une équipe, vous devez :</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                        <p class="text-white">Pour former une équipe, vous devez :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-white">
                             <li>Constituer une équipe de 4 personnes</li>
                             <li>Avoir 2 développeurs (front-end/back-end)</li>
                             <li>Avoir 1 technicien réseau</li>
@@ -687,7 +700,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-white">
                             <li>Un ordinateur portable avec vos outils de développement</li>
                             <li>Un chargeur et éventuellement une multiprise</li>
                             <li>Une clé USB pour les sauvegardes</li>
@@ -706,7 +719,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-white">
                             <li>Innovation et créativité (30%)</li>
                             <li>Utilité et impact potentiel (25%)</li>
                             <li>Qualité de la présentation (20%)</li>
@@ -725,8 +738,8 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
-                        <p class="text-gray-200">Oui, vous bénéficierez de :</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                        <p class="text-white">Oui, vous bénéficierez de :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-white">
                             <li>Mentors techniques expérimentés</li>
                             <li>Experts métier pour vous guider</li>
                             <li>Ateliers et workshops</li>
@@ -745,7 +758,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-white">
                             <li>Accompagnement post-événement pour les projets prometteurs</li>
                             <li>Possibilité d'intégrer un programme d'incubation</li>
                             <li>Mise en relation avec des investisseurs potentiels</li>
@@ -764,7 +777,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-white">
                             <li>Jour 1 : 8h00 - 18h00 (Accueil et lancement)</li>
                             <li>Jour 2 : 8h00 - 18h00 (Développement et mentorat)</li>
                             <li>Jour 3 : 8h00 - 18h00 (Finalisation et présentation)</li>
@@ -782,8 +795,8 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
-                        <p class="text-gray-200">Oui, la participation est entièrement gratuite et inclut :</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                        <p class="text-white">Oui, la participation est entièrement gratuite et inclut :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-white">
                             <li>L'accès à l'événement pendant 3 jours</li>
                             <li>Les repas et collations</li>
                             <li>L'accès aux mentors et experts</li>
@@ -802,8 +815,8 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
-                        <p class="text-gray-200">Oui, absolument ! Voici pourquoi :</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                        <p class="text-white">Oui, absolument ! Voici pourquoi :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-white">
                             <li>Des mentors seront là pour vous guider</li>
                             <li>Les équipes sont constituées pour être complémentaires</li>
                             <li>Des ateliers d'initiation sont prévus</li>
@@ -822,8 +835,8 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 py-4 bg-gray-700/50 hidden">
-                        <p class="text-gray-200">Les conditions de participation sont :</p>
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                        <p class="text-white">Les conditions de participation sont :</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-white">
                             <li>Âge minimum : 18 ans</li>
                             <li>Pas de limite d'âge maximum</li>
                             <li>Être étudiant ou professionnel</li>
@@ -837,7 +850,7 @@
 
     <footer class="bg-gray-800 py-12">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400">Innovation Days 2025 - INPTIC</p>
+            <p class="text-white">Innovation Days 2025 - INPTIC</p>
             <div class="mt-4">
                 <div class="flex space-x-6">
                     <a href="https://facebook.com/INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
@@ -909,7 +922,6 @@
                 start: "top 80%",
             },
             y: 50,
-            opacity: 0,
             duration: 1
         });
 
@@ -920,7 +932,6 @@
                 start: "top 60%",
             },
             y: 100,
-            opacity: 0,
             duration: 1,
             stagger: 0.3
         });
@@ -932,7 +943,6 @@
                 start: "top 40%",
             },
             x: -50,
-            opacity: 0,
             duration: 0.8,
             stagger: 0.1
         });
@@ -943,7 +953,6 @@
                 gsap.to(item, {
                     scale: 1.02,
                     duration: 0.3,
-                    backgroundColor: 'rgba(124, 58, 237, 0.1)',
                     borderRadius: '8px'
                 });
             });
@@ -952,40 +961,33 @@
                 gsap.to(item, {
                     scale: 1,
                     duration: 0.3,
-                    backgroundColor: 'transparent',
                     borderRadius: '0px'
                 });
             });
         });
-    </script>
 
-    <script>
         // Animations générales au survol
         const hoverElements = {
             '.bg-gray-800': {
                 scale: 1.02,
                 boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-                borderColor: '#CCFF00',
-                duration: 0.3
+                duration: 0.3,
+                color: '#FFFFFF'
             },
             '.countdown-item': {
                 scale: 1.1,
-                backgroundColor: 'rgba(124, 58, 237, 0.2)',
                 duration: 0.3
             },
             '.neon-text': {
-                textShadow: '0 0 10px rgba(204, 255, 0, 0.8)',
                 scale: 1.05,
                 duration: 0.2
             },
             'button': {
                 scale: 1.05,
-                brightness: 1.2,
                 duration: 0.3
             },
             '.timeline-item': {
                 x: 10,
-                backgroundColor: 'rgba(124, 58, 237, 0.1)',
                 duration: 0.2
             },
             '#criteres .hover-scale': {
@@ -1001,7 +1003,6 @@
             },
             '.nav-link': {
                 y: -3,
-                color: '#CCFF00',
                 duration: 0.2
             }
         };
@@ -1009,15 +1010,14 @@
         // Application des animations au survol
         Object.entries(hoverElements).forEach(([selector, animation]) => {
             document.querySelectorAll(selector).forEach(element => {
-                // Animation à l'entrée du survol
                 element.addEventListener('mouseenter', () => {
                     gsap.to(element, {
                         ...animation,
-                        ease: 'power2.out'
+                        ease: 'power2.out',
+                        color: '#FFFFFF'
                     });
                 });
 
-                // Animation à la sortie du survol
                 element.addEventListener('mouseleave', () => {
                     gsap.to(element, {
                         scale: 1,
@@ -1029,7 +1029,7 @@
                         brightness: 1,
                         rotateY: 0,
                         borderColor: 'initial',
-                        color: 'initial',
+                        color: '#FFFFFF',
                         duration: 0.2,
                         ease: 'power2.inOut'
                     });
@@ -1040,10 +1040,8 @@
         // Animation spéciale pour les cartes de critères
         gsap.utils.toArray('#criteres .hover-scale').forEach(card => {
             card.addEventListener('mouseenter', () => {
-                // Anime le pourcentage
                 gsap.to(card.querySelector('.text-3xl'), {
                     scale: 1.2,
-                    color: '#CCFF00',
                     duration: 0.3
                 });
             });
@@ -1051,32 +1049,6 @@
             card.addEventListener('mouseleave', () => {
                 gsap.to(card.querySelector('.text-3xl'), {
                     scale: 1,
-                    color: '#a78bfa',
-                    duration: 0.3
-                });
-            });
-        });
-
-        // Animation pour les éléments de la timeline
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            const dot = item.querySelector('::before');
-
-            item.addEventListener('mouseenter', () => {
-                gsap.to(item, {
-                    x: 10,
-                    backgroundColor: 'rgba(124, 58, 237, 0.1)',
-                    borderLeftColor: '#CCFF00',
-                    borderLeftWidth: '3px',
-                    duration: 0.3
-                });
-            });
-
-            item.addEventListener('mouseleave', () => {
-                gsap.to(item, {
-                    x: 0,
-                    backgroundColor: 'transparent',
-                    borderLeftColor: '#7c3aed',
-                    borderLeftWidth: '2px',
                     duration: 0.3
                 });
             });
@@ -1087,7 +1059,6 @@
             card.addEventListener('mouseenter', () => {
                 gsap.to(card.querySelectorAll('li'), {
                     x: 10,
-                    color: '#CCFF00',
                     stagger: 0.1,
                     duration: 0.3
                 });
@@ -1096,7 +1067,6 @@
             card.addEventListener('mouseleave', () => {
                 gsap.to(card.querySelectorAll('li'), {
                     x: 0,
-                    color: '#d1d5db',
                     stagger: 0.1,
                     duration: 0.3
                 });
@@ -1108,8 +1078,7 @@
             input.addEventListener('focus', () => {
                 gsap.to(input, {
                     scale: 1.02,
-                    borderColor: '#CCFF00',
-                    boxShadow: '0 0 10px rgba(204, 255, 0, 0.3)',
+                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
                     duration: 0.3
                 });
             });
@@ -1117,7 +1086,6 @@
             input.addEventListener('blur', () => {
                 gsap.to(input, {
                     scale: 1,
-                    borderColor: '#e5e7eb',
                     boxShadow: 'none',
                     duration: 0.3
                 });

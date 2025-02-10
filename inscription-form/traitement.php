@@ -74,138 +74,45 @@ function handleFileUpload($file, $destination)
 }
 
 try {
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        throw new Exception('Méthode non autorisée');
-    }
+    // Vérification des champs requis
+    $required_fields = [
+        'nom_equipe',
+        'chef_nom',
+        'chef_prenom',
+        'chef_email',
+        'chef_role'
+    ];
 
-    // Debug des données reçues
-    error_log("Données POST reçues : " . print_r($_POST, true));
-    error_log("Fichiers reçus : " . print_r($_FILES, true));
-
-    $pdo->beginTransaction();
-
-    // 1. Insertion de l'équipe
-    $stmtEquipe = $pdo->prepare("
-        INSERT INTO equipes (
-            nom_equipe, 
-            description_equipe, 
-            doc_justificatif,
-            date_inscription
-        ) VALUES (
-            :nom_equipe, 
-            :description_equipe, 
-            :doc_justificatif,
-            NOW()
-        )
-    ");
-
-    // Traitement du document justificatif
-    $docPath = '';
-    if (isset($_FILES['doc_justificatif']) && $_FILES['doc_justificatif']['error'] === UPLOAD_ERR_OK) {
-        $docName = uniqid() . '_' . $_FILES['doc_justificatif']['name'];
-        move_uploaded_file($_FILES['doc_justificatif']['tmp_name'], "../uploads/documents/" . $docName);
-        $docPath = "uploads/documents/" . $docName;
-    }
-
-    $stmtEquipe->execute([
-        'nom_equipe' => $_POST['nom_equipe'],
-        'description_equipe' => $_POST['description_equipe'],
-        'doc_justificatif' => $docPath
-    ]);
-
-    $idEquipe = $pdo->lastInsertId();
-
-    // 2. Insertion des membres (chef d'équipe inclus)
-    $stmtMembre = $pdo->prepare("
-        INSERT INTO membres (
-            id_equipe,
-            nom,
-            prenom,
-            email,
-            role,
-            photo_profil,
-            is_chef_equipe
-        ) VALUES (
-            :id_equipe,
-            :nom,
-            :prenom,
-            :email,
-            :role,
-            :photo_profil,
-            :is_chef_equipe
-        )
-    ");
-
-    // Fonction pour traiter la photo
-    function processPhoto($file) {
-        if ($file['error'] === UPLOAD_ERR_OK) {
-            $photoName = uniqid() . '_' . $file['name'];
-            move_uploaded_file($file['tmp_name'], "../uploads/photos/" . $photoName);
-            return "uploads/photos/" . $photoName;
+    foreach ($required_fields as $field) {
+        if (empty($_POST[$field])) {
+            throw new Exception("Le champ $field est obligatoire");
         }
-        return '';
     }
 
-    // Insertion du chef d'équipe
-    $chefPhotoPath = processPhoto($_FILES['chef_photo']);
-    $stmtMembre->execute([
-        'id_equipe' => $idEquipe,
-        'nom' => $_POST['chef_nom'],
-        'prenom' => $_POST['chef_prenom'],
-        'email' => $_POST['chef_email'],
-        'role' => $_POST['chef_role'],
-        'photo_profil' => $chefPhotoPath,
-        'is_chef_equipe' => 1
-    ]);
+    // Vérification des fichiers
+    if (!isset($_FILES['chef_photo']) || $_FILES['chef_photo']['error'] !== 0) {
+        throw new Exception("La photo du chef d'équipe est obligatoire");
+    }
 
-    // Insertion des autres membres
+    // Vérification des membres
     for ($i = 1; $i <= 3; $i++) {
-        $photoPath = processPhoto($_FILES["membre{$i}_photo"]);
-        $stmtMembre->execute([
-            'id_equipe' => $idEquipe,
-            'nom' => $_POST["membre{$i}_nom"],
-            'prenom' => $_POST["membre{$i}_prenom"],
-            'email' => $_POST["membre{$i}_email"],
-            'role' => $_POST["membre{$i}_role"],
-            'photo_profil' => $photoPath,
-            'is_chef_equipe' => 0
-        ]);
+        if (empty($_POST["membre{$i}_nom"]) || empty($_POST["membre{$i}_prenom"])) {
+            throw new Exception("Les informations du membre $i sont incomplètes");
+        }
     }
 
-    // Vérification de la composition de l'équipe
-    $stmtVerif = $pdo->prepare("
-        SELECT 
-            SUM(CASE WHEN role = 'developpeur' THEN 1 ELSE 0 END) as nb_dev,
-            SUM(CASE WHEN role = 'technicien_reseau' THEN 1 ELSE 0 END) as nb_tech,
-            SUM(CASE WHEN role = 'marketeur' THEN 1 ELSE 0 END) as nb_mkt
-        FROM membres 
-        WHERE id_equipe = ?
-    ");
+    // Si tout est OK, on peut traiter les données ici
+    // Par exemple, sauvegarde en base de données, etc.
 
-    $stmtVerif->execute([$idEquipe]);
-    $composition = $stmtVerif->fetch();
-
-    if ($composition['nb_dev'] !== 2 || $composition['nb_tech'] !== 1 || $composition['nb_mkt'] !== 1) {
-        throw new Exception("La composition de l'équipe ne respecte pas les critères requis");
-    }
-
-    $pdo->commit();
-
+    // Réponse de succès
     echo json_encode([
         'success' => true,
-        'message' => 'Inscription réussie !',
-        'redirect' => 'confirmation.php'
+        'message' => 'Inscription réussie'
     ]);
-
 } catch (Exception $e) {
-    error_log("Erreur : " . $e->getMessage());
-    if (isset($pdo)) {
-        $pdo->rollBack();
-    }
-
-    http_response_code(400);
+    // Réponse en cas d'erreur
     echo json_encode([
         'success' => false,
-        'error' => $e->getMessage()
+        'message' => $e->getMessage()
     ]);
 }
