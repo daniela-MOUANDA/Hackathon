@@ -1,200 +1,211 @@
 <?php
-session_start();
-// Activer l'affichage des erreurs
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+header('Content-Type: application/json');
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
+// Connexion à la base de données
 require_once '../bdd.php';
 
-// Traitement du formulaire
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Fonction pour gérer l'upload des fichiers
+function handleFileUpload($file, $destination)
+{
     try {
-        // Log des données reçues
-        error_log("Données POST reçues : " . print_r($_POST, true));
-        error_log("Fichiers reçus : " . print_r($_FILES, true));
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
+        $maxSize = 5 * 1024 * 1024; // 5MB
 
-        // Récupération et validation des données
-        $prenom = htmlspecialchars($_POST['prenom']);
-        $nom = htmlspecialchars($_POST['nom']);
-        $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-        $telephone = preg_replace('/[^0-9+]/', '', htmlspecialchars($_POST['telephone']));
-        $institution = htmlspecialchars($_POST['institution']);
-        $role = htmlspecialchars($_POST['role']);
-        $age = intval($_POST['age']);
-
-        // Validations
-        if (!$email) {
-            throw new Exception("L'adresse email n'est pas valide");
+        // Vérification des erreurs d'upload
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            throw new Exception("Erreur lors de l'upload: " . $file['error']);
         }
 
-        if ($age < 18 || $age > 100) {
-            throw new Exception("L'âge doit être compris entre 18 et 100 ans");
+        $fileInfo = pathinfo($file['name']);
+        $extension = strtolower($fileInfo['extension']);
+
+        if (!in_array($extension, $allowedExtensions)) {
+            throw new Exception("Type de fichier non autorisé: " . $extension);
         }
 
-        $roles_permis = ['developpeur', 'technicien_reseau', 'marketeur'];
-        if (!in_array($role, $roles_permis)) {
-            throw new Exception("Le rôle sélectionné n'est pas valide");
+        if ($file['size'] > $maxSize) {
+            throw new Exception("Le fichier est trop volumineux: " . $file['size']);
         }
 
-        // Traitement de la photo
-        $photo = null;
-        if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
-            $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
-            $max_size = 5 * 1024 * 1024;
+        // Définition des chemins
+        $baseUploadPath = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'uploads';
+        $destinationPath = $baseUploadPath . DIRECTORY_SEPARATOR . $destination;
 
-            if ($_FILES['photo']['size'] > $max_size) {
-                throw new Exception("La taille de la photo ne doit pas dépasser 5 Mo");
+        // Debug des chemins
+        error_log("Chemin de base: " . $baseUploadPath);
+        error_log("Chemin de destination: " . $destinationPath);
+
+        // Création des dossiers si nécessaire
+        if (!file_exists($baseUploadPath)) {
+            if (!mkdir($baseUploadPath, 0777, true)) {
+                throw new Exception("Impossible de créer le dossier uploads");
             }
-
-            if (!in_array($_FILES['photo']['type'], $allowed_types)) {
-                throw new Exception("Le format de la photo n'est pas accepté");
-            }
-
-            if (!file_exists('../uploads')) {
-                mkdir('../uploads', 0777, true);
-            }
-
-            $photo_tmp = $_FILES['photo']['tmp_name'];
-            $photo_name = uniqid() . '_' . $_FILES['photo']['name'];
-            $photo_path = '../uploads/' . $photo_name;
-
-            if (!move_uploaded_file($photo_tmp, $photo_path)) {
-                throw new Exception("Erreur lors de l'upload de la photo");
-            }
-            $photo = $photo_name;
         }
 
-        // Traitement du document justificatif
-        $doc_justificatif = null;
-        if (isset($_FILES['doc_justificatif']) && $_FILES['doc_justificatif']['error'] === UPLOAD_ERR_OK) {
-            $allowed_types = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-            $max_size = 10 * 1024 * 1024;
-
-            if ($_FILES['doc_justificatif']['size'] > $max_size) {
-                throw new Exception("La taille du document ne doit pas dépasser 10 Mo");
+        if (!file_exists($destinationPath)) {
+            if (!mkdir($destinationPath, 0777, true)) {
+                throw new Exception("Impossible de créer le dossier " . $destination);
             }
-
-            if (!in_array($_FILES['doc_justificatif']['type'], $allowed_types)) {
-                throw new Exception("Le format du document justificatif n'est pas accepté");
-            }
-
-            if (!file_exists('../uploads')) {
-                mkdir('../uploads', 0777, true);
-            }
-
-            $doc_tmp = $_FILES['doc_justificatif']['tmp_name'];
-            $doc_name = uniqid() . '_' . $_FILES['doc_justificatif']['name'];
-            $doc_path = '../uploads/' . $doc_name;
-
-            if (!move_uploaded_file($doc_tmp, $doc_path)) {
-                throw new Exception("Erreur lors de l'upload du document justificatif");
-            }
-            $doc_justificatif = $doc_name;
         }
 
-        // Insertion dans la base de données
-        $sql = "INSERT INTO participants (
-            prenom, nom, email, telephone, institution, role, age, 
-            photo, doc_justificatif, date_inscription
-        ) VALUES (
-            :prenom, :nom, :email, :telephone, :institution, :role, :age,
-            :photo, :doc_justificatif, NOW()
-        )";
+        // Vérification des permissions
+        if (!is_writable($destinationPath)) {
+            throw new Exception("Le dossier n'est pas accessible en écriture: " . $destinationPath);
+        }
 
-        $stmt = $bdd->prepare($sql);
-        $stmt->execute([
-            ':prenom' => substr($prenom, 0, 50),
-            ':nom' => substr($nom, 0, 50),
-            ':email' => substr($email, 0, 100),
-            ':telephone' => substr($telephone, 0, 20),
-            ':institution' => substr($institution, 0, 100),
-            ':role' => $role,
-            ':age' => $age,
-            ':photo' => $photo,
-            ':doc_justificatif' => $doc_justificatif
-        ]);
+        $newFileName = uniqid() . '.' . $extension;
+        $uploadPath = $destinationPath . DIRECTORY_SEPARATOR . $newFileName;
 
-        $_SESSION['message'] = [
-            'type' => 'success',
-            'text' => "Inscription réussie ! Nous vous contacterons bientôt."
-        ];
+        // Debug du chemin final
+        error_log("Chemin final: " . $uploadPath);
+
+        if (!move_uploaded_file($file['tmp_name'], $uploadPath)) {
+            throw new Exception("Erreur lors du déplacement du fichier vers: " . $uploadPath);
+        }
+
+        // Retourner le chemin relatif pour la base de données
+        return 'uploads/' . $destination . '/' . $newFileName;
     } catch (Exception $e) {
-        $_SESSION['message'] = [
-            'type' => 'error',
-            'text' => "Erreur : " . $e->getMessage()
-        ];
-        error_log("Erreur dans le traitement du formulaire : " . $e->getMessage());
+        error_log("Erreur dans handleFileUpload: " . $e->getMessage());
+        throw $e;
     }
 }
 
-// Récupération du message
-$message = isset($_SESSION['message']) ? $_SESSION['message'] : null;
-unset($_SESSION['message']);
-?>
+try {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        throw new Exception('Méthode non autorisée');
+    }
 
-<!DOCTYPE html>
-<html lang="fr">
+    // Debug des données reçues
+    error_log("Données POST reçues : " . print_r($_POST, true));
+    error_log("Fichiers reçus : " . print_r($_FILES, true));
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation d'inscription</title>
-    <style>
-        .message-box {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
+    $pdo->beginTransaction();
+
+    // 1. Insertion de l'équipe
+    $stmtEquipe = $pdo->prepare("
+        INSERT INTO equipes (
+            nom_equipe, 
+            description_equipe, 
+            doc_justificatif,
+            date_inscription
+        ) VALUES (
+            :nom_equipe, 
+            :description_equipe, 
+            :doc_justificatif,
+            NOW()
+        )
+    ");
+
+    // Traitement du document justificatif
+    $docPath = '';
+    if (isset($_FILES['doc_justificatif']) && $_FILES['doc_justificatif']['error'] === UPLOAD_ERR_OK) {
+        $docName = uniqid() . '_' . $_FILES['doc_justificatif']['name'];
+        move_uploaded_file($_FILES['doc_justificatif']['tmp_name'], "../uploads/documents/" . $docName);
+        $docPath = "uploads/documents/" . $docName;
+    }
+
+    $stmtEquipe->execute([
+        'nom_equipe' => $_POST['nom_equipe'],
+        'description_equipe' => $_POST['description_equipe'],
+        'doc_justificatif' => $docPath
+    ]);
+
+    $idEquipe = $pdo->lastInsertId();
+
+    // 2. Insertion des membres (chef d'équipe inclus)
+    $stmtMembre = $pdo->prepare("
+        INSERT INTO membres (
+            id_equipe,
+            nom,
+            prenom,
+            email,
+            role,
+            photo_profil,
+            is_chef_equipe
+        ) VALUES (
+            :id_equipe,
+            :nom,
+            :prenom,
+            :email,
+            :role,
+            :photo_profil,
+            :is_chef_equipe
+        )
+    ");
+
+    // Fonction pour traiter la photo
+    function processPhoto($file) {
+        if ($file['error'] === UPLOAD_ERR_OK) {
+            $photoName = uniqid() . '_' . $file['name'];
+            move_uploaded_file($file['tmp_name'], "../uploads/photos/" . $photoName);
+            return "uploads/photos/" . $photoName;
         }
+        return '';
+    }
 
-        .success {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-        }
+    // Insertion du chef d'équipe
+    $chefPhotoPath = processPhoto($_FILES['chef_photo']);
+    $stmtMembre->execute([
+        'id_equipe' => $idEquipe,
+        'nom' => $_POST['chef_nom'],
+        'prenom' => $_POST['chef_prenom'],
+        'email' => $_POST['chef_email'],
+        'role' => $_POST['chef_role'],
+        'photo_profil' => $chefPhotoPath,
+        'is_chef_equipe' => 1
+    ]);
 
-        .error {
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
-        }
+    // Insertion des autres membres
+    for ($i = 1; $i <= 3; $i++) {
+        $photoPath = processPhoto($_FILES["membre{$i}_photo"]);
+        $stmtMembre->execute([
+            'id_equipe' => $idEquipe,
+            'nom' => $_POST["membre{$i}_nom"],
+            'prenom' => $_POST["membre{$i}_prenom"],
+            'email' => $_POST["membre{$i}_email"],
+            'role' => $_POST["membre{$i}_role"],
+            'photo_profil' => $photoPath,
+            'is_chef_equipe' => 0
+        ]);
+    }
 
-        .btn-retour {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
+    // Vérification de la composition de l'équipe
+    $stmtVerif = $pdo->prepare("
+        SELECT 
+            SUM(CASE WHEN role = 'developpeur' THEN 1 ELSE 0 END) as nb_dev,
+            SUM(CASE WHEN role = 'technicien_reseau' THEN 1 ELSE 0 END) as nb_tech,
+            SUM(CASE WHEN role = 'marketeur' THEN 1 ELSE 0 END) as nb_mkt
+        FROM membres 
+        WHERE id_equipe = ?
+    ");
 
-        .btn-retour:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
+    $stmtVerif->execute([$idEquipe]);
+    $composition = $stmtVerif->fetch();
 
-<body>
-    <?php if ($message): ?>
-        <div class="message-box <?php echo $message['type']; ?>">
-            <p><?php echo $message['text']; ?></p>
-            <a href="../index.php" class="btn-retour">Retour à l'accueil</a>
-        </div>
-    <?php else: ?>
-        <div class="message-box error">
-            <p>Aucun message à afficher</p>
-            <a href="../index.php" class="btn-retour">Retour à l'accueil</a>
-        </div>
-    <?php endif; ?>
-</body>
+    if ($composition['nb_dev'] !== 2 || $composition['nb_tech'] !== 1 || $composition['nb_mkt'] !== 1) {
+        throw new Exception("La composition de l'équipe ne respecte pas les critères requis");
+    }
 
-</html>
+    $pdo->commit();
+
+    echo json_encode([
+        'success' => true,
+        'message' => 'Inscription réussie !',
+        'redirect' => 'confirmation.php'
+    ]);
+
+} catch (Exception $e) {
+    error_log("Erreur : " . $e->getMessage());
+    if (isset($pdo)) {
+        $pdo->rollBack();
+    }
+
+    http_response_code(400);
+    echo json_encode([
+        'success' => false,
+        'error' => $e->getMessage()
+    ]);
+}

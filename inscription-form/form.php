@@ -41,11 +41,11 @@
                     <!-- Barre de progression -->
                     <div class="mb-8">
                         <div class="flex justify-between mb-2">
-                            <span class="text-sm text-[#CCFF00]" id="progress-text">Étape 1 sur 3</span>
-                            <span class="text-sm text-[#CCFF00]" id="progress-percentage">33%</span>
+                            <span class="text-sm text-[#CCFF00]" id="progress-text">Étape 1 sur 6</span>
+                            <span class="text-sm text-[#CCFF00]" id="progress-percentage">16%</span>
                         </div>
                         <div class="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
-                            <div id="progress-bar" class="h-full bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-500" style="width: 33%"></div>
+                            <div id="progress-bar" class="h-full bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-500" style="width: 16%"></div>
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@
                             <div id="step-icon" class="mr-4 text-[#CCFF00]">
                                 <!-- L'icône sera mise à jour par JavaScript -->
                                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
                             </div>
                             <h3 class="text-2xl font-bold text-[#CCFF00]">Informations personnelles</h3>
@@ -64,77 +64,114 @@
                             <div class="w-3 h-3 bg-[#CCFF00] rounded-full" id="step1-dot"></div>
                             <div class="w-3 h-3 bg-gray-700 rounded-full" id="step2-dot"></div>
                             <div class="w-3 h-3 bg-gray-700 rounded-full" id="step3-dot"></div>
+                            <div class="w-3 h-3 bg-gray-700 rounded-full" id="step4-dot"></div>
+                            <div class="w-3 h-3 bg-gray-700 rounded-full" id="step5-dot"></div>
+                            <div class="w-3 h-3 bg-gray-700 rounded-full" id="step6-dot"></div>
                         </div>
                     </div>
 
-                    <form action="traitement.php" method="POST" class="space-y-6" id="registration-form" enctype="multipart/form-data">
+                    <form id="registration-form" enctype="multipart/form-data" method="POST">
                         <!-- Étape 1 -->
                         <div class="form-step" id="step1">
-                            <div class="grid md:grid-cols-2 gap-6">
-
-                                <div class="form-group">
-                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Nom*</label>
-                                    <input type="text" name="nom" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
-                                </div>
-                                <div class="form-group">
-                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Prénom*</label>
-                                    <input type="text" name="prenom" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
-                                </div>
+                            <div class="form-group">
+                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Nom de l'équipe*</label>
+                                <input type="text" name="nom_equipe" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
                             </div>
 
                             <div class="form-group">
-                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Email*</label>
-                                <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Téléphone*</label>
-                                <div class="flex">
-                                    <span class="inline-flex items-center px-4 py-3 rounded-l-lg border-2 border-r-0 border-gray-700 bg-gray-800 text-gray-400">+241</span>
-                                    <input type="tel" name="telephone" required class="w-full px-4 py-3 rounded-r-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Âge*</label>
-                                <input type="number" name="age" min="18" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Description de l'équipe</label>
+                                <textarea name="description_equipe" rows="3" class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all"></textarea>
                             </div>
                         </div>
 
-                        <!-- Étape 2 (initialement cachée) -->
+                        <!-- Étape 2 - Chef d'équipe -->
                         <div class="form-step hidden" id="step2">
-                            <div class="form-group">
-                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Institution/École*</label>
-                                <input type="text" name="institution" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                            <h4 class="text-xl font-bold text-[#CCFF00] mb-4">Chef d'équipe</h4>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="form-group">
+                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Nom*</label>
+                                    <input type="text" name="chef_nom" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                </div>
+                                <div class="form-group">
+                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Prénom*</label>
+                                    <input type="text" name="chef_prenom" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Email*</label>
+                                <input type="email" name="chef_email" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                            </div>
                             <div class="form-group">
                                 <label class="block text-sm font-medium text-[#CCFF00] mb-2">Profil*</label>
-                                <select name="role" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
-                                    <option value="">Sélectionnez votre profil</option>
+                                <select name="chef_role" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                    <option value="">Sélectionnez le profil</option>
                                     <option value="developpeur">Développeur</option>
                                     <option value="technicien_reseau">Technicien Réseau</option>
                                     <option value="marketeur">Marketing</option>
                                 </select>
                             </div>
-
-                            <div class="form-group">
-                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Nom de l'équipe*</label>
-                                <input type="text" name="nom_equipe" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                            <div class="form-group mt-4">
+                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Photo de profil*</label>
+                                <div class="flex items-center space-x-4">
+                                    <input type="file" name="chef_photo" accept="image/*" required
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all"
+                                        onchange="previewImage(this, 'chef_photo_preview')">
+                                    <div id="chef_photo_preview" class="w-20 h-20 bg-gray-800 rounded-lg overflow-hidden">
+                                        <img src="" alt="" class="w-full h-full object-cover hidden">
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-400 mt-1">Format: JPG, PNG. Max: 2MB</p>
                             </div>
                         </div>
 
-                        <!-- Étape 3 (initialement cachée) -->
-                        <div class="form-step hidden" id="step3">
-                            <div class="space-y-4">
+                        <!-- Étapes 3-5 - Membres -->
+                        <?php for ($i = 1; $i <= 3; $i++) : ?>
+                            <div class="form-step hidden" id="step<?php echo $i + 2; ?>">
+                                <h4 class="text-xl font-bold text-[#CCFF00] mb-4">Membre <?php echo $i; ?></h4>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="form-group">
+                                        <label class="block text-sm font-medium text-[#CCFF00] mb-2">Nom*</label>
+                                        <input type="text" name="membre<?php echo $i; ?>_nom" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="block text-sm font-medium text-[#CCFF00] mb-2">Prénom*</label>
+                                        <input type="text" name="membre<?php echo $i; ?>_prenom" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                    </div>
+                                </div>
                                 <div class="form-group">
+                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Email*</label>
+                                    <input type="email" name="membre<?php echo $i; ?>_email" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                </div>
+                                <div class="form-group">
+                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Profil*</label>
+                                    <select name="membre<?php echo $i; ?>_role" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                        <option value="">Sélectionnez le profil</option>
+                                        <option value="developpeur">Développeur</option>
+                                        <option value="technicien_reseau">Technicien Réseau</option>
+                                        <option value="marketeur">Marketing</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mt-4">
                                     <label class="block text-sm font-medium text-[#CCFF00] mb-2">Photo de profil*</label>
-                                    <input type="file" name="photo" accept="image/*" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                    <div class="flex items-center space-x-4">
+                                        <input type="file" name="membre<?php echo $i; ?>_photo" accept="image/*" required
+                                            class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all"
+                                            onchange="previewImage(this, 'membre<?php echo $i; ?>_photo_preview')">
+                                        <div id="membre<?php echo $i; ?>_photo_preview" class="w-20 h-20 bg-gray-800 rounded-lg overflow-hidden">
+                                            <img src="" alt="" class="w-full h-full object-cover hidden">
+                                        </div>
+                                    </div>
                                     <p class="text-sm text-gray-400 mt-1">Format: JPG, PNG. Max: 2MB</p>
                                 </div>
+                            </div>
+                        <?php endfor; ?>
 
+                        <!-- Étape 6 - Validation finale -->
+                        <div class="form-step hidden" id="step6">
+                            <h4 class="text-xl font-bold text-[#CCFF00] mb-4">Validation finale</h4>
+                            <div class="space-y-4">
                                 <div class="form-group">
-                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Document justificatif*</label>
+                                    <label class="block text-sm font-bold text-[#CCFF00] mb-2">Document justificatif de l'équipe*</label>
                                     <input type="file" name="doc_justificatif" accept=".pdf,.doc,.docx" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
                                     <p class="text-sm text-gray-400 mt-1">Format: PDF, DOC. Max: 5MB</p>
                                 </div>
@@ -162,7 +199,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
-                            <button type="submit" id="submitBtn" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center">
+                            <button type="button" id="submitBtn" onclick="submitForm()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center">
                                 Soumettre
                                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -827,7 +864,7 @@
 
 <script>
     let currentStep = 1;
-    const totalSteps = 3;
+    const totalSteps = 6;
 
     function validateStep(step) {
         const currentStepElement = document.getElementById(`step${step}`);
@@ -894,23 +931,22 @@
 
         switch (step) {
             case 1:
-                // Icône utilisateur pour informations personnelles
+                // Icône équipe
+                iconSvg = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>`;
+                break;
+            case 2:
+                // Icône chef d'équipe
                 iconSvg = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>`;
                 break;
-            case 2:
-                // Icône bâtiment/entreprise pour informations professionnelles
+            default:
+                // Icône membre
                 iconSvg = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>`;
-                break;
-            case 3:
-                // Icône document pour l'étape des documents
-                iconSvg = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>`;
-                break;
         }
 
         iconContainer.innerHTML = iconSvg;
@@ -974,6 +1010,9 @@
                 break;
             case 3:
                 stepIndicator.textContent = 'Documents et validation';
+                break;
+            case 4:
+                stepIndicator.textContent = 'Validation finale';
                 break;
         }
 
@@ -1064,6 +1103,237 @@
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && !document.getElementById('cguModal').classList.contains('hidden')) {
             closeCguModal();
+        }
+    });
+
+    // Ajouter cette fonction pour la prévisualisation des images
+    function previewImage(input, previewId) {
+        const preview = document.getElementById(previewId).querySelector('img');
+        const container = document.getElementById(previewId);
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.classList.remove('hidden');
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.src = '';
+            preview.classList.add('hidden');
+        }
+    }
+
+    // Ajout d'un message d'information sur la composition de l'équipe
+    function showTeamCompositionInfo() {
+        Swal.fire({
+            title: 'Composition de l\'équipe requise',
+            html: `<div class="text-left">
+                <p class="mb-3">Votre équipe doit être composée de 4 membres au total (chef d'équipe inclus) avec la répartition suivante :</p>
+                <ul class="list-disc pl-5">
+                    <li>2 développeurs</li>
+                    <li>1 technicien réseau</li>
+                    <li>1 marketeur</li>
+                </ul>
+                <p class="mt-3">Assurez-vous que les profils sélectionnés respectent cette composition.</p>
+            </div>`,
+            icon: 'info',
+            confirmButtonText: 'Compris',
+            confirmButtonColor: '#3085d6'
+        });
+    }
+
+    // Afficher l'information dès qu'on arrive à l'étape 2
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        if (currentStep === 1 && validateStep(currentStep)) {
+            showTeamCompositionInfo();
+        }
+    });
+
+    // Modification de la fonction de validation
+    function validateTeamComposition() {
+        let developers = 0;
+        let networkTechs = 0;
+        let marketers = 0;
+
+        // Vérification du chef d'équipe
+        const chefRole = document.querySelector('select[name="chef_role"]').value;
+        if (chefRole === 'developpeur') developers++;
+        else if (chefRole === 'technicien_reseau') networkTechs++;
+        else if (chefRole === 'marketeur') marketers++;
+
+        // Vérification des membres (seulement les 3 autres membres)
+        for (let i = 1; i <= 3; i++) {
+            const memberRole = document.querySelector(`select[name="membre${i}_role"]`).value;
+            if (memberRole === 'developpeur') developers++;
+            else if (memberRole === 'technicien_reseau') networkTechs++;
+            else if (memberRole === 'marketeur') marketers++;
+        }
+
+        // Vérification de la composition
+        if (developers !== 2 || networkTechs !== 1 || marketers !== 1) {
+            Swal.fire({
+                title: 'Composition d\'équipe invalide!',
+                html: `<div class="text-left">
+                    <p class="mb-3">Votre équipe (chef inclus) doit être composée exactement de :</p>
+                    <ul class="list-disc pl-5 mb-3">
+                        <li>2 développeurs (actuellement: ${developers})</li>
+                        <li>1 technicien réseau (actuellement: ${networkTechs})</li>
+                        <li>1 marketeur (actuellement: ${marketers})</li>
+                    </ul>
+                    <p class="text-red-500">Veuillez ajuster les profils pour respecter cette composition.</p>
+                </div>`,
+                icon: 'error',
+                confirmButtonText: 'Corriger',
+                confirmButtonColor: '#3085d6'
+            });
+            return false;
+        }
+        return true;
+    }
+
+    // Ajout de la vérification lors du changement de profil
+    function updateTeamComposition() {
+        let developers = 0;
+        let networkTechs = 0;
+        let marketers = 0;
+
+        // Compte du chef d'équipe
+        const chefRole = document.querySelector('select[name="chef_role"]').value;
+        if (chefRole) {
+            if (chefRole === 'developpeur') developers++;
+            else if (chefRole === 'technicien_reseau') networkTechs++;
+            else if (chefRole === 'marketeur') marketers++;
+        }
+
+        // Compte des membres
+        for (let i = 1; i <= 3; i++) {
+            const memberRole = document.querySelector(`select[name="membre${i}_role"]`);
+            if (memberRole && memberRole.value) {
+                if (memberRole.value === 'developpeur') developers++;
+                else if (memberRole.value === 'technicien_reseau') networkTechs++;
+                else if (memberRole.value === 'marketeur') marketers++;
+            }
+        }
+
+        // Affichage du statut actuel
+        const remainingDev = 2 - developers;
+        const remainingNet = 1 - networkTechs;
+        const remainingMkt = 1 - marketers;
+
+        // Mise à jour du message de statut
+        const statusMessage = `
+            Profils restants à sélectionner :
+            ${remainingDev > 0 ? `\n- ${remainingDev} développeur(s)` : ''}
+            ${remainingNet > 0 ? `\n- ${remainingNet} technicien réseau` : ''}
+            ${remainingMkt > 0 ? `\n- ${remainingMkt} marketeur` : ''}
+            ${(remainingDev <= 0 && remainingNet <= 0 && remainingMkt <= 0) ? '\nComposition complète !' : ''}
+        `;
+
+        // Afficher le statut dans une petite notification
+        if (document.querySelector('select[name="chef_role"]').value ||
+            document.querySelector('select[name="membre1_role"]').value) {
+            Swal.fire({
+                title: 'Statut de la composition',
+                text: statusMessage,
+                icon: 'info',
+                timer: 3000,
+                timerProgressBar: true,
+                showConfirmButton: false
+            });
+        }
+    }
+
+    // Ajout des écouteurs d'événements pour les sélecteurs de profil
+    document.querySelectorAll('select[name$="_role"]').forEach(select => {
+        select.addEventListener('change', updateTeamComposition);
+    });
+
+    function submitForm() {
+        const form = document.getElementById('registration-form');
+        const formData = new FormData(form);
+
+        // Debug des données du formulaire
+        for (let pair of formData.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
+
+        // Afficher l'indicateur de chargement
+        Swal.fire({
+            title: 'Envoi en cours...',
+            html: 'Veuillez patienter pendant le traitement de votre inscription',
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            willOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        // Obtenir le chemin absolu vers traitement.php
+        const currentPath = window.location.pathname;
+        const basePath = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+        
+        $.ajax({
+            url: basePath + 'traitement.php', // Utilisation du chemin relatif correct
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                console.log('Réponse reçue:', response);
+                Swal.close();
+                
+                if (response.success) {
+                    Swal.fire({
+                        title: 'Succès!',
+                        text: 'Votre équipe a été inscrite avec succès!',
+                        icon: 'success',
+                        confirmButtonColor: '#28a745'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = response.redirect;
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Erreur!',
+                        html: `Erreur: ${response.error}<br>Détails: ${JSON.stringify(response.details)}`,
+                        icon: 'error',
+                        confirmButtonColor: '#dc3545'
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Erreur AJAX:', {xhr, status, error});
+                Swal.close();
+                
+                let errorMessage = 'Une erreur est survenue lors de l\'envoi du formulaire.';
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.error) {
+                        errorMessage = response.error;
+                    }
+                } catch(e) {
+                    console.error('Erreur parsing:', e);
+                }
+                
+                Swal.fire({
+                    title: 'Erreur technique',
+                    text: errorMessage,
+                    icon: 'error',
+                    confirmButtonColor: '#dc3545'
+                });
+            }
+        });
+    }
+
+    // Permettre la soumission avec la touche Entrée
+    document.getElementById('registration-form').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            submitForm();
         }
     });
 </script>
@@ -1161,37 +1431,3 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
-<script>
-    $(document).ready(function() {
-        $('#registration-form').on('submit', function(e) {
-            e.preventDefault(); // Empêche la soumission normale du formulaire
-
-            // Création d'un objet FormData pour gérer les fichiers
-            var formData = new FormData(this);
-
-            // Envoi du formulaire via AJAX
-            $.ajax({
-                url: 'traitement.php',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    // Redirection vers la page de confirmation
-                    window.location.href = 'confirmation.php';
-                },
-                error: function(xhr, status, error) {
-                    // En cas d'erreur
-                    Swal.fire({
-                        title: 'Erreur!',
-                        text: 'Une erreur est survenue lors de l\'envoi du formulaire.',
-                        icon: 'error',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#dc3545'
-                    });
-                }
-            });
-        });
-    });
-</script>

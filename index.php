@@ -347,7 +347,306 @@
         </div>
     </section>
 
+    <!-- Section Formulaire avec nouveau style -->
     <?php include 'inscription-form/form.php'; ?>
+
+    <section id="tech-innov" class="py-20 px-6 bg-black">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <!-- Image à gauche -->
+                <div class="md:w-1/2">
+                    <img src="assets/im1.png" alt="Innovation Days" class="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300">
+                </div>
+
+                <!-- Contenu à droite -->
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold mb-6" style="font-family: 'Orbitron', sans-serif;">
+                        <span class="text-white">REJOIGNEZ</span><br>
+                        <span class="text-[#0A4DA6] bg-gradient-to-r from-[#0A4DA6] to-[#3B82F6] bg-clip-text text-transparent">INNOVATION DAYS 2025</span>
+                    </h2>
+
+                    <!-- Boîte avec texte -->
+                    <div class="bg-black border-2 border-[#0A4DA6] rounded-2xl p-6 shadow-lg shadow-[#0A4DA6]/20">
+                        <p class="text-white text-lg leading-relaxed">
+                            PLONGEZ DANS UNE EXPÉRIENCE UNIQUE DE 72 HEURES OÙ VOUS POURREZ :
+                        </p>
+                        <ul class="mt-4 space-y-3">
+                            <li class="flex items-center text-[#93C5FD]">
+                                <span class="mr-2">⚡</span>
+                                DÉVELOPPER DES SOLUTIONS INNOVANTES
+                            </li>
+                            <li class="flex items-center text-[#93C5FD]">
+                                <span class="mr-2">🤝</span>
+                                COLLABORER AVEC DES TALENTS PASSIONNÉS
+                            </li>
+                            <li class="flex items-center text-[#93C5FD]">
+                                <span class="mr-2">🎯</span>
+                                PRÉSENTER VOTRE PROJET AUX EXPERTS
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Titre et bouton d'action -->
+                    <div class="mt-12">
+                        <h3 class="text-3xl font-bold mb-6 text-white" style="font-family: 'Orbitron', sans-serif;">
+                            PRÊT À RELEVER LE DÉFI ?
+                        </h3>
+                        <button class="bg-gradient-to-r from-[#0A4DA6] to-[#1E3A8A] text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-[#0A4DA6]/30 transform hover:scale-105 transition-all duration-300">
+                            INSCRIVEZ VOTRE ÉQUIPE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="techies-bg py-20 px-6">
+        <div class="container mx-auto">
+            <!-- En-tête Calendrier -->
+            <div class="bg-[#CCFF00] text-black font-bold py-2 px-6 rounded-lg inline-block mb-8">
+                DATES CLÉS
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Dates importantes -->
+                <div class="space-y-4">
+                    <div class="neon-text">
+                        <span class="font-bold">Ouverture des inscriptions : </span>
+                        15 février 2025
+                    </div>
+                    <div class="neon-text">
+                        <span class="font-bold">Clôture des inscriptions : </span>
+                        23 mars 2025
+                    </div>
+                    <div class="neon-text">
+                        <span class="font-bold">Hackathon : </span>
+
+                        23-25 mars 2025
+                    </div>
+
+                    <!-- Texte descriptif -->
+                    <div class="bg-white text-black p-6 rounded-xl mt-8">
+                        <p>Vous avez une passion pour l'innovation et la technologie ? Que vous soyez étudiant en informatique, en réseaux, en marketing digital ou passionné de tech, l'Innovation Days 2024 est fait pour vous ! Rejoignez-nous pour 72 heures intenses de création et d'innovation à l'INPTIC.</p>
+                    </div>
+
+                    <!-- Bouton Participer -->
+                    <button class="bg-[#CCFF00] text-black font-bold py-3 px-8 rounded-lg hover:bg-[#b3ff00] transition-all mt-6">
+                        JE M'INSCRIS
+                    </button>
+
+                    <!-- Section pour les participants -->
+                    <div class="text-white text-center mt-8">
+                        <p class="mb-4">Vous êtes étudiant, développeur, technicien réseau<br>
+                            ou marketeur digital ? Formez votre équipe de 4 personnes !</p>
+                        <p>Profitez d'un accompagnement personnalisé,<br>
+                            de mentors experts et de nombreuses récompenses.</p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="mt-8">
+
+                        <div class="bg-[#CCFF00] text-black p-4 rounded-lg">
+                            <p>Des questions sur l'événement ? Contactez-nous à contact@innovationdays.com<br>
+                                ou suivez-nous sur les réseaux sociaux @INPTIC pour les dernières actualités !</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image à droite -->
+                <div class="relative">
+                    <img src="assets/im3.jpg" alt="Développeur Innovation Days" class="w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Support et Mentorat -->
+    <section id="support" class="py-20 px-6 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Support & Mentorat</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
+                    <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Accompagnement Technique</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li>✓ Mentors experts en développement</li>
+                        <li>✓ Support infrastructure cloud</li>
+                        <li>✓ Ressources techniques dédiées</li>
+                        <li>✓ Workshops techniques</li>
+                    </ul>
+                </div>
+                <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
+                    <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Support Business</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li>✓ Conseils en business model</li>
+                        <li>✓ Stratégie de mise sur le marché</li>
+                        <li>✓ Pitch coaching</li>
+                        <li>✓ Networking avec des experts</li>
+                    </ul>
+                </div>
+                <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
+                    <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Suivi Post-Hackathon</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li>✓ Accompagnement personnalisé</li>
+                        <li>✓ Accès aux investisseurs</li>
+                        <li>✓ Programme d'incubation</li>
+                        <li>✓ Suivi de progression</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Processus de Soumission -->
+    <section id="soumission" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Processus de Soumission</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Livrables Requis</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>✅ Prototype fonctionnel</li>
+                            <li>📊 Présentation détaillée</li>
+                            <li>📝 Documentation technique</li>
+                            <li>🔄 Diagrammes et spécifications</li>
+                            <li>💻 Code source documenté</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Critères d'Évaluation</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li>🎯 Innovation (30%) - Originalité et créativité</li>
+                            <li>💡 Utilité (25%) - Impact et pertinence</li>
+                            <li>🤝 Collaboration (15%) - Travail d'équipe</li>
+                            <li>⚙️ Prototype (10%) - Fonctionnalité</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Récompenses Détaillées</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold text-white">Formation & Mentorat</h4>
+                                <ul class="text-gray-300">
+                                    <li>✨ Programme d'incubation personnalisé</li>
+                                    <li>✨ Formations techniques avancées</li>
+                                    <li>✨ Accès VIP aux conférences tech</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Opportunités</h4>
+                                <ul class="text-gray-300">
+                                    <li>🌍 Learning Expeditions internationales</li>
+                                    <li>📚 Abonnements premium aux plateformes</li>
+                                    <li>🚀 Accompagnement business sur 6 mois</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Équipement Tech</h4>
+                                <ul class="text-gray-300">
+                                    <li>💻 Ordinateurs dernière génération</li>
+                                    <li>📱 Tablettes professionnelles</li>
+                                    <li>⌚ Équipement connecté premium</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Programme -->
+    <section id="programme" class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 neon-text">Programme</h2>
+
+            <!-- Timeline des 3 jours -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Jour 1 -->
+                <div class="bg-black p-8 rounded-xl border border-blue-500 timeline-day">
+                    <h3 class="text-2xl font-bold text-blue-500 mb-6">Jour 1: Lancement</h3>
+                    <ul class="space-y-6">
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">08:00</span>
+                            <h4 class="text-white font-bold mb-2">Accueil et Inscription</h4>
+                            <p class="text-gray-300">Accueil des participants et finalisation des inscriptions</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">09:30</span>
+                            <h4 class="text-white font-bold mb-2">Cérémonie d'ouverture</h4>
+                            <p class="text-gray-300">Présentation du déroulement, introduction des mentors et des juges</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">11:00</span>
+                            <h4 class="text-white font-bold mb-2">Formation des Équipes</h4>
+                            <p class="text-gray-300">Constitution des équipes et networking</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">14:00</span>
+                            <h4 class="text-white font-bold mb-2">Présentation du Défi</h4>
+                            <p class="text-gray-300">Annonce de la thématique et des objectifs</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">15:00</span>
+                            <h4 class="text-white font-bold mb-2">Début du Hackathon</h4>
+                            <p class="text-gray-300">Lancement officiel des travaux</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Jour 2 -->
+                <div class="bg-black p-8 rounded-xl border border-blue-500 timeline-day">
+                    <h3 class="text-2xl font-bold text-blue-500 mb-6">Jour 2: Développement</h3>
+                    <ul class="space-y-6">
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">09:00</span>
+                            <h4 class="text-white font-bold mb-2">Sessions de Mentorat</h4>
+                            <p class="text-gray-300">Accompagnement personnalisé par des experts</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">11:00</span>
+                            <h4 class="text-white font-bold mb-2">Ateliers Techniques</h4>
+                            <p class="text-gray-300">Formation sur les APIs, UX/UI et bonnes pratiques</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">14:00</span>
+                            <h4 class="text-white font-bold mb-2">Check-in avec les Juges</h4>
+                            <p class="text-gray-300">Feedback intermédiaire sur les projets</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Jour 3 -->
+                <div class="bg-black p-8 rounded-xl border border-blue-500 timeline-day">
+                    <h3 class="text-2xl font-bold text-blue-500 mb-6">Jour 3: Finalisation</h3>
+                    <ul class="space-y-6">
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">09:00</span>
+                            <h4 class="text-white font-bold mb-2">Finalisation des Projets</h4>
+                            <p class="text-gray-300">Dernières touches aux prototypes</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">14:00</span>
+                            <h4 class="text-white font-bold mb-2">Présentations Finales</h4>
+                            <p class="text-gray-300">Pitch des projets devant le jury</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">16:00</span>
+                            <h4 class="text-white font-bold mb-2">Délibération du Jury</h4>
+                            <p class="text-gray-300">Évaluation selon les critères établis</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="text-purple-400 font-bold">17:30</span>
+                            <h4 class="text-white font-bold mb-2">Cérémonie de Clôture</h4>
+                            <p class="text-gray-300">Annonce des gagnants et remise des prix</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Section FAQ avec carrousel -->
     <section id="faq" class="py-20 px-6 bg-gray-900">
@@ -666,22 +965,27 @@
             '.bg-gray-800': {
                 scale: 1.02,
                 boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                borderColor: '#CCFF00',
                 duration: 0.3
             },
             '.countdown-item': {
                 scale: 1.1,
+                backgroundColor: 'rgba(124, 58, 237, 0.2)',
                 duration: 0.3
             },
             '.neon-text': {
+                textShadow: '0 0 10px rgba(204, 255, 0, 0.8)',
                 scale: 1.05,
                 duration: 0.2
             },
             'button': {
                 scale: 1.05,
+                brightness: 1.2,
                 duration: 0.3
             },
             '.timeline-item': {
                 x: 10,
+                backgroundColor: 'rgba(124, 58, 237, 0.1)',
                 duration: 0.2
             },
             '#criteres .hover-scale': {
@@ -697,6 +1001,7 @@
             },
             '.nav-link': {
                 y: -3,
+                color: '#CCFF00',
                 duration: 0.2
             }
         };
@@ -704,6 +1009,7 @@
         // Application des animations au survol
         Object.entries(hoverElements).forEach(([selector, animation]) => {
             document.querySelectorAll(selector).forEach(element => {
+                // Animation à l'entrée du survol
                 element.addEventListener('mouseenter', () => {
                     gsap.to(element, {
                         ...animation,
@@ -711,6 +1017,7 @@
                     });
                 });
 
+                // Animation à la sortie du survol
                 element.addEventListener('mouseleave', () => {
                     gsap.to(element, {
                         scale: 1,
@@ -721,6 +1028,8 @@
                         textShadow: 'none',
                         brightness: 1,
                         rotateY: 0,
+                        borderColor: 'initial',
+                        color: 'initial',
                         duration: 0.2,
                         ease: 'power2.inOut'
                     });
@@ -731,8 +1040,10 @@
         // Animation spéciale pour les cartes de critères
         gsap.utils.toArray('#criteres .hover-scale').forEach(card => {
             card.addEventListener('mouseenter', () => {
+                // Anime le pourcentage
                 gsap.to(card.querySelector('.text-3xl'), {
                     scale: 1.2,
+                    color: '#CCFF00',
                     duration: 0.3
                 });
             });
@@ -740,6 +1051,7 @@
             card.addEventListener('mouseleave', () => {
                 gsap.to(card.querySelector('.text-3xl'), {
                     scale: 1,
+                    color: '#a78bfa',
                     duration: 0.3
                 });
             });
@@ -747,9 +1059,13 @@
 
         // Animation pour les éléments de la timeline
         document.querySelectorAll('.timeline-item').forEach(item => {
+            const dot = item.querySelector('::before');
+
             item.addEventListener('mouseenter', () => {
                 gsap.to(item, {
                     x: 10,
+                    backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                    borderLeftColor: '#CCFF00',
                     borderLeftWidth: '3px',
                     duration: 0.3
                 });
@@ -758,6 +1074,8 @@
             item.addEventListener('mouseleave', () => {
                 gsap.to(item, {
                     x: 0,
+                    backgroundColor: 'transparent',
+                    borderLeftColor: '#7c3aed',
                     borderLeftWidth: '2px',
                     duration: 0.3
                 });
@@ -769,6 +1087,7 @@
             card.addEventListener('mouseenter', () => {
                 gsap.to(card.querySelectorAll('li'), {
                     x: 10,
+                    color: '#CCFF00',
                     stagger: 0.1,
                     duration: 0.3
                 });
@@ -777,6 +1096,7 @@
             card.addEventListener('mouseleave', () => {
                 gsap.to(card.querySelectorAll('li'), {
                     x: 0,
+                    color: '#d1d5db',
                     stagger: 0.1,
                     duration: 0.3
                 });
@@ -788,7 +1108,8 @@
             input.addEventListener('focus', () => {
                 gsap.to(input, {
                     scale: 1.02,
-                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+                    borderColor: '#CCFF00',
+                    boxShadow: '0 0 10px rgba(204, 255, 0, 0.3)',
                     duration: 0.3
                 });
             });
@@ -796,6 +1117,7 @@
             input.addEventListener('blur', () => {
                 gsap.to(input, {
                     scale: 1,
+                    borderColor: '#e5e7eb',
                     boxShadow: 'none',
                     duration: 0.3
                 });
