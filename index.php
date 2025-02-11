@@ -17,7 +17,7 @@
 
 <body class="bg-gray-900 text-white">
     <!-- Barre de réseaux sociaux -->
-    <div class="fixed top-0 w-full bg-gray-300 py-2 z-50">
+    <div class="fixed top-0 w-full bg-gray-900 py-2 z-50">
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center">
                 <div class="text-white text-sm">
@@ -25,66 +25,67 @@
                 </div>
                 <div class="flex space-x-6">
                     <a href="https://facebook.com/INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
                         </svg>
-                        <span class="ml-2 hidden sm:inline">Facebook</span>
+                        <span class="ml-2 hidden sm:inline text-white">Facebook</span>
                     </a>
                     <a href="https://youtube.com/INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.5,6.2A3,3,0,0,0,21.4,4c-2-.2-6.2-.3-10.4-.3S2.6,3.8.6,4A3,3,0,0,0-1.5,6.2,31.8,31.8,0,0,0-2,12a31.8,31.8,0,0,0,.5,5.8A3,3,0,0,0,.6,20c2,.2,6.2.3,10.4.3s8.4-.1,10.4-.3a3,3,0,0,0,2.1-2.2A31.8,31.8,0,0,0,24,12,31.8,31.8,0,0,0,23.5,6.2ZM9.5,15.8V8.2l6.7,3.8Z" />
                         </svg>
-                        <span class="ml-2 hidden sm:inline">YouTube</span>
+                        <span class="ml-2 hidden sm:inline text-white">YouTube</span>
                     </a>
                     <a href="https://tiktok.com/@INPTIC" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19.59,6.69a4.83,4.83,0,0,1-3.77-4.25V2h-3.45V13.67a2.89,2.89,0,0,1-5.2,1.74,2.89,2.89,0,0,1,2.31-4.64,2.93,2.93,0,0,1,.88.13V7.42a6.84,6.84,0,0,0-1-.05A6.33,6.33,0,0,0,5,20.1a6.34,6.34,0,0,0,10.86-4.43v-7a8.16,8.16,0,0,0,4.77,1.52v-3.4a4.85,4.85,0,0,1-1-.1Z" />
                         </svg>
-                        <span class="ml-2 hidden sm:inline">TikTok</span>
+                        <span class="ml-2 hidden sm:inline text-white">TikTok</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 gradient-bg" style="top: 40px;">
-        <div class="container mx-auto px-6 py-4">
+    <nav class="fixed w-full z-50 bg-gray-1000/95" style="top: 40px;">
+        <div class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
                 <!-- Logo et titre -->
-                <div class="flex items-center space-x-4">
-                    <img src="assets/logoinptic.png" alt="Logo INPTIC" class="h-8 md:h-12 w-auto">
-                    <div class="text-xl md:text-2xl font-bold">Innovation Days 2025</div>
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <img src="assets/logoinptic.png" alt="Logo INPTIC" class="h-6 sm:h-8 md:h-12 w-auto">
+                    <div class="text-sm sm:text-xl md:text-2xl font-bold truncate">Innovation Days 2025</div>
                 </div>
 
-                <!-- Menu hamburger pour mobile -->
-                <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                <!-- Menu hamburger pour mobile et tablette -->
+                <button id="menu-toggle" class="lg:hidden text-white focus:outline-none p-2 hover:bg-gray-800 rounded-lg transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path class="menu-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path class="menu-open block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path class="menu-close hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
 
                 <!-- Menu de navigation desktop -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#accueil" class="hover:text-purple-300 transition">Accueil</a>
-                    <a href="#apropos" class="hover:text-purple-300 transition">À propos</a>
-                    <a href="#criteres" class="hover:text-purple-300 transition">Critères</a>
-                    <a href="#programme" class="hover:text-purple-300 transition">Programme</a>
-                    <a href="#recompenses" class="hover:text-purple-300 transition">Récompenses</a>
-                    <a href="#inscription" class="hover:text-purple-300 transition">Inscription</a>
+                <div class="hidden lg:flex space-x-6 xl:space-x-8">
+                    <a href="#accueil" class="nav-link">Accueil</a>
+                    <a href="#apropos" class="nav-link">À propos</a>
+                    <a href="#criteres" class="nav-link">Critères</a>
+                    <a href="#programme" class="nav-link">Programme</a>
+                    <a href="#recompenses" class="nav-link">Récompenses</a>
+                    <a href="#inscription" class="nav-link">Inscription</a>
                 </div>
             </div>
 
             <!-- Menu mobile -->
-            <div id="mobile-menu" class="md:hidden hidden">
-                <div class="flex flex-col space-y-4 mt-4 bg-gray-900 rounded-lg p-4">
-                    <a href="#accueil" class="text-white hover:text-purple-300 transition py-2">Accueil</a>
-                    <a href="#apropos" class="text-white hover:text-purple-300 transition py-2">À propos</a>
-                    <a href="#criteres" class="text-white hover:text-purple-300 transition py-2">Critères</a>
-                    <a href="#programme" class="text-white hover:text-purple-300 transition py-2">Programme</a>
-                    <a href="#recompenses" class="text-white hover:text-purple-300 transition py-2">Récompenses</a>
-                    <a href="#inscription" class="text-white hover:text-purple-300 transition py-2">Inscription</a>
+            <div id="mobile-menu" class="lg:hidden hidden">
+                <div class="flex flex-col space-y-2 mt-4 bg-gray-900/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+                    <a href="#accueil" class="mobile-nav-link">Accueil</a>
+                    <a href="#apropos" class="mobile-nav-link">À propos</a>
+                    <a href="#criteres" class="mobile-nav-link">Critères</a>
+                    <a href="#programme" class="mobile-nav-link">Programme</a>
+                    <a href="#recompenses" class="mobile-nav-link">Récompenses</a>
+                    <a href="#inscription" class="mobile-nav-link">Inscription</a>
                 </div>
             </div>
         </div>
@@ -137,7 +138,7 @@
                 </div>
             </div>
             <a href="#inscription"
-                class="inline-block bg-red-600 text-blue-600 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold 
+                class="inline-block bg-green-800 text-blue-600 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold 
                hover:bg-green-500 hover:text-black transition-all animate-pulse-zoom
                text-sm sm:text-base">
                 Inscription
@@ -190,114 +191,202 @@
                 width: 100%;
             }
         }
+
+        .nav-link {
+            @apply text-white hover:text-[#CCFF00] transition-colors duration-300 text-sm xl:text-base font-medium;
+        }
+
+        .mobile-nav-link {
+            @apply text-white hover:text-[#CCFF00] transition-colors duration-300 py-3 px-4 rounded-lg hover:bg-gray-800/50 text-sm font-medium;
+        }
+
+        /* Animation pour le menu mobile */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        #mobile-menu.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 
-    <!-- À propos Section avec plus de détails -->
-    <section id="apropos" class="py-20 px-6">
+    <!-- À propos Section -->
+    <section id="apropos" class="py-20 px-6 bg-gray-900">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">À propos</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <p class="text-white mb-6 text-lg">
-                        Innovation Days est bien plus qu'un simple hackathon. C'est une expérience immersive de 72 heures où l'innovation,
-                        la créativité et la technologie convergent pour créer l'avenir. Notre mission est de transformer des idées
-                        audacieuses en solutions concrètes, tout en développant les compétences pratiques essentielles dans le monde
-                        professionnel d'aujourd'hui.
-                    </p>
-                    <div class="bg-gray-800 p-6 rounded-lg mb-6">
-                        <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Objectifs clés :</h3>
-                        <ul class="space-y-3 text-white">
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
-                                Stimuler l'innovation et la créativité dans le domaine tech
-                            </li>
-                            <li class="flex items-center"></li>
-                            <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
-                            Appliquer les connaissances théoriques à des défis réels
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
-                                Développer des prototypes fonctionnels en 72 heures
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
-                                Favoriser la collaboration interdisciplinaire
-                            </li>
-                        </ul>
+            <h2 class="text-4xl font-bold text-center mb-12 text-[#CCFF00]">À propos des Journées de l'Innovation</h2>
+
+            <p class="text-white mb-12 text-lg text-center max-w-3xl mx-auto">
+                Les Journées de l'Innovation sont une initiative visant à promouvoir l'innovation technologique et à encourager
+                la créativité des étudiants. Cet événement rassemble les talents pour créer des solutions innovantes.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Bloc 1 -->
+                <div class="bg-gray-800 p-8 rounded-xl hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="flex justify-center mb-6">
+                        <svg class="w-16 h-16 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                     </div>
+                    <h3 class="text-xl font-bold text-center text-[#CCFF00] mb-4">Durée</h3>
+                    <p class="text-white text-center">72 heures de compétition intensive pour développer des solutions innovantes</p>
                 </div>
-                <div class="space-y-6" data-aos="fade-left">
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Participants éligibles</h3>
-                        <ul class="space-y-3 text-white">
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
-                                Étudiants de l'INPTIC
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
-                                Étudiants d'autres établissements
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
-                                Jeunes startups innovantes
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-2 h-2 bg-[#CCFF00] rounded-full mr-2"></span>
-                                Passionnés du digital
-                            </li>
-                        </ul>
+
+                <!-- Bloc 2 -->
+                <div class="bg-gray-800 p-8 rounded-xl hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="flex justify-center mb-6">
+                        <svg class="w-16 h-16 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
                     </div>
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Composition des équipes</h3>
-                        <p class="text-white mb-4">Une équipe équilibrée de 4 experts :</p>
-                        <ul class="space-y-3 text-white">
-                            <li class="flex items-center">
-                                <span class="w-4 h-4 bg-blue-500 rounded-full mr-2"></span>
-                                2 développeurs (Front-end/Back-end)
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-4 h-4 bg-purple-500 rounded-full mr-2"></span>
-                                1 technicien réseau (Infrastructure/Sécurité)
-                            </li>
-                            <li class="flex items-center">
-                                <span class="w-4 h-4 bg-pink-500 rounded-full mr-2"></span>
-                                1 marketeur (UX/UI & Business)
-                            </li>
-                        </ul>
+                    <h3 class="text-xl font-bold text-center text-[#CCFF00] mb-4">Lieu</h3>
+                    <p class="text-white text-center">INPTIC - Institut National de la Poste, des TIC</p>
+                </div>
+
+                <!-- Bloc 3 -->
+                <div class="bg-gray-800 p-8 rounded-xl hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="flex justify-center mb-6">
+                        <svg class="w-16 h-16 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
                     </div>
+                    <h3 class="text-xl font-bold text-center text-[#CCFF00] mb-4">Équipes</h3>
+                    <p class="text-white text-center">Formez des équipes de 4 personnes aux compétences complémentaires</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Critères Section -->
-    <section id="criteres" class="py-20 px-6 bg-gray-800">
+    <section id="criteres" class="py-20 px-6 bg-gray-900">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Critères d'évaluation</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-[#CCFF00]">CRITÈRES D'ÉVALUATION</h2>
+
             <div class="grid md:grid-cols-5 gap-6">
-                <div class="bg-gray-700 p-6 rounded-lg text-center hover-scale" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-3xl font-bold text-purple-400 mb-2">30%</div>
-                    <h3 class="text-xl font-bold">Innovation</h3>
+                <!-- Innovation - 30% -->
+                <div class="text-center">
+                    <div class="relative w-32 h-32 mx-auto mb-4">
+                        <svg class="w-full h-full">
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a1a" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#CCFF00" stroke-width="8"
+                                stroke-dasharray="377"
+                                stroke-dashoffset="263.9"
+                                class="progress-ring" />
+                        </svg>
+                        <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-[#CCFF00]">
+                            30%
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white uppercase">Innovation</h3>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg text-center hover-scale" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-3xl font-bold text-purple-400 mb-2">25%</div>
-                    <h3 class="text-xl font-bold">Utilité</h3>
+
+                <!-- Utilité - 25% -->
+                <div class="text-center">
+                    <div class="relative w-32 h-32 mx-auto mb-4">
+                        <svg class="w-full h-full">
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a1a" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#CCFF00" stroke-width="8"
+                                stroke-dasharray="377"
+                                stroke-dashoffset="282.75"
+                                class="progress-ring" />
+                        </svg>
+                        <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-[#CCFF00]">
+                            25%
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white uppercase">Utilité</h3>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg text-center hover-scale" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-3xl font-bold text-purple-400 mb-2">20%</div>
-                    <h3 class="text-xl font-bold">Présentation</h3>
+
+                <!-- Présentation - 20% -->
+                <div class="text-center">
+                    <div class="relative w-32 h-32 mx-auto mb-4">
+                        <svg class="w-full h-full">
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a1a" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#CCFF00" stroke-width="8"
+                                stroke-dasharray="377"
+                                stroke-dashoffset="301.6"
+                                class="progress-ring" />
+                        </svg>
+                        <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-[#CCFF00]">
+                            20%
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white uppercase">Présentation</h3>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg text-center hover-scale" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-3xl font-bold text-purple-400 mb-2">15%</div>
-                    <h3 class="text-xl font-bold">Collaboration</h3>
+
+                <!-- Collaboration - 15% -->
+                <div class="text-center">
+                    <div class="relative w-32 h-32 mx-auto mb-4">
+                        <svg class="w-full h-full">
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a1a" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#CCFF00" stroke-width="8"
+                                stroke-dasharray="377"
+                                stroke-dashoffset="320.45"
+                                class="progress-ring" />
+                        </svg>
+                        <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-[#CCFF00]">
+                            15%
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white uppercase">Collaboration</h3>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg text-center hover-scale" data-aos="fade-up" data-aos-delay="500">
-                    <div class="text-3xl font-bold text-purple-400 mb-2">10%</div>
-                    <h3 class="text-xl font-bold">Prototype</h3>
+
+                <!-- Prototype - 10% -->
+                <div class="text-center">
+                    <div class="relative w-32 h-32 mx-auto mb-4">
+                        <svg class="w-full h-full">
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a1a" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#CCFF00" stroke-width="8"
+                                stroke-dasharray="377"
+                                stroke-dashoffset="339.3"
+                                class="progress-ring" />
+                        </svg>
+                        <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-[#CCFF00]">
+                            10%
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white uppercase">Prototype</h3>
                 </div>
             </div>
         </div>
+
+        <style>
+            .progress-ring {
+                transform: rotate(-90deg);
+                transform-origin: 50% 50%;
+                transition: stroke-dashoffset 1.5s ease-out;
+            }
+
+            @keyframes fillProgress {
+                from {
+                    stroke-dashoffset: 377;
+                }
+
+                to {
+                    stroke-dashoffset: var(--final-offset);
+                }
+            }
+
+            .progress-ring {
+                animation: fillProgress 1.5s ease-out forwards;
+            }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const circles = document.querySelectorAll('.progress-ring');
+                circles.forEach(circle => {
+                    const percent = parseFloat(circle.parentElement.nextElementSibling.textContent);
+                    const circumference = 2 * Math.PI * 60; // 60 est le rayon
+                    const offset = circumference - (percent / 100) * circumference;
+                    circle.style.setProperty('--final-offset', offset);
+                });
+            });
+        </script>
     </section>
 
     <!-- Récompenses Section -->
@@ -363,212 +452,12 @@
     <!-- Section Formulaire avec nouveau style -->
     <?php include 'inscription-form/form.php'; ?>
 
-    <section id="tech-innov" class="py-20 px-6 bg-black">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <!-- Image à gauche -->
-                <div class="md:w-1/2">
-                    <img src="assets/im1.png" alt="Innovation Days" class="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300">
-                </div>
 
-                <!-- Contenu à droite -->
-                <div class="md:w-1/2">
-                    <h2 class="text-4xl font-bold mb-6" style="font-family: 'Orbitron', sans-serif;">
-                        <span class="text-white">REJOIGNEZ</span><br>
-                        <span class="text-white">INNOVATION DAYS 2025</span>
-                    </h2>
 
-                    <!-- Boîte avec texte -->
-                    <div class="bg-black border-2 border-[#0A4DA6] rounded-2xl p-6 shadow-lg shadow-[#0A4DA6]/20">
-                        <p class="text-white text-lg leading-relaxed">
-                            PLONGEZ DANS UNE EXPÉRIENCE UNIQUE DE 72 HEURES OÙ VOUS POURREZ :
-                        </p>
-                        <ul class="mt-4 space-y-3">
-                            <li class="flex items-center text-[#93C5FD]">
-                                <span class="mr-2">⚡</span>
-                                DÉVELOPPER DES SOLUTIONS INNOVANTES
-                            </li>
-                            <li class="flex items-center text-[#93C5FD]">
-                                <span class="mr-2">🤝</span>
-                                COLLABORER AVEC DES TALENTS PASSIONNÉS
-                            </li>
-                            <li class="flex items-center text-[#93C5FD]">
-                                <span class="mr-2">🎯</span>
-                                PRÉSENTER VOTRE PROJET AUX EXPERTS
-                            </li>
-                        </ul>
-                    </div>
 
-                    <!-- Titre et bouton d'action -->
-                    <div class="mt-12">
-                        <h3 class="text-3xl font-bold mb-6 text-white" style="font-family: 'Orbitron', sans-serif;">
-                            PRÊT À RELEVER LE DÉFI ?
-                        </h3>
-                        <button class="bg-gradient-to-r from-[#0A4DA6] to-[#1E3A8A] text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-[#0A4DA6]/30 transform hover:scale-105 transition-all duration-300">
-                            INSCRIVEZ VOTRE ÉQUIPE
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="techies-bg py-20 px-6">
-        <div class="container mx-auto">
-            <!-- En-tête Calendrier -->
-            <div class="bg-[#CCFF00] text-black font-bold py-2 px-6 rounded-lg inline-block mb-8">
-                DATES CLÉS
-            </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Dates importantes -->
-                <div class="space-y-4">
-                    <div class="neon-text">
-                        <span class="font-bold">Ouverture des inscriptions : </span>
-                        15 février 2025
-                    </div>
-                    <div class="neon-text">
-                        <span class="font-bold">Clôture des inscriptions : </span>
-                        23 mars 2025
-                    </div>
-                    <div class="neon-text">
-                        <span class="font-bold">Hackathon : </span>
 
-                        23-25 mars 2025
-                    </div>
-
-                    <!-- Texte descriptif -->
-                    <div class="bg-white/10 text-white p-6 rounded-xl mt-8">
-                        <p style="color: #00D1FF;">Vous avez une passion pour l'innovation et la technologie ? Que vous soyez étudiant en informatique, en réseaux, en marketing digital ou passionné de tech, l'Innovation Days 2024 est fait pour vous ! Rejoignez-nous pour 72 heures intenses de création et d'innovation à l'INPTIC.</p>
-                    </div>
-
-                    <!-- Bouton Participer -->
-                    <button class="bg-[#CCFF00] text-black font-bold py-3 px-8 rounded-lg hover:bg-[#b3ff00] transition-all mt-6">
-                        JE M'INSCRIS
-                    </button>
-
-                    <!-- Section pour les participants -->
-                    <div class="text-white text-center mt-8">
-                        <p class="mb-4">Vous êtes étudiant, développeur, technicien réseau<br>
-                            ou marketeur digital ? Formez votre équipe de 4 personnes !</p>
-                        <p>Profitez d'un accompagnement personnalisé,<br>
-                            de mentors experts et de nombreuses récompenses.</p>
-                    </div>
-
-                    <!-- Contact -->
-                    <div class="mt-8">
-
-                        <div class="bg-[#CCFF00]/10 text-white p-4 rounded-lg">
-                            <p>Des questions sur l'événement ? Contactez-nous à contact@innovationdays.com<br>
-                                ou suivez-nous sur les réseaux sociaux @INPTIC pour les dernières actualités !</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image à droite -->
-                <div class="relative">
-                    <img src="assets/im3.jpg" alt="Développeur Innovation Days" class="w-full h-auto">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Support et Mentorat -->
-    <section id="support" class="py-20 px-6 bg-gray-800">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12">Support & Mentorat</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
-                    <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Accompagnement Technique</h3>
-                    <ul class="space-y-3 text-white">
-                        <li>✓ Mentors experts en développement</li>
-                        <li>✓ Support infrastructure cloud</li>
-                        <li>✓ Ressources techniques dédiées</li>
-                        <li>✓ Workshops techniques</li>
-                    </ul>
-                </div>
-                <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
-                    <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Support Business</h3>
-                    <ul class="space-y-3 text-white">
-                        <li>✓ Conseils en business model</li>
-                        <li>✓ Stratégie de mise sur le marché</li>
-                        <li>✓ Pitch coaching</li>
-                        <li>✓ Networking avec des experts</li>
-                    </ul>
-                </div>
-                <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
-                    <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Suivi Post-Hackathon</h3>
-                    <ul class="space-y-3 text-white">
-                        <li>✓ Accompagnement personnalisé</li>
-                        <li>✓ Accès aux investisseurs</li>
-                        <li>✓ Programme d'incubation</li>
-                        <li>✓ Suivi de progression</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Processus de Soumission -->
-    <section id="soumission" class="py-20 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12">Processus de Soumission</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="space-y-6">
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Livrables Requis</h3>
-                        <ul class="space-y-3 text-white">
-                            <li>✅ Prototype fonctionnel</li>
-                            <li>📊 Présentation détaillée</li>
-                            <li>📝 Documentation technique</li>
-                            <li>🔄 Diagrammes et spécifications</li>
-                            <li>💻 Code source documenté</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Critères d'Évaluation</h3>
-                        <ul class="space-y-3 text-white">
-                            <li>🎯 Innovation (30%) - Originalité et créativité</li>
-                            <li>💡 Utilité (25%) - Impact et pertinence</li>
-                            <li>🤝 Collaboration (15%) - Travail d'équipe</li>
-                            <li>⚙️ Prototype (10%) - Fonctionnalité</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="space-y-6">
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Récompenses Détaillées</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-bold text-white">Formation & Mentorat</h4>
-                                <ul class="text-white">
-                                    <li>✨ Programme d'incubation personnalisé</li>
-                                    <li>✨ Formations techniques avancées</li>
-                                    <li>✨ Accès VIP aux conférences tech</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white">Opportunités</h4>
-                                <ul class="text-white">
-                                    <li>🌍 Learning Expeditions internationales</li>
-                                    <li>📚 Abonnements premium aux plateformes</li>
-                                    <li>🚀 Accompagnement business sur 6 mois</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white">Équipement Tech</h4>
-                                <ul class="text-white">
-                                    <li>💻 Ordinateurs dernière génération</li>
-                                    <li>📱 Tablettes professionnelles</li>
-                                    <li>⌚ Équipement connecté premium</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Section Programme -->
     <section id="programme" class="py-20 px-6 bg-gray-900">
@@ -847,6 +736,10 @@
             </div>
         </div>
     </section>
+
+    <!-- Section Partenaires -->
+  
+ <?php  include 'sections/partenaire.php';  ?>
 
     <footer class="bg-gray-800 py-12">
         <div class="container mx-auto px-6 text-center">
@@ -1131,25 +1024,29 @@
         const menuOpen = document.querySelector('.menu-open');
         const menuClose = document.querySelector('.menu-close');
 
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
             menuOpen.classList.toggle('hidden');
             menuClose.classList.toggle('hidden');
         });
 
         // Fermer le menu mobile lors du clic sur un lien
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('active');
                 menuOpen.classList.remove('hidden');
                 menuClose.classList.add('hidden');
             });
         });
 
         // Fermer le menu mobile lors du redimensionnement de la fenêtre
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) { // 768px est le breakpoint md de Tailwind
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) { // 1024px est le breakpoint lg
                 mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('active');
                 menuOpen.classList.remove('hidden');
                 menuClose.classList.add('hidden');
             }
@@ -1159,86 +1056,14 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animation d'affichage des grands titres au chargement
-        window.addEventListener('load', () => {
-            // Sélection de tous les grands titres
-            const mainTitles = [
-                "Innovation Days 2025",
-                "À propos",
-                "Critères d'évaluation",
-                "Récompenses",
-                "Informations pratiques",
-                "Programme",
-                "Questions Fréquentes",
-                "Support & Mentorat"
-            ];
-
-            // Création d'un conteneur pour les titres
-            const titleContainer = document.createElement('div');
-            titleContainer.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 9999;
-                text-align: center;
-                background: rgba(0, 0, 0, 0.9);
-                padding: 2rem;
-                border-radius: 1rem;
-                width: 80%;
-                max-width: 800px;
-            `;
-
-            // Ajout des titres au conteneur
-            mainTitles.forEach(title => {
-                const titleElement = document.createElement('h2');
-                titleElement.textContent = title;
-                titleElement.style.cssText = `
-                    font-size: 2rem;
-                    margin: 1rem 0;
-                    opacity: 0;
-                    transform: translateY(20px);
-                    color: #0A4DA6;
-                    font-weight: bold;
-                `;
-                titleContainer.appendChild(titleElement);
-            });
-
-            document.body.appendChild(titleContainer);
-
-            // Animation des titres en cascade
-            const titles = titleContainer.querySelectorAll('h2');
-            gsap.to(titles, {
-                opacity: 1,
-                y: 0,
-                duration: 0.5,
-                stagger: 0.2,
-                ease: "power2.out",
-                onComplete: () => {
-                    // Pause de 1 seconde après l'affichage de tous les titres
-                    setTimeout(() => {
-                        // Animation de sortie
-                        gsap.to(titleContainer, {
-                            opacity: 0,
-                            scale: 0.8,
-                            duration: 0.5,
-                            ease: "power2.in",
-                            onComplete: () => {
-                                titleContainer.remove();
-                                // Démarrer les autres animations après
-                                startMainAnimations();
-                            }
-                        });
-                    }, 1000);
-                }
-            });
-        });
-
-        // Fonction pour démarrer les animations principales
+        // Suppression du code de l'animation des titres au chargement
         function startMainAnimations() {
-            // Ici, on garde toutes les animations précédentes
-            // ... (le reste du code d'animation précédent) ...
+            // Les autres animations restent inchangées
+            // ... existing animation code ...
         }
+
+        // Démarrage immédiat des animations principales
+        startMainAnimations();
 
         // Le reste du code d'animation précédent reste inchangé
         // ... existing animation code ...

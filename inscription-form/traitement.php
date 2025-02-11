@@ -1,118 +1,174 @@
 <?php
-header('Content-Type: application/json');
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-// Connexion à la base de données
-require_once '../bdd.php';
+session_start();
+require_once '../bdd.php'; // Connexion à la base de données
+require '../vendor/autoload.php'; // Inclusion des dépendances via Composer
 
-// Fonction pour gérer l'upload des fichiers
-function handleFileUpload($file, $destination)
-{
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use FPDF;
+use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
-        $allowedExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
-        $maxSize = 5 * 1024 * 1024; // 5MB
-
-        // Vérification des erreurs d'upload
-        if ($file['error'] !== UPLOAD_ERR_OK) {
-            throw new Exception("Erreur lors de l'upload: " . $file['error']);
+        /**
+         * GÉNÉRATION D'UN MATRICULE UNIQUE
+         */
+        function generateMatricule()
+        {
+            $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            $matricule = '';
+            for ($i = 0; $i < 8; $i++) {
+                $matricule .= $chars[rand(0, strlen($chars) - 1)];
+            }
+            return $matricule;
         }
 
-        $fileInfo = pathinfo($file['name']);
-        $extension = strtolower($fileInfo['extension']);
-
-        if (!in_array($extension, $allowedExtensions)) {
-            throw new Exception("Type de fichier non autorisé: " . $extension);
+        function isMatriculeUnique($pdo, $matricule)
+        {
+            $stmt = $pdo->prepare("SELECT COUNT(*) FROM equipes WHERE matricule = ?");
+            $stmt->execute([$matricule]);
+            return $stmt->fetchColumn() == 0;
         }
 
-        if ($file['size'] > $maxSize) {
-            throw new Exception("Le fichier est trop volumineux: " . $file['size']);
+        do {
+            $matricule = generateMatricule();
+        } while (!isMatriculeUnique($pdo, $matricule));
+
+        /**
+         * VALIDATION DES MEMBRES DE L'ÉQUIPE
+         */
+        $total_membres = 1; // Inclut le chef d'équipe
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($_POST["membre{$i}_nom"])) {
+                $total_membres++;
+            }
+        }
+        if ($total_membres !== 4) {
+            throw new Exception("L'équipe doit être composée exactement de 4 personnes.");
         }
 
-        // Définition des chemins
-        $baseUploadPath = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'uploads';
-        $destinationPath = $baseUploadPath . DIRECTORY_SEPARATOR . $destination;
-
-        // Debug des chemins
-        error_log("Chemin de base: " . $baseUploadPath);
-        error_log("Chemin de destination: " . $destinationPath);
-
-        // Création des dossiers si nécessaire
-        if (!file_exists($baseUploadPath)) {
-            if (!mkdir($baseUploadPath, 0777, true)) {
-                throw new Exception("Impossible de créer le dossier uploads");
+        // Vérification des rôles
+        $roles = [$_POST['chef_role']];
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($_POST["membre{$i}_role"])) {
+                $roles[] = $_POST["membre{$i}_role"];
             }
         }
 
-        if (!file_exists($destinationPath)) {
-            if (!mkdir($destinationPath, 0777, true)) {
-                throw new Exception("Impossible de créer le dossier " . $destination);
+        // Comptabilisation des rôles
+        $dev_count = 0;
+        $reseau_count = 0;
+        $marketing_count = 0;
+        foreach ($roles as $role) {
+            switch ($role) {
+                case 'developpeur':
+                    $dev_count++;
+                    break;
+                case 'technicien_reseau':
+                    $reseau_count++;
+                    break;
+                case 'marketeur':
+                    $marketing_count++;
+                    break;
             }
         }
 
-        // Vérification des permissions
-        if (!is_writable($destinationPath)) {
-            throw new Exception("Le dossier n'est pas accessible en écriture: " . $destinationPath);
+        // Validation des rôles
+        if ($dev_count !== 2 || $reseau_count !== 1 || $marketing_count !== 1) {
+            throw new Exception("Composition d'équipe invalide: 2 développeurs, 1 technicien réseau, 1 marketeur requis.");
         }
 
-        $newFileName = uniqid() . '.' . $extension;
-        $uploadPath = $destinationPath . DIRECTORY_SEPARATOR . $newFileName;
+        /**
+         * INSERTION DES DONNÉES DANS LA BASE
+         */
+        $stmt = $pdo->prepare("INSERT INTO equipes (nom_equipe, description_equipe, matricule) VALUES (?, ?, ?)");
+        $stmt->execute([$_POST['nom_equipe'], $_POST['description_equipe'], $matricule]);
+        $equipe_id = $pdo->lastInsertId();
 
-        // Debug du chemin final
-        error_log("Chemin final: " . $uploadPath);
+        // Insertion du chef d'équipe
+        $stmt = $pdo->prepare("INSERT INTO membres (equipe_id, nom, prenom, email, role, is_chef) VALUES (?, ?, ?, ?, ?, 1)");
+        $stmt->execute([$equipe_id, $_POST['chef_nom'], $_POST['chef_prenom'], $_POST['chef_email'], $_POST['chef_role']]);
 
-        if (!move_uploaded_file($file['tmp_name'], $uploadPath)) {
-            throw new Exception("Erreur lors du déplacement du fichier vers: " . $uploadPath);
+        // Insertion des autres membres
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($_POST["membre{$i}_nom"])) {
+                $stmt = $pdo->prepare("INSERT INTO membres (equipe_id, nom, prenom, email, role) VALUES (?, ?, ?, ?, ?)");
+                $stmt->execute([$equipe_id, $_POST["membre{$i}_nom"], $_POST["membre{$i}_prenom"], $_POST["membre{$i}_email"], $_POST["membre{$i}_role"]]);
+            }
         }
 
-        // Retourner le chemin relatif pour la base de données
-        return 'uploads/' . $destination . '/' . $newFileName;
+        /**
+         * GÉNÉRATION DU QR CODE
+         */
+        // Créer le dossier qrcodes s'il n'existe pas
+        if (!file_exists('qrcodes')) {
+            mkdir('qrcodes', 0777, true);
+        }
+
+        $qrOptions = new QROptions([
+            'outputType' => QRCode::OUTPUT_IMAGE_PNG,
+            'eccLevel'   => QRCode::ECC_L,
+        ]);
+
+        $qrCode = new QRCode($qrOptions);
+        $baseUrl = "http://localhost/Hackathon/team-info.php"; // À adapter selon votre configuration
+        $qrContent = $baseUrl . "?matricule=" . $matricule;
+        $qrPath = "qrcodes/$matricule.png";
+        $qrCode->render($qrContent, $qrPath);
+
+        /**
+         * GÉNÉRATION DU PDF
+         */
+        // Créer le dossier pdfs s'il n'existe pas
+        if (!file_exists('pdfs')) {
+            mkdir('pdfs', 0777, true);
+        }
+
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(0, 10, "Confirmation d'inscription - " . $_POST['nom_equipe'], 0, 1, 'C');
+        $pdf->SetFont('Arial', '', 12);
+        $pdf->Cell(0, 10, "Matricule: $matricule", 0, 1);
+        $pdf->Image($qrPath, 80, $pdf->GetY() + 10, 50);
+        $pdfPath = "pdfs/$matricule.pdf";
+        $pdf->Output('F', $pdfPath);
+
+        /**
+         * ENVOI D'EMAILS AVEC CONFIRMATION
+         */
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = 'localhost';
+        $mail->Port = 1025;
+        $mail->SMTPAuth = false;
+        $mail->CharSet = 'UTF-8';
+        $mail->setFrom('contact@example.com', 'Inscription Hackathon');
+        $mail->Subject = "Confirmation d'inscription - " . $_POST['nom_equipe'];
+
+        // Ajout de tous les membres dans la liste des destinataires
+        $mail->addAddress($_POST['chef_email']); // Chef d'équipe
+
+        // Ajout des autres membres
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($_POST["membre{$i}_email"])) {
+                $mail->addAddress($_POST["membre{$i}_email"]);
+            }
+        }
+
+        $mail->addAttachment($pdfPath);
+        $mail->addAttachment($qrPath);
+        $mail->msgHTML("Votre inscription est confirmée."); // Le texte sera correctement encodé
+        $mail->send();
+
+        $_SESSION['success'] = "Votre équipe a été inscrite avec succès ! Matricule : $matricule";
+        header("Location: confirmation.php");
+        exit();
     } catch (Exception $e) {
-        error_log("Erreur dans handleFileUpload: " . $e->getMessage());
-        throw $e;
+        $_SESSION['error'] = "Erreur: " . $e->getMessage();
+        header("Location: confirmation.php");
+        exit();
     }
-}
-
-try {
-    // Vérification des champs requis
-    $required_fields = [
-        'nom_equipe',
-        'chef_nom',
-        'chef_prenom',
-        'chef_email',
-        'chef_role'
-    ];
-
-    foreach ($required_fields as $field) {
-        if (empty($_POST[$field])) {
-            throw new Exception("Le champ $field est obligatoire");
-        }
-    }
-
-    // Vérification des fichiers
-    if (!isset($_FILES['chef_photo']) || $_FILES['chef_photo']['error'] !== 0) {
-        throw new Exception("La photo du chef d'équipe est obligatoire");
-    }
-
-    // Vérification des membres
-    for ($i = 1; $i <= 3; $i++) {
-        if (empty($_POST["membre{$i}_nom"]) || empty($_POST["membre{$i}_prenom"])) {
-            throw new Exception("Les informations du membre $i sont incomplètes");
-        }
-    }
-
-    // Si tout est OK, on peut traiter les données ici
-    // Par exemple, sauvegarde en base de données, etc.
-
-    // Réponse de succès
-    echo json_encode([
-        'success' => true,
-        'message' => 'Inscription réussie'
-    ]);
-} catch (Exception $e) {
-    // Réponse en cas d'erreur
-    echo json_encode([
-        'success' => false,
-        'message' => $e->getMessage()
-    ]);
 }

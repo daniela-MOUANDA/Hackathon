@@ -23,7 +23,6 @@
             .sidebar-mobile.active {
                 transform: translateX(0);
             }
-
             .overlay {
                 display: none;
                 position: fixed;
@@ -34,70 +33,52 @@
                 background: rgba(0, 0, 0, 0.5);
                 z-index: 40;
             }
-
             .overlay.active {
                 display: block;
             }
         }
     </style>
 </head>
-
 <body class="bg-gray-50">
     <!-- Overlay pour mobile -->
-    <div class="overlay" id="sidebar-overlay"></div>
+    <div class="overlay" id="sidebar-overlay">
+
+
+    </div>
 
     <div class="flex h-screen">
         <!-- Sidebar responsive -->
         <div class="sidebar-mobile w-72 bg-gradient-to-b from-gray-800 to-gray-900 text-white lg:relative lg:translate-x-0">
             <div class="p-6">
                 <div class="flex items-center mb-8">
-                    <img src="logo.png" alt="Logo" class="w-10 h-10 mr-3">
-                    <h2 class="text-2xl font-bold">Innovation Days</h2>
+                    <!-- <img src="../assets/logoinptic.png" alt="Logo" class="w-10 h-10 mr-3"> -->
+                    <h2 class="text-2xl font-bold">
+                        INNOVATION DAYS <span class="mx-90"></span> <?php echo '20' . date('y'); ?>
+                    </h2>
+                    
+
                 </div>
+                <hr>
 
                 <nav class="space-y-2">
-                    <div class="px-4 py-2 text-xs text-gray-400 uppercase">Principal</div>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition-all">
+
+
+                    <a href="index.php?page=acceuil" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition-all">
                         <i class="fas fa-home w-5 h-5 mr-3"></i>
                         <span>Tableau de bord</span>
                     </a>
 
-                    <div class="px-4 py-2 text-xs text-gray-400 uppercase mt-6">Gestion</div>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
-                        <i class="fas fa-users w-5 h-5 mr-3"></i>
-                        <span>Participants</span>
-                        <span class="ml-auto bg-blue-500 text-xs px-2 py-1 rounded-full">124</span>
-                    </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
-                        <i class="fas fa-layer-group w-5 h-5 mr-3"></i>
-                        <span>Équipes</span>
-                        <span class="ml-auto bg-green-500 text-xs px-2 py-1 rounded-full">31</span>
-                    </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
-                        <i class="fas fa-tasks w-5 h-5 mr-3"></i>
-                        <span>Défis</span>
-                        <span class="ml-auto bg-yellow-500 text-xs px-2 py-1 rounded-full">8</span>
-                    </a>
-
-                    <div class="px-4 py-2 text-xs text-gray-400 uppercase mt-6">Évaluation</div>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
-                        <i class="fas fa-trophy w-5 h-5 mr-3"></i>
-                        <span>Notation</span>
-                    </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
-                        <i class="fas fa-star w-5 h-5 mr-3"></i>
-                        <span>Résultats</span>
-                    </a>
-
-                    <div class="px-4 py-2 text-xs text-gray-400 uppercase mt-6">Support</div>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
-                        <i class="fas fa-chalkboard-teacher w-5 h-5 mr-3"></i>
-                        <span>Mentorat</span>
-                    </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
-                        <i class="fas fa-headset w-5 h-5 mr-3"></i>
-                        <span>Support</span>
-                    </a>
+                    <!-- /.sidebar-collapse -->
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <?php
+                                include('../sideh.php');
+                                ?>
+                            </ul>
+                        </div>
+                        <!-- /.sidebar-collapse -->
+                    </div>
                 </nav>
             </div>
         </div>
@@ -111,6 +92,10 @@
                         <button class="text-gray-500 hover:text-gray-600 lg:hidden" id="sidebar-toggle">
                             <i class="fas fa-bars"></i>
                         </button>
+
+                        <img src="../assets/logoinptic.png" alt="Logo" class="w-30 h-10 mr-3">
+
+                        <h3 class="text-lg sm:text-xl font-bold "> BIENVENUE </h3>
 
                     </div>
 
@@ -159,81 +144,40 @@
                     </div>
                 </div>
 
-                <!-- Slider pour les équipes en vedette -->
-                <div class="mb-6 sm:mb-8">
-                    <h3 class="text-lg sm:text-xl font-bold mb-4">Équipes en vedette</h3>
-                    <div class="swiper teamSwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-                                    <div class="flex items-center mb-4">
-                                        <img src="https://via.placeholder.com/50" alt="Team" class="w-12 h-12 rounded-full">
-                                        <div class="ml-4">
-                                            <h4 class="font-semibold">Team Alpha</h4>
-                                            <p class="text-sm text-gray-500">Projet : IA pour l'éducation</p>
-                                        </div>
-                                    </div>
-                                    <div class="space-y-2">
-                                        <div class="flex justify-between text-sm">
-                                            <span>Progression</span>
-                                            <span class="font-semibold">85%</span>
-                                        </div>
-                                        <div class="w-full bg-gray-200 rounded-full h-2">
-                                            <div class="bg-blue-500 rounded-full h-2" style="width: 85%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Autres équipes... -->
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
 
-                <!-- Slider pour les défis actifs -->
-                <div class="mb-6 sm:mb-8">
-                    <h3 class="text-lg sm:text-xl font-bold mb-4">Défis actifs</h3>
-                    <div class="swiper challengeSwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-                                    <div class="flex justify-between items-start mb-4">
-                                        <h4 class="font-semibold text-lg">Innovation en IA</h4>
-                                        <span class="px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full">Actif</span>
-                                    </div>
-                                    <p class="text-gray-600 mb-4">Développer une solution innovante utilisant l'IA</p>
-                                    <div class="flex justify-between text-sm text-gray-500">
-                                        <span>8 équipes participantes</span>
-                                        <span>2 jours restants</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Autres défis... -->
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
+
+
+
+                <!-- mettre le contenu ici -->
+                <?php
+                if (isset($_GET['page'])) {
+                    if ($_GET['page'] == "participant") {
+                        include("./views/participant.php");
+                    } elseif ($_GET['page'] == "acceuil") {
+                        include("./views/acceuil.php");
+                    } elseif ($_GET['page'] == "defi") {
+                        include("./views/defi.php");
+                    } elseif ($_GET['page'] == "jugement") {
+                        include("./views/jugement.php");
+                    }elseif ($_GET['page'] == "message") {
+                        include("./views/message.php");
+                    }
+                }
+                ?>
+
             </main>
         </div>
     </div>
+
+
+
+
 
     <script>
         // Configuration des sliders avec breakpoints améliorés
         document.addEventListener('DOMContentLoaded', function() {
             // Toggle sidebar sur mobile
-            const sidebarToggle = document.getElementById('sidebar-toggle');
-            const sidebar = document.querySelector('.sidebar-mobile');
-            const overlay = document.getElementById('sidebar-overlay');
 
-            sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('active');
-                overlay.classList.toggle('active');
-            });
-
-            overlay.addEventListener('click', () => {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-            });
 
             // Slider pour les annonces avec config responsive
             new Swiper('.announcementSwiper', {
@@ -260,52 +204,52 @@
             });
 
             // Slider pour les équipes avec config responsive améliorée
-            new Swiper('.teamSwiper', {
-                slidesPerView: 1,
-                spaceBetween: 16,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                breakpoints: {
-                    480: {
-                        slidesPerView: 1.5,
-                        spaceBetween: 20,
-                    },
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 24,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                    }
-                }
-            });
+            // new Swiper('.teamSwiper', {
+            //     slidesPerView: 1,
+            //     spaceBetween: 16,
+            //     pagination: {
+            //         el: '.swiper-pagination',
+            //         clickable: true,
+            //     },
+            //     breakpoints: {
+            //         480: {
+            //             slidesPerView: 1.5,
+            //             spaceBetween: 20,
+            //         },
+            //         640: {
+            //             slidesPerView: 2,
+            //             spaceBetween: 24,
+            //         },
+            //         1024: {
+            //             slidesPerView: 3,
+            //             spaceBetween: 30,
+            //         }
+            //     }
+            // });
 
             // Slider pour les défis avec config responsive améliorée
-            new Swiper('.challengeSwiper', {
-                slidesPerView: 1,
-                spaceBetween: 16,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                breakpoints: {
-                    480: {
-                        slidesPerView: 1.5,
-                        spaceBetween: 20,
-                    },
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 24,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                    }
-                }
-            });
+            // new Swiper('.challengeSwiper', {
+            //     slidesPerView: 1,
+            //     spaceBetween: 16,
+            //     pagination: {
+            //         el: '.swiper-pagination',
+            //         clickable: true,
+            //     },
+            //     breakpoints: {
+            //         480: {
+            //             slidesPerView: 1.5,
+            //             spaceBetween: 20,
+            //         },
+            //         640: {
+            //             slidesPerView: 2,
+            //             spaceBetween: 24,
+            //         },
+            //         1024: {
+            //             slidesPerView: 3,
+            //             spaceBetween: 30,
+            //         }
+            //     }
+            // });
         });
     </script>
 </body>

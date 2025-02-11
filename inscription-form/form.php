@@ -70,7 +70,7 @@
                         </div>
                     </div>
 
-                    <form id="registration-form" action="traitement.php" method="POST" enctype="multipart/form-data">
+                    <form id="registration-form" action="/hackathon/inscription-form/traitement.php" method="POST" enctype="multipart/form-data">
                         <!-- Étape 1 -->
                         <div class="form-step" id="step1">
                             <div class="form-group">
@@ -110,18 +110,7 @@
                                     <option value="marketeur">Marketing</option>
                                 </select>
                             </div>
-                            <div class="form-group mt-4">
-                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Photo de profil*</label>
-                                <div class="flex items-center space-x-4">
-                                    <input type="file" name="chef_photo" accept="image/*" required
-                                        class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all"
-                                        onchange="previewImage(this, 'chef_photo_preview')">
-                                    <div id="chef_photo_preview" class="w-20 h-20 bg-gray-800 rounded-lg overflow-hidden">
-                                        <img src="" alt="" class="w-full h-full object-cover hidden">
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-400 mt-1">Format: JPG, PNG. Max: 2MB</p>
-                            </div>
+
                         </div>
 
                         <!-- Étapes 3-5 - Membres -->
@@ -152,16 +141,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group mt-4">
-                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Photo de profil*</label>
+
                                     <div class="flex items-center space-x-4">
-                                        <input type="file" name="membre<?php echo $i; ?>_photo" accept="image/*" required
-                                            class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all"
-                                            onchange="previewImage(this, 'membre<?php echo $i; ?>_photo_preview')">
-                                        <div id="membre<?php echo $i; ?>_photo_preview" class="w-20 h-20 bg-gray-800 rounded-lg overflow-hidden">
-                                            <img src="" alt="" class="w-full h-full object-cover hidden">
-                                        </div>
+
+
                                     </div>
-                                    <p class="text-sm text-gray-400 mt-1">Format: JPG, PNG. Max: 2MB</p>
+
                                 </div>
                             </div>
                         <?php endfor; ?>
@@ -257,7 +242,7 @@
                         PRÊT À RELEVER LE DÉFI ?
                     </h3>
                     <button class="bg-gradient-to-r from-[#0A4DA6] to-[#1E3A8A] text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-[#0A4DA6]/30 transform hover:scale-105 transition-all duration-300">
-                        INSCRIVEZ VOTRE ÉQUIPE
+                        INSCRIVEZ VOTRE ÉQUIPE ...
                     </button>
                 </div>
             </div>
@@ -265,92 +250,49 @@
     </div>
 </section>
 
-<section class="techies-bg py-20 px-6">
-    <div class="container mx-auto">
-        <!-- En-tête Calendrier -->
-        <div class="bg-[#CCFF00] text-black font-bold py-2 px-6 rounded-lg inline-block mb-8">
-            DATES CLÉS
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <!-- Dates importantes -->
-            <div class="space-y-4">
-                <div class="neon-text">
-                    <span class="font-bold">Ouverture des inscriptions : </span>
-                    15 février 2025
-                </div>
-                <div class="neon-text">
-                    <span class="font-bold">Clôture des inscriptions : </span>
-                    23 mars 2025
-                </div>
-                <div class="neon-text">
-                    <span class="font-bold">Hackathon : </span>
-
-                    23-25 mars 2025
-                </div>
-
-                <!-- Texte descriptif -->
-                <div class="bg-white text-black p-6 rounded-xl mt-8">
-                    <p>Vous avez une passion pour l'innovation et la technologie ? Que vous soyez étudiant en informatique, en réseaux, en marketing digital ou passionné de tech, l'Innovation Days 2024 est fait pour vous ! Rejoignez-nous pour 72 heures intenses de création et d'innovation à l'INPTIC.</p>
-                </div>
-
-                <!-- Bouton Participer -->
-                <button class="bg-[#CCFF00] text-black font-bold py-3 px-8 rounded-lg hover:bg-[#b3ff00] transition-all mt-6">
-                    JE M'INSCRIS
-                </button>
-
-                <!-- Section pour les participants -->
-                <div class="text-white text-center mt-8">
-                    <p class="mb-4">Vous êtes étudiant, développeur, technicien réseau<br>
-                        ou marketeur digital ? Formez votre équipe de 4 personnes !</p>
-                    <p>Profitez d'un accompagnement personnalisé,<br>
-                        de mentors experts et de nombreuses récompenses.</p>
-                </div>
-
-                <!-- Contact -->
-                <div class="mt-8">
-
-                    <div class="bg-[#CCFF00] text-black p-4 rounded-lg">
-                        <p>Des questions sur l'événement ? Contactez-nous à contact@innovationdays.com<br>
-                            ou suivez-nous sur les réseaux sociaux @INPTIC pour les dernières actualités !</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Image à droite -->
-            <div class="relative">
-                <img src="assets/im3.jpg" alt="Développeur Innovation Days" class="w-full h-auto">
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Section Support et Mentorat -->
 <section id="support" class="py-20 px-6 bg-gray-800">
     <div class="container mx-auto">
         <h2 class="text-4xl font-bold text-center mb-12">Support & Mentorat</h2>
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
+
+            <div class="bg-black p-6 rounded-lg border border-[#CCFF00] text-center">
+                <div class="flex justify-center mb-6">
+                    <svg class="w-16 h-16 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                </div>
                 <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Accompagnement Technique</h3>
-                <ul class="space-y-3 text-gray-300">
+                <ul class="space-y-3 text-gray-300 text-justify mx-auto">
                     <li>✓ Mentors experts en développement</li>
                     <li>✓ Support infrastructure cloud</li>
                     <li>✓ Ressources techniques dédiées</li>
                     <li>✓ Workshops techniques</li>
                 </ul>
             </div>
-            <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
+            <div class="bg-black p-6 rounded-lg border border-[#CCFF00] text-center">
+                <div class="flex justify-center mb-6">
+                    <svg class="w-16 h-16 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
                 <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Support Business</h3>
-                <ul class="space-y-3 text-gray-300">
+                <ul class="space-y-3 text-gray-300 text-justify mx-auto">
                     <li>✓ Conseils en business model</li>
                     <li>✓ Stratégie de mise sur le marché</li>
                     <li>✓ Pitch coaching</li>
                     <li>✓ Networking avec des experts</li>
                 </ul>
             </div>
-            <div class="bg-black p-6 rounded-lg border border-[#CCFF00]">
+            <div class="bg-black p-6 rounded-lg border border-[#CCFF00] text-center">
+                <div class="flex justify-center mb-6">
+                    <svg class="w-16 h-16 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                </div>
                 <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Suivi Post-Hackathon</h3>
-                <ul class="space-y-3 text-gray-300">
+                <ul class="space-y-3 text-gray-300 text-justify mx-auto">
                     <li>✓ Accompagnement personnalisé</li>
                     <li>✓ Accès aux investisseurs</li>
                     <li>✓ Programme d'incubation</li>
@@ -361,58 +303,133 @@
     </div>
 </section>
 
+
+
+
 <!-- Section Processus de Soumission -->
 <section id="soumission" class="py-20 px-6">
     <div class="container mx-auto">
         <h2 class="text-4xl font-bold text-center mb-12">Processus de Soumission</h2>
         <div class="grid md:grid-cols-2 gap-12">
             <div class="space-y-6">
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Livrables Requis</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li>✅ Prototype fonctionnel</li>
-                        <li>📊 Présentation détaillée</li>
-                        <li>📝 Documentation technique</li>
-                        <li>🔄 Diagrammes et spécifications</li>
-                        <li>💻 Code source documenté</li>
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-l-4 border-[#CCFF00]">
+                    <h3 class="text-xl font-bold mb-6 text-[#CCFF00] flex items-center">
+                        <span class="bg-[#CCFF00] text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">1</span>
+                        Livrables Requis
+                    </h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-center">
+                            <span class="text-[#CCFF00] mr-3">✅</span>
+                            <span>Prototype fonctionnel</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#CCFF00] mr-3">📊</span>
+                            <span>Présentation détaillée</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#CCFF00] mr-3">📝</span>
+                            <span>Documentation technique</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#CCFF00] mr-3">🔄</span>
+                            <span>Diagrammes et spécifications</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#CCFF00] mr-3">💻</span>
+                            <span>Code source documenté</span>
+                        </li>
                     </ul>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Critères d'Évaluation</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li>🎯 Innovation (30%) - Originalité et créativité</li>
-                        <li>💡 Utilité (25%) - Impact et pertinence</li>
-                        <li>🤝 Collaboration (15%) - Travail d'équipe</li>
-                        <li>⚙️ Prototype (10%) - Fonctionnalité</li>
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-l-4 border-[#CCFF00]">
+                    <h3 class="text-xl font-bold mb-6 text-[#CCFF00] flex items-center">
+                        <span class="bg-[#CCFF00] text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">2</span>
+                        Critères d'Évaluation
+                    </h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-center">
+                            <span class="text-[#CCFF00] mr-3">🎯</span>
+                            <span>Innovation (30%) - Originalité et créativité</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#CCFF00] mr-3">💡</span>
+                            <span>Utilité (25%) - Impact et pertinence</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#CCFF00] mr-3">🤝</span>
+                            <span>Collaboration (15%) - Travail d'équipe</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#CCFF00] mr-3">⚙️</span>
+                            <span>Prototype (10%) - Fonctionnalité</span>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="space-y-6">
-                <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4 text-[#CCFF00]">Récompenses Détaillées</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-bold text-white">Formation & Mentorat</h4>
-                            <ul class="text-gray-300">
-                                <li>✨ Programme d'incubation personnalisé</li>
-                                <li>✨ Formations techniques avancées</li>
-                                <li>✨ Accès VIP aux conférences tech</li>
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-l-4 border-[#CCFF00]">
+                    <h3 class="text-xl font-bold mb-6 text-[#CCFF00] flex items-center">
+                        <span class="bg-[#CCFF00] text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">3</span>
+                        Récompenses Détaillées
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="bg-black bg-opacity-30 p-4 rounded-xl">
+                            <h4 class="font-bold text-white mb-3 flex items-center">
+                                <span class="text-[#CCFF00] mr-2">✨</span>
+                                Formation & Mentorat
+                            </h4>
+                            <ul class="text-gray-300 space-y-2 ml-6">
+                                <li class="flex items-center">
+                                    <span class="text-[#CCFF00] mr-2">•</span>
+                                    Programme d'incubation personnalisé
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#CCFF00] mr-2">•</span>
+                                    Formations techniques avancées
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#CCFF00] mr-2">•</span>
+                                    Accès VIP aux conférences tech
+                                </li>
                             </ul>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-white">Opportunités</h4>
-                            <ul class="text-gray-300">
-                                <li>🌍 Learning Expeditions internationales</li>
-                                <li>📚 Abonnements premium aux plateformes</li>
-                                <li>🚀 Accompagnement business sur 6 mois</li>
+                        <div class="bg-black bg-opacity-30 p-4 rounded-xl">
+                            <h4 class="font-bold text-white mb-3 flex items-center">
+                                <span class="text-[#CCFF00] mr-2">🌍</span>
+                                Opportunités
+                            </h4>
+                            <ul class="text-gray-300 space-y-2 ml-6">
+                                <li class="flex items-center">
+                                    <span class="text-[#CCFF00] mr-2">•</span>
+                                    Learning Expeditions internationales
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#CCFF00] mr-2">•</span>
+                                    Abonnements premium aux plateformes
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#CCFF00] mr-2">•</span>
+                                    Accompagnement business sur 6 mois
+                                </li>
                             </ul>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-white">Équipement Tech</h4>
-                            <ul class="text-gray-300">
-                                <li>💻 Ordinateurs dernière génération</li>
-                                <li>📱 Tablettes professionnelles</li>
-                                <li>⌚ Équipement connecté premium</li>
+                        <div class="bg-black bg-opacity-30 p-4 rounded-xl">
+                            <h4 class="font-bold text-white mb-3 flex items-center">
+                                <span class="text-[#CCFF00] mr-2">💻</span>
+                                Équipement Tech
+                            </h4>
+                            <ul class="text-gray-300 space-y-2 ml-6">
+                                <li class="flex items-center">
+                                    <span class="text-[#CCFF00] mr-2">•</span>
+                                    Ordinateurs dernière génération
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#CCFF00] mr-2">•</span>
+                                    Tablettes professionnelles
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#CCFF00] mr-2">•</span>
+                                    Équipement connecté premium
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -789,7 +806,6 @@
                 isValid = false;
                 field.classList.add('border-red-500');
 
-                // Ajouter un message d'erreur sous le champ
                 const errorMsg = field.parentNode.querySelector('.error-message');
                 if (!errorMsg) {
                     const msg = document.createElement('p');
@@ -805,20 +821,6 @@
                 }
             }
 
-            // Validation spécifique pour l'âge
-            if (field.name === 'age' && field.value < 18) {
-                isValid = false;
-                field.classList.add('border-red-500');
-                const errorMsg = field.parentNode.querySelector('.error-message');
-                if (!errorMsg) {
-                    const msg = document.createElement('p');
-                    msg.className = 'error-message text-red-500 text-sm mt-1';
-                    msg.textContent = 'Vous devez avoir au moins 18 ans';
-                    field.parentNode.appendChild(msg);
-                }
-            }
-
-            // Validation du format email
             if (field.type === 'email') {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(field.value)) {
@@ -950,7 +952,7 @@
         }
     });
 
-    // Permettre la navigation par les points indicateurs
+    // Navigation par les points indicateurs
     document.querySelectorAll('[id^="step"][id$="-dot"]').forEach((dot, index) => {
         dot.addEventListener('click', () => {
             const targetStep = index + 1;
@@ -959,66 +961,13 @@
                 showStep(currentStep);
             }
         });
-
-        // Ajouter un style de curseur pointer pour indiquer la cliquabilité
         dot.style.cursor = 'pointer';
-    });
-
-    document.getElementById('registration-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Afficher le message de chargement
-        Swal.fire({
-            title: '<span class="text-[#CCFF00]">Envoi en cours...</span>',
-            html: '<p class="text-white">Veuillez patienter...</p>',
-            allowOutsideClick: false,
-            showConfirmButton: false,
-            background: '#1a1a1a'
-        });
-
-        // Envoyer le formulaire
-        fetch('traitement.php', {
-                method: 'POST',
-                body: new FormData(this)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    Swal.fire({
-                        title: '<span class="text-[#CCFF00]">Succès!</span>',
-                        html: '<p class="text-white">Inscription réussie!</p>',
-                        icon: 'success',
-                        background: '#1a1a1a',
-                        confirmButtonColor: '#CCFF00',
-                        confirmButtonText: '<span class="text-black">OK</span>'
-                    });
-                } else {
-                    Swal.fire({
-                        title: '<span class="text-red-500">Erreur!</span>',
-                        html: `<p class="text-white">${data.message}</p>`,
-                        icon: 'error',
-                        background: '#1a1a1a',
-                        confirmButtonColor: '#dc3545',
-                        confirmButtonText: '<span class="text-white">Fermer</span>'
-                    });
-                }
-            })
-            .catch(error => {
-                Swal.fire({
-                    title: '<span class="text-red-500">Erreur technique</span>',
-                    html: '<p class="text-white">Une erreur est survenue lors de l\'envoi du formulaire.</p>',
-                    icon: 'error',
-                    background: '#1a1a1a',
-                    confirmButtonColor: '#dc3545',
-                    confirmButtonText: '<span class="text-white">Fermer</span>'
-                });
-            });
     });
 
     // Initialisation du formulaire
     showStep(1);
 
-    // Ajout des écouteurs d'événements pour nettoyer les messages d'erreur lors de la saisie
+    // Nettoyage des messages d'erreur
     document.querySelectorAll('input, select').forEach(field => {
         field.addEventListener('input', () => {
             field.classList.remove('border-red-500');
@@ -1029,7 +978,7 @@
         });
     });
 
-    // Ajout d'une animation pour la barre de progression
+    // Animation de la barre de progression
     document.getElementById('progress-bar').style.transition = 'width 0.5s ease-in-out, background-color 0.5s ease-in-out';
 
     function openCguModal() {
@@ -1042,173 +991,22 @@
         document.body.style.overflow = 'auto';
     }
 
-    // Modifier le lien des conditions d'utilisation
+    // Gestion du modal CGU
     document.querySelector('a[href="#"]').addEventListener('click', function(e) {
         e.preventDefault();
         openCguModal();
     });
 
-    // Fermer le modal en cliquant en dehors
     document.getElementById('cguModal').addEventListener('click', function(e) {
         if (e.target === this) {
             closeCguModal();
         }
     });
 
-    // Fermer avec la touche Echap
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && !document.getElementById('cguModal').classList.contains('hidden')) {
             closeCguModal();
         }
-    });
-
-    // Ajouter cette fonction pour la prévisualisation des images
-    function previewImage(input, previewId) {
-        const preview = document.getElementById(previewId).querySelector('img');
-        const container = document.getElementById(previewId);
-
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.classList.remove('hidden');
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            preview.src = '';
-            preview.classList.add('hidden');
-        }
-    }
-
-    // Ajout d'un message d'information sur la composition de l'équipe
-    function showTeamCompositionInfo() {
-        Swal.fire({
-            title: 'Composition de l\'équipe requise',
-            html: `<div class="text-left">
-                <p class="mb-3">Votre équipe doit être composée de 4 membres au total (chef d'équipe inclus) avec la répartition suivante :</p>
-                <ul class="list-disc pl-5">
-                    <li>2 développeurs</li>
-                    <li>1 technicien réseau</li>
-                    <li>1 marketeur</li>
-                </ul>
-                <p class="mt-3">Assurez-vous que les profils sélectionnés respectent cette composition.</p>
-            </div>`,
-            icon: 'info',
-            confirmButtonText: 'Compris',
-            confirmButtonColor: '#3085d6'
-        });
-    }
-
-    // Afficher l'information dès qu'on arrive à l'étape 2
-    document.getElementById('nextBtn').addEventListener('click', () => {
-        if (currentStep === 1 && validateStep(currentStep)) {
-            showTeamCompositionInfo();
-        }
-    });
-
-    // Modification de la fonction de validation
-    function validateTeamComposition() {
-        let developers = 0;
-        let networkTechs = 0;
-        let marketers = 0;
-
-        // Vérification du chef d'équipe
-        const chefRole = document.querySelector('select[name="chef_role"]').value;
-        if (chefRole === 'developpeur') developers++;
-        else if (chefRole === 'technicien_reseau') networkTechs++;
-        else if (chefRole === 'marketeur') marketers++;
-
-        // Vérification des membres (seulement les 3 autres membres)
-        for (let i = 1; i <= 3; i++) {
-            const memberRole = document.querySelector(`select[name="membre${i}_role"]`).value;
-            if (memberRole === 'developpeur') developers++;
-            else if (memberRole === 'technicien_reseau') networkTechs++;
-            else if (memberRole === 'marketeur') marketers++;
-        }
-
-        // Vérification de la composition
-        if (developers !== 2 || networkTechs !== 1 || marketers !== 1) {
-            Swal.fire({
-                title: 'Composition d\'équipe invalide!',
-                html: `<div class="text-left">
-                    <p class="mb-3">Votre équipe (chef inclus) doit être composée exactement de :</p>
-                    <ul class="list-disc pl-5 mb-3">
-                        <li>2 développeurs (actuellement: ${developers})</li>
-                        <li>1 technicien réseau (actuellement: ${networkTechs})</li>
-                        <li>1 marketeur (actuellement: ${marketers})</li>
-                    </ul>
-                    <p class="text-red-500">Veuillez ajuster les profils pour respecter cette composition.</p>
-                </div>`,
-                icon: 'error',
-                confirmButtonText: 'Corriger',
-                confirmButtonColor: '#3085d6'
-            });
-            return false;
-        }
-        return true;
-    }
-
-    // Ajout de la vérification lors du changement de profil
-    function updateTeamComposition() {
-        let developers = 0;
-        let networkTechs = 0;
-        let marketers = 0;
-
-        // Compte du chef d'équipe
-        const chefRole = document.querySelector('select[name="chef_role"]').value;
-        if (chefRole) {
-            if (chefRole === 'developpeur') developers++;
-            else if (chefRole === 'technicien_reseau') networkTechs++;
-            else if (chefRole === 'marketeur') marketers++;
-        }
-
-        // Compte des membres
-        for (let i = 1; i <= 3; i++) {
-            const memberRole = document.querySelector(`select[name="membre${i}_role"]`);
-            if (memberRole && memberRole.value) {
-                if (memberRole.value === 'developpeur') developers++;
-                else if (memberRole.value === 'technicien_reseau') networkTechs++;
-                else if (memberRole.value === 'marketeur') marketers++;
-            }
-        }
-
-        // Affichage du statut actuel
-        const remainingDev = 2 - developers;
-        const remainingNet = 1 - networkTechs;
-        const remainingMkt = 1 - marketers;
-
-        // Mise à jour du message de statut avec du HTML stylisé
-        const statusMessage = `
-            <div class="text-left">
-                <p class="text-[#CCFF00] font-bold mb-2">Profils restants à sélectionner :</p>
-                ${remainingDev > 0 ? `<p class="text-white">- ${remainingDev} développeur(s)</p>` : ''}
-                ${remainingNet > 0 ? `<p class="text-white">- ${remainingNet} technicien réseau</p>` : ''}
-                ${remainingMkt > 0 ? `<p class="text-white">- ${remainingMkt} marketeur</p>` : ''}
-                ${(remainingDev <= 0 && remainingNet <= 0 && remainingMkt <= 0) ? 
-                    '<p class="text-green-400 font-bold mt-2">Composition complète !</p>' : ''}
-            </div>
-        `;
-
-        // Afficher le statut dans une petite notification avec HTML activé
-        if (document.querySelector('select[name="chef_role"]').value ||
-            document.querySelector('select[name="membre1_role"]').value) {
-            Swal.fire({
-                title: '<span class="text-[#CCFF00]">Statut de la composition</span>',
-                html: statusMessage,
-                icon: 'info',
-                background: '#1a1a1a',
-                timer: 3000,
-                timerProgressBar: true,
-                showConfirmButton: false
-            });
-        }
-    }
-
-    // Ajout des écouteurs d'événements pour les sélecteurs de profil
-    document.querySelectorAll('select[name$="_role"]').forEach(select => {
-        select.addEventListener('change', updateTeamComposition);
     });
 </script>
 
