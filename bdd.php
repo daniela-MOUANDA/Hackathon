@@ -2,18 +2,18 @@
 
 
 
-$host = 'localhost';
-$dbname = 'hackathon';
-$username = 'root';
-$password = '';
+// $host = 'localhost';
+// $dbname = 'hackathon';
+// $username = 'root';
+// $password = '';
 
 
 
 
-// $host = 'mysql-portail-inptic.alwaysdata.net';
-// $dbname = 'portail-inptic_hackathon';
-// $username = '397445_hackathon';
-// $password = 'Jeparle@1';
+$host = 'mysql-portail-inptic.alwaysdata.net';
+$dbname = 'portail-inptic_hackathon';
+$username = '397445_hackathon';
+$password = 'Jeparle@1';
 
 
 try {
