@@ -81,21 +81,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         /**
+         * VALIDATION ET TRAITEMENT DU DOCUMENT JUSTIFICATIF
+         */
+        function validateFile($file)
+        {
+            $allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+            $maxSize = 5 * 1024 * 1024; // 5MB
+
+            if ($file['size'] > $maxSize) {
+                throw new Exception("Le fichier est trop volumineux. Taille maximale : 5MB");
+            }
+
+            if (!in_array($file['type'], $allowedTypes)) {
+                throw new Exception("Type de fichier non autorisé. Formats acceptés : PDF, JPEG, PNG");
+            }
+
+            return true;
+        }
+
+        // Traitement du document justificatif
+        $document_path = '';
+        if (isset($_FILES['doc_justificatif']) && $_FILES['doc_justificatif']['error'] === 0) {
+            validateFile($_FILES['doc_justificatif']);
+
+            // Créer le dossier documents s'il n'existe pas
+            if (!file_exists('documents')) {
+                mkdir('documents', 0777, true);
+            }
+
+            $extension = pathinfo($_FILES['doc_justificatif']['name'], PATHINFO_EXTENSION);
+            $document_path = 'documents/' . $matricule . '_justificatif.' . $extension;
+
+            if (!move_uploaded_file($_FILES['doc_justificatif']['tmp_name'], $document_path)) {
+                throw new Exception("Erreur lors du téléchargement du document justificatif");
+            }
+        }
+
+        /**
          * INSERTION DES DONNÉES DANS LA BASE
          */
-        $stmt = $pdo->prepare("INSERT INTO equipes (nom_equipe, description_equipe, matricule) VALUES (?, ?, ?)");
-        $stmt->execute([$_POST['nom_equipe'], $_POST['description_equipe'], $matricule]);
+        // Préparation des données avec nettoyage
+        $nom_equipe = htmlspecialchars(trim($_POST['nom_equipe']));
+        $description_equipe = htmlspecialchars(trim($_POST['description_equipe']));
+
+        $stmt = $pdo->prepare("INSERT INTO equipes (nom_equipe, description_equipe, matricule, document_path) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$nom_equipe, $description_equipe, $matricule, $document_path]);
         $equipe_id = $pdo->lastInsertId();
 
-        // Insertion du chef d'équipe
-        $stmt = $pdo->prepare("INSERT INTO membres (equipe_id, nom, prenom, email, role, is_chef) VALUES (?, ?, ?, ?, ?, 1)");
-        $stmt->execute([$equipe_id, $_POST['chef_nom'], $_POST['chef_prenom'], $_POST['chef_email'], $_POST['chef_role']]);
+        // Insertion du chef d'équipe avec nettoyage
+        $chef_nom = htmlspecialchars(trim($_POST['chef_nom']));
+        $chef_prenom = htmlspecialchars(trim($_POST['chef_prenom']));
+        $chef_email = filter_var(trim($_POST['chef_email']), FILTER_SANITIZE_EMAIL);
+        $chef_role = htmlspecialchars(trim($_POST['chef_role']));
 
-        // Insertion des autres membres
+        $stmt = $pdo->prepare("INSERT INTO membres (equipe_id, nom, prenom, email, role, is_chef) VALUES (?, ?, ?, ?, ?, 1)");
+        $stmt->execute([$equipe_id, $chef_nom, $chef_prenom, $chef_email, $chef_role]);
+
+        // Insertion des autres membres avec nettoyage
         for ($i = 1; $i <= 3; $i++) {
             if (!empty($_POST["membre{$i}_nom"])) {
+                $membre_nom = htmlspecialchars(trim($_POST["membre{$i}_nom"]));
+                $membre_prenom = htmlspecialchars(trim($_POST["membre{$i}_prenom"]));
+                $membre_email = filter_var(trim($_POST["membre{$i}_email"]), FILTER_SANITIZE_EMAIL);
+                $membre_role = htmlspecialchars(trim($_POST["membre{$i}_role"]));
+
                 $stmt = $pdo->prepare("INSERT INTO membres (equipe_id, nom, prenom, email, role) VALUES (?, ?, ?, ?, ?)");
-                $stmt->execute([$equipe_id, $_POST["membre{$i}_nom"], $_POST["membre{$i}_prenom"], $_POST["membre{$i}_email"], $_POST["membre{$i}_role"]]);
+                $stmt->execute([$equipe_id, $membre_nom, $membre_prenom, $membre_email, $membre_role]);
             }
         }
 
@@ -233,6 +284,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <li>Un seul scan sera nécessaire pour valider l'entrée de toute l'équipe.</li>
                             <li>Conservez-le précieusement, il vous sera demandé lors de votre arrivée.</li>
                             <li>Vous pouvez le présenter en format numérique ou imprimé.</li>
+                            <li>Pour les étudiants, il vous sera aussi demandé un justificatif de scolarité .</li>
+                            <li>Pour les non etudiants, il vous sera demandé une piece d'identité.</li>
                         </ul>
                     </div>
                     <p>Vous trouverez en pièces jointes :</p>
