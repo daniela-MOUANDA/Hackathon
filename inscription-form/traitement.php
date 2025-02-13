@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
 
         $qrCode = new QRCode($qrOptions);
-        $baseUrl = "http://localhost/Hackathon/team-info.php"; // À adapter selon votre configuration
+        $baseUrl = "https://portail-inptic.alwaysdata.net/hackathon/team-info.php"; // À adapter selon votre configuration
         $qrContent = $baseUrl . "?matricule=" . $matricule;
         $qrPath = "qrcodes/$matricule.png";
         $qrCode->render($qrContent, $qrPath);
@@ -128,11 +128,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $pdf = new FPDF();
         $pdf->AddPage();
-        $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Cell(0, 10, "Confirmation d'inscription - " . $_POST['nom_equipe'], 0, 1, 'C');
+
+        // En-tête
+        $pdf->SetFillColor(44, 62, 80); // Couleur bleu foncé
+        $pdf->Rect(0, 0, 210, 40, 'F');
+        $pdf->SetTextColor(255, 255, 255);
+        $pdf->SetFont('Arial', 'B', 20);
+        $pdf->Cell(0, 20, 'INNOVATION DAYS 2025', 0, 1, 'C');
+        $pdf->SetFont('Arial', '', 14);
+        $pdf->Cell(0, 10, "Confirmation d'inscription", 0, 1, 'C');
+
+        // Retour à la couleur noire pour le texte
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Ln(20);
+
+        // Informations de l'équipe
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Cell(0, 10, utf8_decode($_POST['nom_equipe']), 0, 1, 'C');
+
+        // Cadre pour le matricule
+        $pdf->SetFillColor(240, 240, 240);
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Rect(50, $pdf->GetY(), 110, 15, 'F');
+        $pdf->Cell(0, 15, "Matricule: $matricule", 0, 1, 'C');
+
+        $pdf->Ln(10);
+
+        // Zone QR Code
         $pdf->SetFont('Arial', '', 12);
-        $pdf->Cell(0, 10, "Matricule: $matricule", 0, 1);
-        $pdf->Image($qrPath, 80, $pdf->GetY() + 10, 50);
+        $pdf->Cell(0, 10, utf8_decode("Votre QR Code d'accès :"), 0, 1, 'C');
+        $pdf->Image($qrPath, 80, $pdf->GetY(), 50);
+        $pdf->Ln(60);
+
+        // Instructions importantes
+        $pdf->SetFillColor(240, 240, 240);
+        $pdf->Rect(20, $pdf->GetY(), 170, 50, 'F');
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Cell(0, 10, utf8_decode("INFORMATIONS IMPORTANTES"), 0, 1, 'C');
+        $pdf->SetFont('Arial', '', 11);
+        $pdf->SetX(25);
+        $pdf->MultiCell(160, 6, utf8_decode(
+            "- Ce document fait office de confirmation d'inscription officielle\n" .
+                "- Le QR Code ci-dessus est votre billet d'entrée à l'événement\n" .
+                "- Présentez ce document (version numérique ou imprimée) à votre arrivée\n" .
+                "- Conservez votre matricule, il vous servira d'identifiant unique"
+        ));
+
+        // Pied de page
+        $pdf->SetY(-30);
+        $pdf->SetFont('Arial', 'I', 8);
+        $pdf->Cell(0, 10, utf8_decode('INPTIC - Hackathon 2025 - Document généré le ' . date('d/m/Y')), 0, 0, 'C');
+
         $pdfPath = "pdfs/$matricule.pdf";
         $pdf->Output('F', $pdfPath);
 
@@ -140,30 +186,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          * ENVOI D'EMAILS AVEC CONFIRMATION
          */
         $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host = 'localhost';
-        $mail->Port = 1025;
-        $mail->SMTPAuth = false;
+
+        // Configuration du serveur SMTP
+        $mail->Port = 587;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Encoding = 'base64';
+        $mail->isHTML(true);
+        $mail->Username = 'jacquesboussengui@gmail.com';
         $mail->CharSet = 'UTF-8';
-        $mail->setFrom('contact@example.com', 'Inscription Hackathon');
-        $mail->Subject = "Confirmation d'inscription - " . $_POST['nom_equipe'];
+        $mail->setFrom('inptic@inptic-ga.org', 'Inscription Hackathon');
 
-        // Ajout de tous les membres dans la liste des destinataires
-        $mail->addAddress($_POST['chef_email']); // Chef d'équipe
-
-        // Ajout des autres membres
+        // Collecter tous les emails des membres
+        $emails = [$_POST['chef_email']]; // Email du chef d'équipe
         for ($i = 1; $i <= 3; $i++) {
             if (!empty($_POST["membre{$i}_email"])) {
-                $mail->addAddress($_POST["membre{$i}_email"]);
+                $emails[] = $_POST["membre{$i}_email"];
             }
         }
 
-        $mail->addAttachment($pdfPath);
-        $mail->addAttachment($qrPath);
-        $mail->msgHTML("Votre inscription est confirmée."); // Le texte sera correctement encodé
-        $mail->send();
+        // Contenu de l'email
+        $mail->Subject = "Confirmation d'inscription - " . $_POST['nom_equipe'];
 
-        $_SESSION['success'] = "Votre équipe a été inscrite avec succès ! Matricule : $matricule";
+        // Pièces jointes (ajoutées une seule fois)
+        $mail->addAttachment($qrPath, 'QR_Code.png');
+        $mail->addAttachment($pdfPath, 'Confirmation_Inscription.pdf');
+
+        // Envoi à chaque membre de l'équipe
+        foreach ($emails as $email) {
+            $mail->clearAddresses(); // Effacer les destinataires précédents
+            $mail->addAddress($email);
+
+            $emailContent = "
+            <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;'>
+                <h2 style='color: #2C3E50; text-align: center;'>Confirmation d'Inscription au Hackathon</h2>
+                <div style='background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;'>
+                    <p style='color: #2C3E50;'><strong>Cher(e) membre de l'équipe " . htmlspecialchars($_POST['nom_equipe']) . ",</strong></p>
+                    <p>Nous sommes ravis de confirmer votre inscription au Hackathon de l'INPTIC.</p>
+                    <p><strong>Matricule de l'équipe :</strong> " . $matricule . "</p>
+                    <div style='background-color: #e9ecef; padding: 15px; border-left: 4px solid #007bff; margin: 15px 0;'>
+                        <p style='margin: 0;'><strong>Informations importantes :</strong></p>
+                        <ul style='margin: 10px 0;'>
+                            <li>Le QR Code joint à cet email est votre billet d'entrée à l'événement.</li>
+                            <li>Ce QR Code est unique pour toute l'équipe et servira de pass d'accès.</li>
+                            <li>Chaque membre de l'équipe reçoit une copie de ce QR Code.</li>
+                            <li>Un seul scan sera nécessaire pour valider l'entrée de toute l'équipe.</li>
+                            <li>Conservez-le précieusement, il vous sera demandé lors de votre arrivée.</li>
+                            <li>Vous pouvez le présenter en format numérique ou imprimé.</li>
+                        </ul>
+                    </div>
+                    <p>Vous trouverez en pièces jointes :</p>
+                    <ul>
+                        <li>Votre QR Code d'accès (à conserver précieusement)</li>
+                        <li>Votre PDF de confirmation officielle</li>
+                    </ul>
+                    <p style='margin-top: 20px;'>Pour toute question ou modification concernant votre inscription, n'hésitez pas à nous contacter.</p>
+                </div>
+                <p style='text-align: center; color: #6c757d; font-size: 0.9em;'>INPTIC - Hackathon 2025</p>
+            </div>";
+
+            $mail->msgHTML($emailContent);
+            $mail->send();
+        }
+
+        $_SESSION['success'] = "Votre équipe a été inscrite avec succès veillez consulter votre boite email pour plus de détail ! Matricule : $matricule";
         header("Location: confirmation.php");
         exit();
     } catch (Exception $e) {

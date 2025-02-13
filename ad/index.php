@@ -1,3 +1,11 @@
+<?php 
+require_once '../bdd.php';
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,11 +26,14 @@
                 position: fixed;
                 z-index: 50;
                 transition: transform 0.3s ease-in-out;
+                width: 100%;
+                max-width: 300px;
             }
 
             .sidebar-mobile.active {
                 transform: translateX(0);
             }
+
             .overlay {
                 display: none;
                 position: fixed;
@@ -33,12 +44,28 @@
                 background: rgba(0, 0, 0, 0.5);
                 z-index: 40;
             }
+
             .overlay.active {
                 display: block;
             }
         }
+
+        @media (max-width: 640px) {
+            .header-title {
+                font-size: 1rem;
+            }
+
+            .announcement-title {
+                font-size: 1.25rem;
+            }
+
+            .announcement-text {
+                font-size: 0.875rem;
+            }
+        }
     </style>
 </head>
+
 <body class="bg-gray-50">
     <!-- Overlay pour mobile -->
     <div class="overlay" id="sidebar-overlay">
@@ -55,7 +82,7 @@
                     <h2 class="text-2xl font-bold">
                         INNOVATION DAYS <span class="mx-90"></span> <?php echo '20' . date('y'); ?>
                     </h2>
-                    
+
 
                 </div>
                 <hr>
@@ -87,30 +114,27 @@
         <div class="flex-1 flex flex-col overflow-hidden">
             <!-- Header responsive -->
             <header class="bg-white border-b border-gray-200">
-                <div class="flex items-center justify-between px-4 py-4 sm:px-6">
-                    <div class="flex items-center">
-                        <button class="text-gray-500 hover:text-gray-600 lg:hidden" id="sidebar-toggle">
+                <div class="flex items-center justify-between px-2 py-2 sm:px-6 sm:py-4">
+                    <div class="flex items-center space-x-2 sm:space-x-4">
+                        <button class="text-gray-500 hover:text-gray-600 lg:hidden p-2" id="sidebar-toggle">
                             <i class="fas fa-bars"></i>
                         </button>
-
-                        <img src="../assets/logoinptic.png" alt="Logo" class="w-30 h-10 mr-3">
-
-                        <h3 class="text-lg sm:text-xl font-bold "> BIENVENUE </h3>
-
+                        <img src="../assets/logoinptic.png" alt="Logo" class="w-20 h-8 sm:w-30 sm:h-10">
+                        <h3 class="header-title text-base sm:text-lg font-bold hidden sm:block">BIENVENUE</h3>
                     </div>
 
-                    <div class="flex items-center space-x-4">
-                        <button class="relative p-2 text-gray-400 hover:text-gray-500">
-                            <i class="fas fa-bell"></i>
+                    <div class="flex items-center space-x-2 sm:space-x-4">
+                        <!-- <button class="relative p-2 text-gray-400 hover:text-gray-500">
+                            <i class="fas fa-bell text-sm sm:text-base"></i>
                             <span class="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
-                        </button>
-                        <div class="flex items-center">
-                            <img src="https://via.placeholder.com/40" alt="Profile" class="w-8 h-8 rounded-full">
-                            <div class="ml-3 hidden sm:block">
+                        </button> -->
+                        <!-- <div class="flex items-center">
+                            <img src="https://via.placeholder.com/40" alt="Profile" class="w-6 h-6 sm:w-8 sm:h-8 rounded-full">
+                            <div class="ml-2 sm:ml-3 hidden sm:block">
                                 <p class="text-sm font-medium text-gray-700">Admin</p>
                                 <p class="text-xs text-gray-500">Administrateur</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </header>
@@ -159,7 +183,7 @@
                         include("./views/defi.php");
                     } elseif ($_GET['page'] == "jugement") {
                         include("./views/jugement.php");
-                    }elseif ($_GET['page'] == "message") {
+                    } elseif ($_GET['page'] == "message") {
                         include("./views/message.php");
                     }
                 }
@@ -176,8 +200,27 @@
     <script>
         // Configuration des sliders avec breakpoints améliorés
         document.addEventListener('DOMContentLoaded', function() {
-            // Toggle sidebar sur mobile
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const sidebar = document.querySelector('.sidebar-mobile');
+            const overlay = document.getElementById('sidebar-overlay');
 
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+            });
+
+            overlay.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+
+            // Fermer la sidebar si la fenêtre est redimensionnée au-dessus de 1024px
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 1024) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
 
             // Slider pour les annonces avec config responsive
             new Swiper('.announcementSwiper', {

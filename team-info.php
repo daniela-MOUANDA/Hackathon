@@ -146,6 +146,10 @@ try {
                 </div>
                 <div class="card-body p-4">
                     <div class="description-section">
+                    <h2 class="section-title">
+                            <i class="fas fa-info-circle"></i>
+                            INNOVATION DAYS 2025
+                        </h2>
                         <h4 class="section-title">
                             <i class="fas fa-info-circle"></i>
                             Description de l'équipe

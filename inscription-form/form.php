@@ -1,16 +1,16 @@
 <!-- Section Formulaire avec nouveau style -->
-<section id="inscription" class="py-20 px-6 techies-bg">
+<section id="inscription" class="py-10 md:py-20 px-4 md:px-6 techies-bg">
     <div class="container mx-auto max-w-6xl">
-        <div class="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0 rounded-3xl overflow-hidden">
             <!-- Colonne de gauche - Info -->
-            <div class="bg-gradient-to-br from-blue-600 via-purple-600 to-violet-800 p-12 relative overflow-hidden">
+            <div class="bg-gradient-to-br from-blue-600 via-purple-600 to-violet-800 p-6 md:p-12 relative overflow-hidden">
                 <div class="absolute inset-0 bg-black opacity-20"></div>
                 <div class="relative z-10">
-                    <img src="assets/logoinptic.png" alt="Logo" class="w-32 mb-8">
-                    <h2 class="text-3xl font-bold mb-6 text-[#CCFF00]">Inscription</h2>
-                    <p class="text-lg mb-8 text-white">Rejoignez l'Innovation Days 2025 pour 72 heures de création, d'innovation et de collaboration.</p>
+                    <img src="assets/logoinptic.png" alt="Logo" class="w-24 md:w-32 mb-6 md:mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-[#CCFF00]">Inscription</h2>
+                    <p class="text-base md:text-lg mb-6 md:mb-8 text-white">Rejoignez l'Innovation Days 2025 pour 72 heures de création, d'innovation et de collaboration.</p>
 
-                    <div class="space-y-6 text-white">
+                    <div class="space-y-4 md:space-y-6 text-white">
                         <div class="flex items-center">
                             <svg class="w-6 h-6 mr-3 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -35,11 +35,11 @@
             </div>
 
             <!-- Colonne de droite - Formulaire -->
-            <div class="bg-black p-12 relative">
+            <div class="bg-black p-6 md:p-12 relative">
                 <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-95"></div>
                 <div class="relative z-10">
                     <!-- Barre de progression -->
-                    <div class="mb-8">
+                    <div class="mb-6 md:mb-8">
                         <div class="flex justify-between mb-2">
                             <span class="text-sm text-[#CCFF00]" id="progress-text">Étape 1 sur 6</span>
                             <span class="text-sm text-[#CCFF00]" id="progress-percentage">16%</span>
@@ -49,8 +49,8 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-center mb-8">
-                        <div class="flex items-center">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-8">
+                        <div class="flex items-center mb-4 md:mb-0">
                             <!-- Icône dynamique -->
                             <div id="step-icon" class="mr-4 text-[#CCFF00]">
                                 <!-- L'icône sera mise à jour par JavaScript -->
@@ -60,7 +60,7 @@
                             </div>
                             <h3 class="text-2xl font-bold text-[#CCFF00]">Informations personnelles</h3>
                         </div>
-                        <div class="flex space-x-4">
+                        <div class="flex space-x-2 md:space-x-4">
                             <div class="w-3 h-3 bg-[#CCFF00] rounded-full" id="step1-dot"></div>
                             <div class="w-3 h-3 bg-gray-700 rounded-full" id="step2-dot"></div>
                             <div class="w-3 h-3 bg-gray-700 rounded-full" id="step3-dot"></div>
@@ -73,21 +73,23 @@
                     <form id="registration-form" action="/hackathon/inscription-form/traitement.php" method="POST" enctype="multipart/form-data">
                         <!-- Étape 1 -->
                         <div class="form-step" id="step1">
-                            <div class="form-group">
-                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Nom de l'équipe*</label>
-                                <input type="text" name="nom_equipe" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
-                            </div>
+                            <div class="space-y-4 md:space-y-6">
+                                <div class="form-group">
+                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Nom de l'équipe*</label>
+                                    <input type="text" name="nom_equipe" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+                                </div>
 
-                            <div class="form-group">
-                                <label class="block text-sm font-medium text-[#CCFF00] mb-2">Description de l'équipe</label>
-                                <textarea name="description_equipe" rows="3" class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all"></textarea>
+                                <div class="form-group">
+                                    <label class="block text-sm font-medium text-[#CCFF00] mb-2">Description de l'équipe</label>
+                                    <textarea name="description_equipe" rows="3" class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all"></textarea>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Étape 2 - Chef d'équipe -->
                         <div class="form-step hidden" id="step2">
-                            <h4 class="text-xl font-bold text-[#CCFF00] mb-4">Chef d'équipe</h4>
-                            <div class="grid md:grid-cols-2 gap-6">
+                            <h4 class="text-lg md:text-xl font-bold text-[#CCFF00] mb-4">Chef d'équipe</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                 <div class="form-group">
                                     <label class="block text-sm font-medium text-[#CCFF00] mb-2">Nom*</label>
                                     <input type="text" name="chef_nom" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
@@ -110,14 +112,13 @@
                                     <option value="marketeur">Marketing</option>
                                 </select>
                             </div>
-
                         </div>
 
                         <!-- Étapes 3-5 - Membres -->
                         <?php for ($i = 1; $i <= 3; $i++) : ?>
                             <div class="form-step hidden" id="step<?php echo $i + 2; ?>">
-                                <h4 class="text-xl font-bold text-[#CCFF00] mb-4">Membre <?php echo $i; ?></h4>
-                                <div class="grid md:grid-cols-2 gap-6">
+                                <h4 class="text-lg md:text-xl font-bold text-[#CCFF00] mb-4">Membre <?php echo $i; ?></h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                     <div class="form-group">
                                         <label class="block text-sm font-medium text-[#CCFF00] mb-2">Nom*</label>
                                         <input type="text" name="membre<?php echo $i; ?>_nom" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
@@ -170,23 +171,21 @@
                             </div>
                         </div>
 
-                        <!-- Boutons de navigation avec nouveau style -->
-                        <div class="flex justify-between mt-6">
-                            <button type="button" id="prevBtn" class="hidden bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:from-purple-700 hover:to-blue-700 transition-all flex items-center">
+                        <!-- Boutons de navigation -->
+                        <div class="flex flex-col md:flex-row justify-between gap-4 mt-6">
+                            <button type="button" id="prevBtn" class="hidden w-full md:w-auto bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:from-purple-700 hover:to-blue-700 transition-all flex items-center justify-center">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                                 </svg>
                                 Précédent
                             </button>
-                            <button type="button" id="nextBtn" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center">
+                            <button type="button" id="nextBtn" class="w-full md:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center justify-center">
                                 Suivant
                                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
-
-                            <!-- Bouton de soumission -->
-                            <button type="submit" id="submitBtn" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center">
+                            <button type="submit" id="submitBtn" class="w-full md:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center justify-center">
                                 Soumettre
                                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -205,7 +204,7 @@
         <div class="flex flex-col md:flex-row items-center gap-12">
             <!-- Image à gauche -->
             <div class="md:w-1/2">
-                <img src="assets/im1.png" alt="Innovation Days" class="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <img src="assets/m4.jpg" alt="Innovation Days" class="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300">
             </div>
 
             <!-- Contenu à droite -->

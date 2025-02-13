@@ -24,7 +24,7 @@ session_start();
                         <p class="text-gray-300"><?php echo $_SESSION['success']; ?></p>
                         <?php if (strpos($_SESSION['success'], 'matricule') !== false): ?>
                             <div class="mt-4 p-3 bg-gray-600 rounded border border-gray-500">
-                                <p class="text-sm text-gray-300">Conservez précieusement votre matricule, il vous sera demandé ultérieurement.</p>
+                               
                             </div>
                         <?php endif; ?>
                     </div>

@@ -79,13 +79,13 @@
 
             <!-- Menu mobile -->
             <div id="mobile-menu" class="lg:hidden hidden">
-                <div class="flex flex-col space-y-2 mt-4 bg-gray-900/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
-                    <a href="#accueil" class="mobile-nav-link">Accueil</a>
-                    <a href="#apropos" class="mobile-nav-link">À propos</a>
-                    <a href="#criteres" class="mobile-nav-link">Critères</a>
-                    <a href="#programme" class="mobile-nav-link">Programme</a>
-                    <a href="#recompenses" class="mobile-nav-link">Récompenses</a>
-                    <a href="#inscription" class="mobile-nav-link">Inscription</a>
+                <div class="flex flex-col space-y-2 mt-4 bg-black/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+                    <a href="#accueil" class="mobile-nav-link bg-black hover:bg-gray-900">Accueil</a>
+                    <a href="#apropos" class="mobile-nav-link bg-black hover:bg-gray-900">À propos</a>
+                    <a href="#criteres" class="mobile-nav-link bg-black hover:bg-gray-900">Critères</a>
+                    <a href="#programme" class="mobile-nav-link bg-black hover:bg-gray-900">Programme</a>
+                    <a href="#recompenses" class="mobile-nav-link bg-black hover:bg-gray-900">Récompenses</a>
+                    <a href="#inscription" class="mobile-nav-link bg-black hover:bg-gray-900">Inscription</a>
                 </div>
             </div>
         </div>
@@ -738,8 +738,8 @@
     </section>
 
     <!-- Section Partenaires -->
-  
- <?php  include 'sections/partenaire.php';  ?>
+
+    <?php include 'sections/partenaire.php';  ?>
 
     <footer class="bg-gray-800 py-12">
         <div class="container mx-auto px-6 text-center">
