@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 11 fév. 2025 à 20:14
+-- Généré le : ven. 14 fév. 2025 à 15:56
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -46,7 +46,11 @@ INSERT INTO `equipes` (`id`, `nom_equipe`, `description_equipe`, `document_path`
 (11, 'boussengu jacques', 'fdh', NULL, '2025-02-11 18:51:07', '4WMV1OEE'),
 (12, 'boussengu jacques', 'f', NULL, '2025-02-11 18:54:40', 'DGVNF7OR'),
 (13, 'r', 'g', NULL, '2025-02-11 18:57:24', '7FEFLNAQ'),
-(14, 'g', 'dkde', NULL, '2025-02-11 19:12:13', '7YDJA1OI');
+(14, 'g', 'dkde', NULL, '2025-02-11 19:12:13', '7YDJA1OI'),
+(15, 'd', 'd', NULL, '2025-02-11 21:38:50', 'K6CZOAGG'),
+(16, 'd', 'd', NULL, '2025-02-11 22:00:25', '8W1K2ZGN'),
+(17, 'd', 'q', NULL, '2025-02-11 22:01:16', 'O4JRQBIE'),
+(18, 'd', 'd', 'documents/BFK9837Y_justificatif.pdf', '2025-02-13 08:44:48', 'BFK9837Y');
 
 -- --------------------------------------------------------
 
@@ -93,7 +97,23 @@ INSERT INTO `membres` (`id`, `equipe_id`, `nom`, `prenom`, `email`, `role`, `is_
 (21, 14, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'developpeur', 1, '2025-02-11 19:12:13'),
 (22, 14, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'developpeur', 0, '2025-02-11 19:12:13'),
 (23, 14, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'technicien_reseau', 0, '2025-02-11 19:12:13'),
-(24, 14, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'marketeur', 0, '2025-02-11 19:12:13');
+(24, 14, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'marketeur', 0, '2025-02-11 19:12:13'),
+(25, 15, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'developpeur', 1, '2025-02-11 21:38:50'),
+(26, 15, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'developpeur', 0, '2025-02-11 21:38:50'),
+(27, 15, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'technicien_reseau', 0, '2025-02-11 21:38:50'),
+(28, 15, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'marketeur', 0, '2025-02-11 21:38:50'),
+(29, 16, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'developpeur', 1, '2025-02-11 22:00:25'),
+(30, 16, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'developpeur', 0, '2025-02-11 22:00:25'),
+(31, 16, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'technicien_reseau', 0, '2025-02-11 22:00:25'),
+(32, 16, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'marketeur', 0, '2025-02-11 22:00:25'),
+(33, 17, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'developpeur', 1, '2025-02-11 22:01:16'),
+(34, 17, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'developpeur', 0, '2025-02-11 22:01:16'),
+(35, 17, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'technicien_reseau', 0, '2025-02-11 22:01:16'),
+(36, 17, 'jacques', 'boussengu', 'jacquesboussengui@gmail.com', 'marketeur', 0, '2025-02-11 22:01:16'),
+(37, 18, 'Danis', 'Jacques', 'jacquesboussengui@gmail.com', 'developpeur', 1, '2025-02-13 08:44:48'),
+(38, 18, 'Danis', 'Jacques', 'danis.aff23@gmail.com', 'developpeur', 0, '2025-02-13 08:44:48'),
+(39, 18, 'Danis', 'Jacques', 'rboussomena241@gmail.com', 'technicien_reseau', 0, '2025-02-13 08:44:48'),
+(40, 18, 'Danis', 'Jacques', 'admin@gmail.com', 'marketeur', 0, '2025-02-13 08:44:48');
 
 --
 -- Index pour les tables déchargées
@@ -120,13 +140,13 @@ ALTER TABLE `membres`
 -- AUTO_INCREMENT pour la table `equipes`
 --
 ALTER TABLE `equipes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `membres`
 --
 ALTER TABLE `membres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- Contraintes pour les tables déchargées
