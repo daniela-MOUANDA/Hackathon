@@ -1,4 +1,4 @@
-<section id="partenaires" class="py-20 px-6 bg-gray-800">
+<section id="partenaires" class="py-20 px-6 ">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center mb-12 text-[#CCFF00]">Nos Partenaires</h2>
 
@@ -10,7 +10,7 @@
                 <div class="swiper-wrapper">
                     <!-- Partenaire 1 -->
                     <div class="swiper-slide">
-                        <div class="bg-gray-900/50 p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
+                        <div class=" p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
                             <div class="flex justify-center items-center h-32 mb-4">
                                 <img src="https://cdn-webportal.airtelstream.net/website/gabon/assets/images/airtel-french-logo.svg"
                                     alt="Logo Partenaire"
@@ -22,7 +22,7 @@
 
                     <!-- Partenaire 2 -->
                     <div class="swiper-slide">
-                        <div class="bg-gray-900/50 p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
+                        <div class="p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
                             <div class="flex justify-center items-center h-32 mb-4">
                                 <img src="https://www.ubagroup.com/nigeria/wp-content/uploads/sites/3/2018/06/UBA-Logo.svg"
                                     alt="Logo Partenaire"
@@ -34,7 +34,7 @@
 
                     <!-- Partenaire 3 -->
                     <div class="swiper-slide">
-                        <div class="bg-gray-900/50 p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
+                        <div class="p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
                             <div class="flex justify-center items-center h-32 mb-4">
                                 <img src="https://www.moov-africa.ga/PublishingImages/icon/logo.png"
                                     alt="Logo Partenaire"
@@ -46,7 +46,7 @@
 
                     <!-- Partenaire 4 -->
                     <div class="swiper-slide">
-                        <div class="bg-gray-900/50 p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
+                        <div class="p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
                             <div class="flex justify-center items-center h-32 mb-4">
                                 <img src="https://www.arcep.ga/assets/img/logo.png"
                                     alt="Logo Partenaire"
@@ -58,7 +58,7 @@
 
                     <!-- Partenaire 5 -->
                     <div class="swiper-slide">
-                        <div class="bg-gray-900/50 p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
+                        <div class=" p-8 rounded-xl hover:bg-gray-900 transition-all duration-300 group mx-4">
                             <div class="flex justify-center items-center h-32 mb-4">
                                 <img src="https://aninf.ga/wp-content/uploads/2024/07/logo_ANINF-1.png"
                                     alt="Logo Partenaire"

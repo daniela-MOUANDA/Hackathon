@@ -3,7 +3,7 @@
     <div class="container mx-auto max-w-6xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0 rounded-3xl overflow-hidden">
             <!-- Colonne de gauche - Info -->
-            <div class="bg-gradient-to-br from-blue-600 via-purple-600 to-violet-800 p-6 md:p-12 relative overflow-hidden">
+            <div class="bg-gradient-to-br from-blue-600 via-bleu-600 to-violet-800 p-6 md:p-12 relative overflow-hidden">
                 <div class="absolute inset-0 bg-black opacity-20"></div>
                 <div class="relative z-10">
                     <img src="assets/logoinptic.png" alt="Logo" class="w-24 md:w-32 mb-6 md:mb-8">
@@ -204,7 +204,7 @@
         <div class="flex flex-col md:flex-row items-center gap-12">
             <!-- Image à gauche -->
             <div class="md:w-1/2">
-                <img src="assets/m4.jpg" alt="Innovation Days" class="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <img src="assets/r.jpg" alt="Innovation Days" class="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-300">
             </div>
 
             <!-- Contenu à droite -->
@@ -251,7 +251,7 @@
 
 
 <!-- Section Support et Mentorat -->
-<section id="support" class="py-20 px-6 bg-gray-800">
+<section id="support" class="py-20 px-6 ">
     <div class="container mx-auto">
         <h2 class="text-4xl font-bold text-center mb-12">Support & Mentorat</h2>
         <div class="grid md:grid-cols-3 gap-8">
@@ -311,7 +311,7 @@
         <h2 class="text-4xl font-bold text-center mb-12">Processus de Soumission</h2>
         <div class="grid md:grid-cols-2 gap-12">
             <div class="space-y-6">
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-l-4 border-[#CCFF00]">
+                <div class="bg-gray-600 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-l-4 border-[#CCFF00]">
                     <h3 class="text-xl font-bold mb-6 text-[#CCFF00] flex items-center">
                         <span class="bg-[#CCFF00] text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">1</span>
                         Livrables Requis
@@ -339,7 +339,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-l-4 border-[#CCFF00]">
+                <div class=" bg-gray-600 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-l-4 border-[#CCFF00]">
                     <h3 class="text-xl font-bold mb-6 text-[#CCFF00] flex items-center">
                         <span class="bg-[#CCFF00] text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">2</span>
                         Critères d'Évaluation
@@ -365,7 +365,7 @@
                 </div>
             </div>
             <div class="space-y-6">
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-l-4 border-[#CCFF00]">
+                <div class="bg-gray-600 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-l-4 border-[#CCFF00]">
                     <h3 class="text-xl font-bold mb-6 text-[#CCFF00] flex items-center">
                         <span class="bg-[#CCFF00] text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">3</span>
                         Récompenses Détaillées
@@ -782,7 +782,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-gray-800 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <div class="bg-gray-600 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                 <button type="button" onclick="closeCguModal()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-base font-medium text-white hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
                     J'ai compris
                 </button>
