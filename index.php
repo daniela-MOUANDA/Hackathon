@@ -1224,6 +1224,59 @@
     });
 </script>
 
+
+
+
+
+<!-- Ajout des styles et scripts du chatbot -->
+<link rel="stylesheet" href="bot/style.css?v=1.0"> <!-- Added versioning to ensure style consistency -->
+
+  <div id="chat-popup" class="chat-popup">
+    <div class="chat-header" style="display: flex; align-items: center; justify-content: space-between; padding: 10px;color: white; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+        <img src="tchat-bot/logoinptic.png" alt="INPTIC 2025" class="logo" style="width: 50px; height: auto; margin-right: auto;">
+        <h2 style="flex-grow: 1; text-align: center; margin: 0;">INPTIC 2025</h2>
+        <button id="close-chat" class="close-btn" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer; margin-left: auto; box-shadow: none;">&times;</button>
+    </div>
+    <div class="chat-body">
+        <p>Bonjour ! Posez moi une question</p>
+        <button class="chat-option">Quels sont les prérequis pour postuler au concours d'entrée ?</button>
+        <button class="chat-option">Quelles sont les filières disponibles à l’INPTIC ?</button>
+        <button class="chat-option">Quels sont les frais d’inscription après le concours ?</button>
+        <button class="chat-option">Quelles sont les options pour ceux qui souhaitent postuler en Licence 2 ou Licence 3 ?</button>
+        <button class="chat-option">Comment puis-je suivre ma candidature sur le portail ?</button>
+        <button class="chat-option">Quels sont les frais pour les formations professionnelles ?</button>
+        <button class="chat-option">Puis-je postuler à une formation professionnelle sans baccalauréat ?</button>
+        <button class="chat-option">Quelles certifications peuvent être obtenues après une formation professionnelle ?</button>
+    </div>
+    <div class="chat-footer">
+        <input type="text" placeholder="Poser une question" id="user-input">
+        <button id="send-btn">Envoyer</button>
+    </div>
+  </div>
+
+  <div id="open-chat" class="open-chat" style="display: flex;margin-bottom: 35px;">
+    <img src="tchat-bot/logoinptic.png" alt="INPTIC 2025" class="chat-icon">
+  </div>
+
+  <script src="tchat-bot/script.js"></script>
+  <!-- End Generation Here -->
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const chatPopup = document.getElementById('chat-popup');
+        const openChat = document.getElementById('open-chat');
+        const closeChat = document.getElementById('close-chat');
+
+        openChat.addEventListener('click', function() {
+            gsap.to(chatPopup, { duration: 0.3, opacity: 1, display: 'block', ease: 'power2.out' });
+        });
+
+        closeChat.addEventListener('click', function() {
+            gsap.to(chatPopup, { duration: 0.3, opacity: 0, display: 'none', ease: 'power2.in' });
+        });
+    });
+</script>
 </body>
 
 </html>
