@@ -212,195 +212,298 @@
             transform: translateY(0);
         }
     </style>
-<section id="partenaires" class="py-13 px-6" style="background-color: #028090;">
-    <div class="container mx-auto">
-        <!-- Ajout des liens Swiper -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!-- Navigation -->
+<nav class="fixed w-full z-50 bg-black" style="top: 40px;">
+    <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+            <!-- Logo et titre -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <img src="assets/r.jpg" alt="Logo INPTIC" class="h-7 sm:h-9 md:h-8 w-auto">
+                <div class="text-sm sm:text-xl md:text-2xl font-bold truncate">Innovation Days 2025</div>
+            </div>
 
+            <!-- Menu hamburger pour mobile et tablette -->
+            <button id="menu-toggle" class="lg:hidden text-white focus:outline-none p-2 hover:bg-gray-800 rounded-lg transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path class="menu-open block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <path class="menu-close hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Menu de navigation desktop -->
+            <div class="hidden lg:flex space-x-6 xl:space-x-8">
+                <a href="#accueil" class="nav-link">Accueil</a>
+                <a href="#apropos" class="nav-link">À propos</a>
+                <a href="#criteres" class="nav-link">Critères</a>
+                <a href="#programme" class="nav-link">Programme</a>
+                <a href="#recompenses" class="nav-link">Récompenses</a>
+                <a href="#inscription" class="nav-link">Inscription</a>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="lg:hidden hidden">
+            <div class="flex flex-col space-y-2 mt-4 bg-black/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+                <a href="#accueil" class="mobile-nav-link bg-black hover:bg-gray-900">Accueil</a>
+                <a href="#apropos" class="mobile-nav-link bg-black hover:bg-gray-900">À propos</a>
+                <a href="#criteres" class="mobile-nav-link bg-black hover:bg-gray-900">Critères</a>
+                <a href="#programme" class="mobile-nav-link bg-black hover:bg-gray-900">Programme</a>
+                <a href="#recompenses" class="mobile-nav-link bg-black hover:bg-gray-900">Récompenses</a>
+                <a href="#inscription" class="mobile-nav-link bg-black hover:bg-gray-900">Inscription</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Barre de navigation des partenaires -->
+<section id="partenaires-hero" class="py-0" style="background-color: rgba(0, 0, 0, 0.8); position: fixed; top: 90px; left: 0; width: 100%; z-index: 40;">
+    <div class="container mx-auto">
         <!-- Swiper -->
         <div class="swiper partenairesSwiper">
             <div class="swiper-wrapper">
-                <!-- Répéter les éléments pour le défilement fluide -->
                 <!-- Partenaire 1 -->
                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
+                    <div class="flex justify-center items-center h-10">
                         <img src="https://cdn-webportal.airtelstream.net/website/gabon/assets/images/airtel-french-logo.svg"
                             alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-white">AIRTEL GABON</h3>
                 </div>
                 <!-- Partenaire 2 -->
                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
+                    <div class="flex justify-center items-center h-10">
                         <img src="https://www.ubagroup.com/nigeria/wp-content/uploads/sites/3/2018/06/UBA-Logo.svg"
                             alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-white">UBA</h3>
                 </div>
                 <!-- Partenaire 3 -->
                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
+                    <div class="flex justify-center items-center h-10">
                         <img src="https://www.moov-africa.ga/PublishingImages/icon/logo.png"
                             alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-white">MOOV AFRICA GABON TELECOM</h3>
                 </div>
                 <!-- Partenaire 4 -->
                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
+                    <div class="flex justify-center items-center h-10">
                         <img src="https://www.arcep.ga/assets/img/logo.png"
                             alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-white">ARCEP</h3>
                 </div>
                 <!-- Partenaire 5 -->
                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
+                    <div class="flex justify-center items-center h-10">
                         <img src="https://aninf.ga/wp-content/uploads/2024/07/logo_ANINF-1.png"
                             alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-white">ANINF</h3>
                 </div>
 
-                <!-- Répétition des slides pour l'effet fluide -->
-                <!-- Partenaire 1 -->
+                <!-- Dupliquer les slides pour créer une boucle fluide -->
+                <!-- Partenaire 1 (répété) -->
                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
+                    <div class="flex justify-center items-center h-10">
                         <img src="https://cdn-webportal.airtelstream.net/website/gabon/assets/images/airtel-french-logo.svg"
                             alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-white">AIRTEL GABON</h3>
                 </div>
-               
-                <!-- Partenaire 3 -->
+                <!-- Partenaire 2 (répété) -->
                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
+                    <div class="flex justify-center items-center h-10">
+                        <img src="https://www.ubagroup.com/nigeria/wp-content/uploads/sites/3/2018/06/UBA-Logo.svg"
+                            alt="Logo Partenaire"
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
+                    </div>
+                </div>
+                <!-- Partenaire 3 (répété) -->
+                <div class="swiper-slide">
+                    <div class="flex justify-center items-center h-10">
                         <img src="https://www.moov-africa.ga/PublishingImages/icon/logo.png"
                             alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-white">MOOV AFRICA GABON TELECOM</h3>
                 </div>
-                <!-- Partenaire 4 -->
+                <!-- Partenaire 4 (répété) -->
                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
+                    <div class="flex justify-center items-center h-10">
                         <img src="https://www.arcep.ga/assets/img/logo.png"
                             alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-white">ARCEP</h3>
                 </div>
-                 <!-- Partenaire 2 -->
-                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
-                        <img src="https://www.ubagroup.com/nigeria/wp-content/uploads/sites/3/2018/06/UBA-Logo.svg"
-                            alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
-                    </div>
-                    <h3 class="text-xl font-bold text-center text-white">UBA</h3>
-                </div> <!-- Partenaire 2 -->
+                <!-- Partenaire 5 (répété) -->
                 <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
-                        <img src="https://www.ubagroup.com/nigeria/wp-content/uploads/sites/3/2018/06/UBA-Logo.svg"
-                            alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
-                    </div>
-                    <h3 class="text-xl font-bold text-center text-white">UBA</h3>
-                </div>
-                <!-- Partenaire 5 -->
-                <div class="swiper-slide">
-                    <div class="flex justify-center items-center h-32 mb-4">
+                    <div class="flex justify-center items-center h-10">
                         <img src="https://aninf.ga/wp-content/uploads/2024/07/logo_ANINF-1.png"
                             alt="Logo Partenaire"
-                            class="max-h-24 max-w-full object-contain transition-all duration-300">
+                            class="max-h-12 max-w-full object-contain transition-all duration-300">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-white">ANINF</h3>
                 </div>
             </div>
         </div>
     </div>
-
-    <style>
-        .swiper {
-            width: 100%;
-            padding: 20px 0;
-            overflow: hidden;
-        }
-
-        .swiper-wrapper {
-            display: flex;
-            animation: scroll 10s linear infinite; /* Défilement fluide sur 10 secondes */
-        }
-
-        .swiper-slide {
-            flex: 0 0 auto;
-            width: 200px;
-            margin-right: 10px; /* Espacement entre les slides */
-        }
-
-        .swiper-pagination {
-            display: none; /* Masquer la pagination */
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%); /* Déplace toutes les slides à gauche */
-            }
-        }
-    </style>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </section>
 
+<style>
+    /* Ajout d'une règle globale pour le texte */
+    * {
+        color: white !important;
+    }
+
+    /* Exception pour les éléments qui doivent garder leur couleur spécifique */
+    .text-\[#CCFF00\],
+    .text-purple-400,
+    .hover\:text-\[#CCFF00\]:hover,
+    .hover\:text-purple-300:hover {
+        color: inherit !important;
+    }
+
+    @keyframes pulse-zoom {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
+    .animate-pulse-zoom {
+        animation: pulse-zoom 2s infinite;
+    }
+
+    .countdown-item {
+        transition: all 0.3s ease;
+    }
+
+    .countdown-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 640px) {
+        .countdown-item {
+            width: 100%;
+        }
+    }
+
+    .nav-link {
+        @apply text-white hover:text-[#CCFF00] transition-colors duration-300 text-sm xl:text-base font-medium;
+    }
+
+    .mobile-nav-link {
+        @apply text-white hover:text-[#CCFF00] transition-colors duration-300 py-3 px-4 rounded-lg hover:bg-gray-800/50 text-sm font-medium;
+    }
+
+    /* Animation pour le menu mobile */
+    #mobile-menu {
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    #mobile-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Style pour la barre de navigation des partenaires */
+    #partenaires-hero {
+        background-color: rgba(31, 31, 31, 0.8); /* Fond noir transparent */
+        position: fixed;
+        top: 90px; /* Ajuste la position selon la hauteur de ta nav principale */
+        left: 0;
+        width: 100%;
+        z-index: 40;
+    }
+
+    /* Style pour le Swiper */
+    .swiper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Masque les slides qui sortent de la zone */
+    }
+
+    .swiper-wrapper {
+        display: flex;
+        animation: scrolling 20s linear infinite; /* Défilement continu */
+    }
+
+    .swiper-slide {
+        flex-shrink: 0; /* Empêche les slides de se réduire */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        max-height: 50px; /* Réduit la taille des logos */
+        transition: transform 0.3s ease;
+    }
+
+    .swiper-slide img:hover {
+        transform: scale(1.1); /* Légère mise à l'échelle au survol */
+    }
+
+    @keyframes scrolling {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%); /* Fait défiler tout le carrousel à gauche */
+        }
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</section>
 
 <section id="apropo" class="py-20 px-6 ">
     <div class="container mx-auto">
         <h2 class="text-4xl font-bold text-center mb-12 text-[#CCFF00]">À propos des Journées de l'Innovation</h2>
-
         <p class="text-white mb-12 text-lg text-center max-w-3xl mx-auto">
             Les Journées de l'Innovation sont une initiative visant à promouvoir l'innovation technologique et à encourager
-            la créativité des étudiants. Cet événement rassemble les talents pour créer des solutions innovantes.
+            la créativité des amoureux du digital. Cet événement rassemble les talents pour créer des solutions innovantes.
         </p>
-
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Bloc 1 -->
             <div class="bg-gray-600 p-8 rounded-xl hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                 <div class="flex justify-center mb-6">
-                    <!-- Icône -->
                     <svg class="w-16 h-16 text-[#028090]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
                 <h3 class="text-xl font-bold text-center text-[#CCFF00] mb-4">Durée</h3>
-                <p class="text-white text-center">72 heures de compétition intensive pour développer des solutions innovantes</p>
+                <div class="text-white text-center">
+                    <p class="mb-2">23 - 25 Mars, 2025</p>
+                    <p>8:00 - 17:00 GMT</p>
+                </div>
             </div>
-
             <!-- Bloc 2 -->
             <div class="bg-gray-600 p-8 rounded-xl hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                 <div class="flex justify-center mb-6">
-                    <!-- Icône -->
                     <svg class="w-16 h-16 text-[#028090]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                 </div>
                 <h3 class="text-xl font-bold text-center text-[#CCFF00] mb-4">Lieu</h3>
-                <p class="text-white text-center">INPTIC - Institut National de la Poste, des TIC</p>
+                <p class="text-white text-center">
+                    <a href="https://www.google.com/maps/place/Inptic+Gabon/@0.419177,9.4306484,17z/data=!3m1!4b1!4m6!3m5!1s0x107f3b133a97a415:0x992ce03950cc7c1b!8m2!3d0.4191716!4d9.4332233!16s%2Fg%2F11b77ffxpp?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" 
+                       class="text-[#CCFF00] hover:text-[#a3cc00] transition-colors duration-300">
+                        VOIR
+                    </a>
+                </p>
             </div>
-
             <!-- Bloc 3 -->
             <div class="bg-gray-600 p-8 rounded-xl hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                 <div class="flex justify-center mb-6">
-                    <!-- Icône -->
                     <svg class="w-16 h-16 text-[#028090]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -784,38 +887,50 @@
 
     <?php include 'sections/partenaire.php';  ?>
     
-    <footer class="py-10 bg-black">
-    <div class="container mx-auto px-6 flex justify-between items-center">
+    <footer class="py-5 bg-black">
+    <div class="container mx-auto flex justify-between items-center">
         <!-- Logo à gauche -->
         <div class="flex items-center space-x-4">
             <img src="assets/r.jpg" alt="Logo" class="w-80 h-50">
-           
         </div>
-        <p class="text-white">Innovation Days 2025 - INPTIC</p>
-        <!-- Liens sociaux à droite -->
-        <div class="flex space-x-6">
-                    <a href="https://www.facebook.com/share/19yadQcZ1c/" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
-                        </svg>
-                        <span class="ml-2 hidden sm:inline text-white">Facebook</span>
-                    </a>
-                    <a href="https://youtube.com/@inpticgabonofficiel?si=b850Blht_rC328d7" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.5,6.2A3,3,0,0,0,21.4,4c-2-.2-6.2-.3-10.4-.3S2.6,3.8.6,4A3,3,0,0,0-1.5,6.2,31.8,31.8,0,0,0-2,12a31.8,31.8,0,0,0,.5,5.8A3,3,0,0,0,.6,20c2,.2,6.2.3,10.4.3s8.4-.1,10.4-.3a3,3,0,0,0,2.1-2.2A31.8,31.8,0,0,0,24,12,31.8,31.8,0,0,0,23.5,6.2ZM9.5,15.8V8.2l6.7,3.8Z" />
-                        </svg>
-                        <span class="ml-2 hidden sm:inline text-white">YouTube</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@inptic.gabon.offi?_t=ZN-8tze7hcWOCE&_r=1" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19.59,6.69a4.83,4.83,0,0,1-3.77-4.25V2h-3.45V13.67a2.89,2.89,0,0,1-5.2,1.74,2.89,2.89,0,0,1,2.31-4.64,2.93,2.93,0,0,1,.88.13V7.42a6.84,6.84,0,0,0-1-.05A6.33,6.33,0,0,0,5,20.1a6.34,6.34,0,0,0,10.86-4.43v-7a8.16,8.16,0,0,0,4.77,1.52v-3.4a4.85,4.85,0,0,1-1-.1Z" />
-                        </svg>
-                        <span class="ml-2 hidden sm:inline text-white">TikTok</span>
-                    </a>
-                </div>
+         <!-- Liens sociaux à droite -->
+         <div class="flex space-x-6">
+            <a href="https://www.facebook.com/share/19yadQcZ1c/" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
+                </svg>
+                <span class="ml-2 hidden sm:inline text-white">Facebook</span>
+            </a>
+            <a href="https://youtube.com/@inpticgabonofficiel?si=b850Blht_rC328d7" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.5,6.2A3,3,0,0,0,21.4,4c-2-.2-6.2-.3-10.4-.3S2.6,3.8.6,4A3,3,0,0,0-1.5,6.2,31.8,31.8,0,0,0-2,12a31.8,31.8,0,0,0,.5,5.8A3,3,0,0,0,.6,20c2,.2,6.2.3,10.4.3s8.4-.1,10.4-.3a3,3,0,0,0,2.1-2.2A31.8,31.8,0,0,0,24,12,31.8,31.8,0,0,0,23.5,6.2ZM9.5,15.8V8.2l6.7,3.8Z" />
+                </svg>
+                <span class="ml-2 hidden sm:inline text-white">YouTube</span>
+            </a>
+            <a href="https://www.tiktok.com/@inptic.gabon.offi?_t=ZN-8tze7hcWOCE&_r=1" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19.59,6.69a4.83,4.83,0,0,1-3.77-4.25V2h-3.45V13.67a2.89,2.89,0,0,1-5.2,1.74,2.89,2.89,0,0,1,2.31-4.64,2.93,2.93,0,0,1,.88.13V7.42a6.84,6.84,0,0,0-1-.05A6.33,6.33,0,0,0,5,20.1a6.34,6.34,0,0,0,10.86-4.43v-7a8.16,8.16,0,0,0,4.77,1.52v-3.4a4.85,4.85,0,0,1-1-.1Z" />
+                </svg>
+                <span class="ml-2 hidden sm:inline text-white">TikTok</span>
+            </a>
+        </div>
+      
+    </div>
+    <!-- Copyright section -->
+    <div class="container mx-auto px-6 mt-6 border-t border-gray-800">
+        
+        <p class="text-center text-gray-400 text-sm pt-4">
+            &copy; 2025 Innovation Days - INPTIC. Tous droits réservés.
+        </p>
+        
     </div>
 </footer>
-
+<style>
+    /* Contenu de la section hero */
+    #accueil .text-center {
+        margin-top: 150px; /* Ajout d'une marge supérieure pour descendre les éléments */
+    }
+</style>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({
@@ -1277,6 +1392,9 @@
         });
     });
 </script>
+
+
+
 </body>
 
 </html>
