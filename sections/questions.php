@@ -42,7 +42,7 @@
                             <li>Un chargeur et éventuellement une multiprise</li>
                             <li>Une clé USB pour les sauvegardes</li>
                             <li>Un casque ou des écouteurs pour le travail en groupe</li>
-                            <li>Un carnet et des stylos pour la prise de notes</li>
+                            <li>Des vêtements confortables et adaptés à la durée de l'événement</li>
                         </ul>
                     </div>
                 </div>
@@ -177,7 +177,7 @@
                             <li>Âge minimum : 18 ans</li>
                             <li>Pas de limite d'âge maximum</li>
                             <li>Être étudiant ou professionnel</li>
-                            <li>Avoir une passion pour l'innovation</li>
+                            <li>Avoir une passion pour l'innovation et  le digital</li>
                         </ul>
                     </div>
                 </div>

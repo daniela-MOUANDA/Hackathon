@@ -1,5 +1,5 @@
 <!-- Section Formulaire avec nouveau style -->
-<section id="inscription" class="py-10 md:py-20 px-4 md:px-6 techies-bg">
+<section id="inscription" class="py-10 md:py-20 px-4 md:px-6 ">
     <div class="container mx-auto max-w-6xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0 rounded-3xl overflow-hidden">
             <!-- Colonne de gauche - Info -->
@@ -199,7 +199,7 @@
     </div>
 </section>
 
-<section id="tech-innov" class="py-20 px-6 bg-black">
+<section id="tech-innov" class="py-20 px-6 ">
     <div class="container mx-auto">
         <div class="flex flex-col md:flex-row items-center gap-12">
             <!-- Image à gauche -->
@@ -230,7 +230,7 @@
                         </li>
                         <li class="flex items-center text-[#93C5FD]">
                             <span class="mr-2">🎯</span>
-                            PRÉSENTER VOTRE PROJET AUX EXPERTS
+                            PRÉSENTER VOTRE PROJET A DES MENTORS CHEVRONNÉS
                         </li>
                     </ul>
                 </div>
@@ -238,11 +238,9 @@
                 <!-- Titre et bouton d'action -->
                 <div class="mt-12">
                     <h3 class="text-3xl font-bold mb-6 text-white" style="font-family: 'Orbitron', sans-serif;">
-                        PRÊT À RELEVER LE DÉFI ?
+                SOYEZ PRÊT À RELEVER <br/> LE DÉFI !
                     </h3>
-                    <button class="bg-gradient-to-r from-[#0A4DA6] to-[#1E3A8A] text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-[#0A4DA6]/30 transform hover:scale-105 transition-all duration-300">
-                        INSCRIVEZ VOTRE ÉQUIPE ...
-                    </button>
+                   
                 </div>
             </div>
         </div>
@@ -301,8 +299,6 @@
         </div>
     </div>
 </section>
-
-
 
 
 <!-- Section Processus de Soumission -->
@@ -1022,7 +1018,7 @@
 
     button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 4px 12px rgba(255, 10, 10, 0.15);
     }
 
     /* Animation pour la barre de progression */
