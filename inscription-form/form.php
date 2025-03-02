@@ -1,5 +1,48 @@
 <!-- Section Formulaire avec nouveau style -->
 <section id="inscription" class="py-10 md:py-20 px-4 md:px-6 ">
+    <style>
+        /* Styles de police pour le formulaire d'inscription */
+        #inscription {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Titres et labels */
+        #inscription h2,
+        #inscription h3,
+        #inscription h4,
+        #inscription label {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Boutons */
+        #inscription button {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Champs de formulaire */
+        #inscription input,
+        #inscription select,
+        #inscription textarea {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Texte de progression */
+        #progress-text,
+        #progress-percentage {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Modal CGU */
+        #cguModal {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #cguModal h3,
+        #cguModal h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
     <div class="container mx-auto max-w-6xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0 rounded-3xl overflow-hidden">
             <!-- Colonne de gauche - Info -->
@@ -28,7 +71,7 @@
                             <svg class="w-6 h-6 mr-3 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            <span>contact@innovationdays.com</span>
+                            <span>contact@innovationdays-inptic.com</span>
                         </div>
                     </div>
                 </div>
@@ -70,7 +113,7 @@
                         </div>
                     </div>
 
-                    <form id="registration-form" action="/hackathon/inscription-form/traitement.php" method="POST" enctype="multipart/form-data">
+                    <form id="registration-form" action="/inscription-form/traitement.php" method="POST" enctype="multipart/form-data">
                         <!-- Étape 1 -->
                         <div class="form-step" id="step1">
                             <div class="space-y-4 md:space-y-6">
@@ -238,9 +281,9 @@
                 <!-- Titre et bouton d'action -->
                 <div class="mt-12">
                     <h3 class="text-3xl font-bold mb-6 text-white" style="font-family: 'Orbitron', sans-serif;">
-                SOYEZ PRÊT À RELEVER <br/> LE DÉFI !
+                        SOYEZ PRÊT À RELEVER <br /> LE DÉFI !
                     </h3>
-                   
+
                 </div>
             </div>
         </div>
@@ -357,6 +400,12 @@
                             <span class="text-[#CCFF00] mr-3">⚙️</span>
                             <span>Prototype (10%) - Fonctionnalité</span>
                         </li>
+
+                        <li class="flex items-center">
+    <span class="text-[#CCFF00] mr-3">📊</span>
+    <span>Présentation (20%) - Explication</span>
+</li>
+
                     </ul>
                 </div>
             </div>
@@ -751,7 +800,7 @@
                                 <ul class="list-none space-y-2">
                                     <li class="flex items-center">
                                         <span class="text-blue-400 mr-2">📧</span>
-                                        support@innovationdays.dz
+                                        contact@innovationdays-inptic.com
                                     </li>
                                     <li class="flex items-center">
                                         <span class="text-blue-400 mr-2">📞</span>

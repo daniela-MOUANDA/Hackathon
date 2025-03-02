@@ -3,7 +3,9 @@
 session_start();
 require_once '../bdd.php'; // Connexion à la base de données
 require '../vendor/autoload.php'; // Inclusion des dépendances via Composer
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use FPDF;
@@ -164,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
 
         $qrCode = new QRCode($qrOptions);
-        $baseUrl = "https://portail-inptic.alwaysdata.net/hackathon/team-info.php"; // À adapter selon votre configuration
+        $baseUrl = "https://innovationdays-inptic.com/team-info.php"; // À adapter selon votre configuration
         $qrContent = $baseUrl . "?matricule=" . $matricule;
         $qrPath = "qrcodes/$matricule.png";
         $qrCode->render($qrContent, $qrPath);
@@ -244,9 +246,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Encoding = 'base64';
         $mail->isHTML(true);
-        $mail->Username = 'jacquesboussengui@gmail.com';
+        $mail->Username = 'contact@innovationdays-inptic.com';
         $mail->CharSet = 'UTF-8';
-        $mail->setFrom('inptic@inptic-ga.org', 'Inscription Hackathon');
+        $mail->setFrom('contact@innovationdays-inptic.com', 'Inscription Hackathon');
 
         // Collecter tous les emails des membres
         $emails = [$_POST['chef_email']]; // Email du chef d'équipe
@@ -267,36 +269,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         foreach ($emails as $email) {
             $mail->clearAddresses(); // Effacer les destinataires précédents
             $mail->addAddress($email);
+$emailContent = "
+<div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;'>
+    <img src='https://innovationdays-inptic.com/assets/r.jpg' alt='INPTIC-logo' style='display: block; margin: 0 auto; width: 200px;'>
+    <h2 style='color: #2C3E50; text-align: center;'>Confirmation d'Inscription au Hackathon</h2>
+    
+    <div style='background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;'>
+        <p style='color: #2C3E50;'><strong>Cher(e) membre de l'équipe " . htmlspecialchars($_POST['nom_equipe']) . ",</strong></p>
+        <p>Nous sommes ravis de confirmer votre inscription au Hackathon de l'INPTIC.</p>
+        <p><strong>Matricule de l'équipe :</strong> " . htmlspecialchars($matricule) . "</p>
+        
+        <div style='background-color: #e9ecef; padding: 15px; border-left: 4px solid #007bff; margin: 15px 0;'>
+            <p style='margin: 0;'><strong>Informations importantes :</strong></p>
+            <ul style='margin: 10px 0; padding-left: 20px;'>
+                <li>Le QR Code joint à cet email est votre billet d'entrée à l'événement.</li>
+                <li>Ce QR Code est unique pour toute l'équipe et servira de pass d'accès.</li>
+                <li>Chaque membre de l'équipe reçoit une copie de ce QR Code.</li>
+                <li>Un seul scan sera nécessaire pour valider l'entrée de toute l'équipe.</li>
+                <li>Conservez-le précieusement, il vous sera demandé lors de votre arrivée.</li>
+                <li>Vous pouvez le présenter en format numérique ou imprimé.</li>
+                <li>Pour les étudiants, un justificatif de scolarité sera demandé.</li>
+                <li>Pour les non-étudiants, une pièce d'identité sera exigée.</li>
+            </ul>
+        </div>
 
-            $emailContent = "
-            <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;'>
-                <h2 style='color: #2C3E50; text-align: center;'>Confirmation d'Inscription au Hackathon</h2>
-                <div style='background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;'>
-                    <p style='color: #2C3E50;'><strong>Cher(e) membre de l'équipe " . htmlspecialchars($_POST['nom_equipe']) . ",</strong></p>
-                    <p>Nous sommes ravis de confirmer votre inscription au Hackathon de l'INPTIC.</p>
-                    <p><strong>Matricule de l'équipe :</strong> " . $matricule . "</p>
-                    <div style='background-color: #e9ecef; padding: 15px; border-left: 4px solid #007bff; margin: 15px 0;'>
-                        <p style='margin: 0;'><strong>Informations importantes :</strong></p>
-                        <ul style='margin: 10px 0;'>
-                            <li>Le QR Code joint à cet email est votre billet d'entrée à l'événement.</li>
-                            <li>Ce QR Code est unique pour toute l'équipe et servira de pass d'accès.</li>
-                            <li>Chaque membre de l'équipe reçoit une copie de ce QR Code.</li>
-                            <li>Un seul scan sera nécessaire pour valider l'entrée de toute l'équipe.</li>
-                            <li>Conservez-le précieusement, il vous sera demandé lors de votre arrivée.</li>
-                            <li>Vous pouvez le présenter en format numérique ou imprimé.</li>
-                            <li>Pour les étudiants, il vous sera aussi demandé un justificatif de scolarité .</li>
-                            <li>Pour les non etudiants, il vous sera demandé une piece d'identité.</li>
-                        </ul>
-                    </div>
-                    <p>Vous trouverez en pièces jointes :</p>
-                    <ul>
-                        <li>Votre QR Code d'accès (à conserver précieusement)</li>
-                        <li>Votre PDF de confirmation officielle</li>
-                    </ul>
-                    <p style='margin-top: 20px;'>Pour toute question ou modification concernant votre inscription, n'hésitez pas à nous contacter.</p>
-                </div>
-                <p style='text-align: center; color: #6c757d; font-size: 0.9em;'>INPTIC - Hackathon 2025</p>
-            </div>";
+        <p>Vous trouverez en pièces jointes :</p>
+        <ul style='padding-left: 20px;'>
+            <li>Votre QR Code d'accès (à conserver précieusement)</li>
+            <li>Votre PDF de confirmation officielle</li>
+        </ul>
+
+        <p style='margin-top: 20px;'>Pour toute question ou modification concernant votre inscription, n'hésitez pas à nous contacter.</p>
+    </div>
+
+    <p style='text-align: center; color: #6c757d; font-size: 0.9em;'>INPTIC - Hackathon 2025</p>
+</div>";
+
 
             $mail->msgHTML($emailContent);
             $mail->send();

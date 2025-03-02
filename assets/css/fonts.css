@@ -1,0 +1,114 @@
+/* Styles de police globaux - Application universelle */
+*, 
+*::before, 
+*::after {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Titres et éléments d'en-tête */
+h1, h2, h3, h4, h5, h6,
+.heading,
+.title,
+.subtitle,
+section > div > h2,
+.section-title,
+.block-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Navigation et menus */
+nav,
+.nav-link,
+.menu-item,
+.navbar,
+#mobile-menu a,
+.dropdown-item {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Sections et blocs de contenu */
+section p,
+.content-block,
+.text-content,
+.description,
+.info-text,
+.block-content,
+.card-text,
+.timeline-content {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Éléments interactifs */
+button,
+.button,
+.btn,
+input,
+select,
+textarea,
+label,
+.form-control,
+.input-field {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Éléments spécifiques */
+.countdown-item,
+.faq-button,
+.faq-answer,
+.card-title,
+.timeline-date,
+.progress-text,
+.modal-content,
+.alert,
+.notification,
+.tooltip,
+.badge {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Éléments d'accent */
+.accent-text,
+.highlight,
+.feature-title,
+.stat-number,
+.price-amount,
+.important-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Footer */
+footer,
+.footer-content,
+.footer-links,
+.copyright {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Éléments de liste */
+ul, 
+ol, 
+li,
+.list-item {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Citations et contenus mis en avant */
+blockquote,
+.quote,
+.testimonial {
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+}
+
+/* Texte de progression et indicateurs */
+.progress-text,
+.progress-indicator,
+.step-indicator {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-title {
+    font-family: 'Montserrat', sans-serif;
+} 

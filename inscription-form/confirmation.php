@@ -29,7 +29,7 @@ session_start();
                         <?php endif; ?>
                     </div>
                     <div class="mt-6">
-                        <a href="/hackathon/index.php" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                        <a href="https://innovationdays-inptic.com" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
                             Retour à l'accueil
                         </a>
                     </div>
@@ -47,7 +47,7 @@ session_start();
                     </div>
                     <div class="mt-6 space-y-3">
 
-                        <a href="/hackathon/index.php" class="inline-block w-full bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-all">
+                        <a href="https://innovationdays-inptic.com" class="inline-block w-full bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-all">
                             Retour à l'accueil
                         </a>
                     </div>
