@@ -21,9 +21,11 @@
                                 <ul class="nav nav-fourth-level">
                                     <li><a href="index.php?page=participant"><i class="fa fa-user fa-fw"></i> Participant</a></li>
                                     
-                                    <li><a href="index.php?page=defi"><i class="fa fa-bullseye fa-fw"></i>                                    </i> Défis</a></li>
-                                    <li><a href="index.php?page=jugement"><i class="fa fa-shopping-cart fa-fw"></i> Jugement</a></li>
-                                    <li><a href="index.php?page=message   "><i class="fa fa-briefcase fa-fw"></i> Message</a></li>
+                                    <!-- <li><a href="index.php?page=defi"><i class="fa fa-bullseye fa-fw"></i>   </i> Défis</a></li> -->
+                                    <li><a href="index.php?page=badget"><i class="fa fa-id-badge fa-fw"></i> Badges</a></li>
+
+                                    <li><a href="index.php?page=annonce"><i class="fa fa-bullhorn fa-fw"></i> Annonce</a></li>
+                                    <!-- <li><a href="index.php?page=message   "><i class="fa fa-briefcase fa-fw"></i> Message</a></li>  -->
                                 </ul>
                             </li>
                             <!-- Sous-section Préinscription -->

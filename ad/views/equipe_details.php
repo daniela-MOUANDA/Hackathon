@@ -99,7 +99,7 @@ $membres = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <p class="text-sm text-gray-500">Format PDF</p>
                                     </div>
                                 </div>
-                                <a href="https://portail-inptic.alwaysdata.net/hackathon/inscription-form/<?php echo htmlspecialchars($equipe['document_path']); ?>"
+                                <a href="https://innovationdays-inptic.com/inscription-form/<?php echo htmlspecialchars($equipe['document_path']); ?>"
                                     target="_blank"
                                     class="inline-flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200">
                                     <i class="fas fa-external-link-alt mr-2"></i>
@@ -110,7 +110,7 @@ $membres = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <!-- Visualiseur de PDF intégré -->
                             <div class="mt-4 w-full h-[600px] rounded-lg overflow-hidden border border-gray-200">
                                 <embed
-                                    src="https://portail-inptic.alwaysdata.net/hackathon/inscription-form/<?php echo htmlspecialchars($equipe['document_path']); ?>"
+                                    src="https://innovationdays-inptic.com/inscription-form//<?php echo htmlspecialchars($equipe['document_path']); ?>"
                                     type="application/pdf"
                                     width="100%"
                                     height="100%"

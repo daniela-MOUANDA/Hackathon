@@ -1,6 +1,11 @@
-<?php 
+<?php
 require_once '../bdd.php';
 
+
+
+
+$stmt = $pdo->query('SELECT * FROM announcements');
+$announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -145,24 +150,14 @@ require_once '../bdd.php';
                 <div class="mb-6 sm:mb-8">
                     <div class="swiper announcementSwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-4 sm:p-6 text-white">
-                                    <h2 class="text-lg sm:text-2xl font-bold mb-1 sm:mb-2">Prochain événement</h2>
-                                    <p class="text-sm sm:text-base">Présentation des projets le 25 Mars à 14h</p>
+                            <?php foreach ($announcements as $announcement): ?>
+                                <div class="swiper-slide">
+                                    <div class="bg-gradient-to-r from-<?= htmlspecialchars($announcement['gradient_from']) ?> to-<?= htmlspecialchars($announcement['gradient_to']) ?> rounded-xl p-4 sm:p-6 text-white">
+                                        <h2 class="text-lg sm:text-2xl font-bold mb-1 sm:mb-2"><?= htmlspecialchars($announcement['title']) ?></h2>
+                                        <p class="text-sm sm:text-base"><?= htmlspecialchars($announcement['description']) ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-4 sm:p-6 text-white">
-                                    <h2 class="text-lg sm:text-2xl font-bold mb-1 sm:mb-2">Rappel important</h2>
-                                    <p class="text-sm sm:text-base">Date limite de soumission : 24 Mars à 18h</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-4 sm:p-6 text-white">
-                                    <h2 class="text-lg sm:text-2xl font-bold mb-1 sm:mb-2">Nouveau mentor</h2>
-                                    <p class="text-sm sm:text-base">Un expert en IA rejoint l'équipe des mentors</p>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -181,10 +176,13 @@ require_once '../bdd.php';
                         include("./views/acceuil.php");
                     } elseif ($_GET['page'] == "defi") {
                         include("./views/defi.php");
-                    } elseif ($_GET['page'] == "jugement") {
-                        include("./views/jugement.php");
+                    } elseif ($_GET['page'] == "badget") {
+                        include("./views/badget.php");
+                      
                     } elseif ($_GET['page'] == "message") {
                         include("./views/message.php");
+                    }elseif ($_GET['page'] == "annonce") {
+                        include("./views/annonce.php");
                     }
                 }
                 ?>

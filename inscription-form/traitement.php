@@ -155,6 +155,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /**
          * GÉNÉRATION DU QR CODE
          */
+        // Récupérer le nom de l'équipe
+        $equipe_nom = htmlspecialchars(trim($_POST["equipe_nom"]));
+
         // Créer le dossier qrcodes s'il n'existe pas
         if (!file_exists('qrcodes')) {
             mkdir('qrcodes', 0777, true);
@@ -168,7 +171,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $qrCode = new QRCode($qrOptions);
         $baseUrl = "https://innovationdays-inptic.com/team-info.php"; // À adapter selon votre configuration
         $qrContent = $baseUrl . "?matricule=" . $matricule;
-        $qrPath = "qrcodes/$matricule.png";
+        $qrFileName = $equipe_nom . "_" . $matricule . ".png";
+        $qrPath = "qrcodes/$qrFileName";
         $qrCode->render($qrContent, $qrPath);
 
         /**
@@ -309,6 +313,14 @@ $emailContent = "
             $mail->msgHTML($emailContent);
             $mail->send();
         }
+
+        // Créer le dossier qrcodeBadge s'il n'existe pas
+        if (!file_exists('qrcodeBadge')) {
+            mkdir('qrcodeBadge', 0777, true);
+        }
+
+        // Déplacer le fichier QR code dans le dossier qrcodeBadge
+        rename($qrPath, "qrcodeBadge/$qrFileName");
 
         $_SESSION['success'] = "Votre équipe a été inscrite avec succès veillez consulter votre boite email pour plus de détail ! Matricule : $matricule";
         header("Location: confirmation.php");

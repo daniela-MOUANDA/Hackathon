@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="assets/css/fonts.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 
 
 
@@ -53,21 +54,22 @@
     </div>
     </div> -->
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-black">
-        <div class="container mx-auto px-4 py-5">
+    <nav class="fixed w-full z-50 bg-gradient-to-r from-black via-gray-900 to-gray-800">
+        <div class="container mx-auto px-2 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <img src="assets/r.jpg" alt="Logo INPTIC" class="h-12 w-auto">
-                    <div class="text-xl font-bold truncate">Innovation Days 2025</div>
+
+                    <img src="assets/r.jpg" alt="Logo INPTIC" class="h-24 w-auto">
+                    <!-- <div class="text-xl font-bold truncate">Innovation Days 2025</div> -->
                 </div>
 
-                <div class="hidden md:flex space-x-8">
-                    <a href="#accueil" class="nav-link">Accueil</a>
-                    <a href="#apropos" class="nav-link">À propos</a>
-                    <a href="#criteres" class="nav-link">Critères</a>
-                    <a href="#programme" class="nav-link">Programme</a>
-                    <a href="#recompenses" class="nav-link">Récompenses</a>
-                    <a href="#inscription" class="nav-link">Inscription</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#accueil" class="nav-link" style="font-size: 14px;">Accueil</a>
+                    <a href="#apropos" class="nav-link" style="font-size: 14px;">À propos</a>
+                    <a href="#criteres" class="nav-link" style="font-size: 14px;">Critères</a>
+                    <a href="#programme" class="nav-link" style="font-size: 14px;">Programme</a>
+                    <a href="#recompenses" class="nav-link" style="font-size: 14px;">Récompenses</a>
+                    <a href="#inscription" class="nav-link" style="font-size: 14px;">Inscription</a>
                 </div>
 
                 <div class="md:hidden">
@@ -491,7 +493,7 @@
     <section id="apropos" class="py-20 px-6 ">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center mb-12 text-[#59CD97]">À propos des Journées de l'Innovation</h2>
-            <p class="text-white mb-12 text-lg text-center max-w-3xl mx-auto">
+            <p class="text-white mb-12 text-lg text-center max-w-3xl mx-auto text-justify">
                 Les Journées de l'Innovation sont une initiative visant à promouvoir l'innovation technologique et à encourager
                 la créativité des amoureux du digital. Cet événement rassemble les talents pour créer des solutions innovantes.
             </p>
@@ -510,9 +512,7 @@
                     </div>
                 </div>
                 <!-- Bloc avec uniquement la carte GPS -->
-                <div class="bg-gray-600 p-8 rounded-xl hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300">
-                    <!-- Intégration de Google Maps -->
-
+                <div class="w-full h-96">
                     <iframe
                         class="w-full h-full"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1234567890123!2d9.4306484!3d0.419177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x107f3b133a97a415%3A0x992ce03950cc7c1b!2sInptic%20Gabon!5e0!3m2!1sfr!2sga!4v1234567890123!5m2!1sfr!2sga"
@@ -520,8 +520,8 @@
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-
                 </div>
+
                 <!-- Bloc 3 -->
                 <div class="bg-gray-600 p-8 rounded-xl hover:transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                     <div class="flex justify-center mb-6">
@@ -586,8 +586,8 @@
                 <div class="text-center">
                     <div class="relative w-32 h-32 mx-auto mb-4">
                         <svg class="w-full h-full">
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a1a" stroke-width="8" />
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#59CD97" stroke-width="8"
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#FFFFFF" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="rgb(202, 45, 24)" stroke-width="8"
                                 stroke-dasharray="377"
                                 stroke-dashoffset="377"
                                 class="progress-ring" />
@@ -603,8 +603,8 @@
                 <div class="text-center">
                     <div class="relative w-32 h-32 mx-auto mb-4">
                         <svg class="w-full h-full">
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a1a" stroke-width="8" />
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke=" #59CD97" stroke-width="8"
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#FFFFFF" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="rgb(202, 45, 24)" stroke-width="8"
                                 stroke-dasharray="377"
                                 stroke-dashoffset="377"
                                 class="progress-ring" />
@@ -620,8 +620,8 @@
                 <div class="text-center">
                     <div class="relative w-32 h-32 mx-auto mb-4">
                         <svg class="w-full h-full">
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a1a" stroke-width="8" />
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke=" #59CD97" stroke-width="8"
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#FFFFFF" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="rgb(202, 45, 24)" stroke-width="8"
                                 stroke-dasharray="377"
                                 stroke-dashoffset="377"
                                 class="progress-ring" />
@@ -637,8 +637,8 @@
                 <div class="text-center">
                     <div class="relative w-32 h-32 mx-auto mb-4">
                         <svg class="w-full h-full">
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a1a" stroke-width="8" />
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke=" #59CD97" stroke-width="8"
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#FFFFFF" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="rgb(202, 45, 24)" stroke-width="8"
                                 stroke-dasharray="377"
                                 stroke-dashoffset="377"
                                 class="progress-ring" />
@@ -654,8 +654,8 @@
                 <div class="text-center">
                     <div class="relative w-32 h-32 mx-auto mb-4">
                         <svg class="w-full h-full">
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#1a1a12" stroke-width="8" />
-                            <circle cx="64" cy="64" r="60" fill="transparent" stroke=" #59CD97" stroke-width="8"
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="#FFFFFF" stroke-width="8" />
+                            <circle cx="64" cy="64" r="60" fill="transparent" stroke="rgb(202, 45, 24)" stroke-width="8"
                                 stroke-dasharray="377"
                                 stroke-dashoffset="377"
                                 class="progress-ring" />
