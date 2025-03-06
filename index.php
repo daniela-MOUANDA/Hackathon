@@ -1,3 +1,4 @@
+<?php include 'track.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -59,7 +60,7 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
 
-                    <img src="assets/r.jpg" alt="Logo INPTIC" class="h-24 w-auto">
+                    <img src="assets/logobg.png" alt="Logo INPTIC" class="h-24 w-auto">
                     <!-- <div class="text-xl font-bold truncate">Innovation Days 2025</div> -->
                 </div>
 

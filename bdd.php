@@ -1,13 +1,24 @@
 <?php
 
 
-
-$host = '127.0.0.1';
+$host = '77.37.35.61';
 $dbname = 'u419234883_hackathon';
 $username = 'u419234883_hackathon';
 $password = 'Hackathon2025';
 
 
+
+
+// $host = '127.0.0.1';
+// $dbname = 'u419234883_hackathon';
+// $username = 'u419234883_hackathon';
+// $password = 'Hackathon2025';
+
+
+// $host = 'localhost';
+// $dbname = 'hackathon';
+// $username = 'root';
+// $password = '';
 
 
 // $host = 'mysql-portail-inptic.alwaysdata.net';

@@ -1,8 +1,8 @@
 <?php
 require_once '../bdd.php';
 
-
-
+require_once 'tcheck.php';
+include '../track.php'; 
 
 $stmt = $pdo->query('SELECT * FROM announcements');
 $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -120,13 +120,29 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <!-- Header responsive -->
             <header class="bg-white border-b border-gray-200">
                 <div class="flex items-center justify-between px-2 py-2 sm:px-6 sm:py-4">
-                    <div class="flex items-center space-x-2 sm:space-x-4">
-                        <button class="text-gray-500 hover:text-gray-600 lg:hidden p-2" id="sidebar-toggle">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <img src="../assets/logoinptic.png" alt="Logo" class="w-20 h-8 sm:w-30 sm:h-10">
-                        <h3 class="header-title text-base sm:text-lg font-bold hidden sm:block">BIENVENUE</h3>
-                    </div>
+                <div class="flex items-center space-x-2 sm:space-x-4">
+    <button class="text-gray-500 hover:text-gray-600 lg:hidden p-2" id="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <img src="../assets/logoinptic.png" alt="Logo" class="w-20 h-8 sm:w-30 sm:h-10">
+    <h3 class="header-title text-base sm:text-lg font-bold hidden sm:block">BIENVENUE</h3>
+
+    <!-- Lien Ajouter un utilisateur -->
+    <a href="index.php?page=add_user" class="relative p-2 text-black hover:text-gray-700">
+        <!-- Icône utilisateur avec indicateur -->
+        <i class="fas fa-user-plus text-xl sm:text-2xl"></i>
+        
+        <!-- Indicateur (point rouge) -->
+        <span class="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
+    </a>
+
+    <!-- Lien de déconnexion -->
+    <a href="logout.php" class="p-2 text-black hover:text-gray-700">
+        <!-- Icône de déconnexion -->
+        <i class="fas fa-sign-out-alt text-xl sm:text-2xl"></i>
+    </a>
+</div>
+
 
                     <div class="flex items-center space-x-2 sm:space-x-4">
                         <!-- <button class="relative p-2 text-gray-400 hover:text-gray-500">
@@ -174,13 +190,13 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         include("./views/participant.php");
                     } elseif ($_GET['page'] == "acceuil") {
                         include("./views/acceuil.php");
-                    } elseif ($_GET['page'] == "defi") {
-                        include("./views/defi.php");
+                    } elseif ($_GET['page'] == "statsVisite") {
+                        include("./views/statsVisite.php");
                     } elseif ($_GET['page'] == "badget") {
                         include("./views/badget.php");
                       
-                    } elseif ($_GET['page'] == "message") {
-                        include("./views/message.php");
+                    } elseif ($_GET['page'] == "add_user") {
+                        include("./add_user.php");
                     }elseif ($_GET['page'] == "annonce") {
                         include("./views/annonce.php");
                     }

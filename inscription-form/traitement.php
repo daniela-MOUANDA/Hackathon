@@ -47,6 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $total_membres++;
             }
         }
+
+        
         if ($total_membres !== 4) {
             throw new Exception("L'équipe doit être composée exactement de 4 personnes.");
         }

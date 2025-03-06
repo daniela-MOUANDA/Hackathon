@@ -46,32 +46,36 @@
     <div class="container mx-auto max-w-6xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0 rounded-3xl overflow-hidden">
             <!-- Colonne de gauche - Info -->
-            <div class="bg-gradient-to-br from-blue-600 via-bleu-600 to-violet-800 p-6 md:p-12 relative overflow-hidden">
+            <div class="bg-gradient-to-br from-white via-blue-300 to-blue-800 p-6 md:p-12 relative overflow-hidden">
+
+
                 <div class="absolute inset-0 bg-black opacity-20"></div>
                 <div class="relative z-10">
-                    <img src="assets/logoinptic.png" alt="Logo" class="w-24 md:w-32 mb-6 md:mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-[#CCFF00]">Inscription</h2>
-                    <p class="text-base md:text-lg mb-6 md:mb-8 text-white">Rejoignez l'Innovation Days 2025 pour 72 heures de création, d'innovation et de collaboration.</p>
+                <img src="assets/logoinptic.png" alt="Logo" class="w-28 md:w-36 mb-6 md:mb-8">
+
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900">Inscription</h2>
+
+                    <p class="text-base md:text-lg mb-6 md:mb-8 text-gray-900">Rejoignez l'Innovation Days 2025 pour 72 heures de création, d'innovation et de collaboration.</p>
 
                     <div class="space-y-4 md:space-y-6 text-white">
                         <div class="flex items-center">
-                            <svg class="w-6 h-6 mr-3 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 mr-3 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <span>INPTIC, Feu rouge Gros bouquet</span>
+                            <span class="text-gray-900">INPTIC, Feu rouge Gros bouquet</span>
                         </div>
                         <div class="flex items-center">
-                            <svg class="w-6 h-6 mr-3 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 mr-3 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            <span>+241 74 72 13 98</span>
+                            <span class="text-gray-900">+241 74 72 13 98</span>
                         </div>
                         <div class="flex items-center">
-                            <svg class="w-6 h-6 mr-3 text-[#CCFF00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 mr-3 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            <span>contact@innovationdays-inptic.com</span>
+                            <span class="text-gray-900">contact@innovationdays-inptic.com</span>
                         </div>
                     </div>
                 </div>

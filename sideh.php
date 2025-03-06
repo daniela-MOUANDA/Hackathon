@@ -25,7 +25,7 @@
                                     <li><a href="index.php?page=badget"><i class="fa fa-id-badge fa-fw"></i> Badges</a></li>
 
                                     <li><a href="index.php?page=annonce"><i class="fa fa-bullhorn fa-fw"></i> Annonce</a></li>
-                                    <!-- <li><a href="index.php?page=message   "><i class="fa fa-briefcase fa-fw"></i> Message</a></li>  -->
+                                    <li><a href="index.php?page=statsVisite"><i class="fa fa-briefcase fa-fw"></i>Visiteurs</a></li>
                                 </ul>
                             </li>
                             <!-- Sous-section Préinscription -->
