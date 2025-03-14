@@ -55,7 +55,7 @@
 
                     <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-900">Inscription</h2>
 
-                    <p class="text-base md:text-lg mb-6 md:mb-8 text-gray-900">Rejoignez l'Innovation Days 2025 pour 72 heures de création, d'innovation et de collaboration.</p>
+                    <p class="text-base md:text-lg mb-6 md:mb-8 text-gray-900">Rejoignez l'Innovation Days 2025 pour 96 heures de création, d'innovation et de collaboration.</p>
 
                     <div class="space-y-4 md:space-y-6 text-white">
                         <div class="flex items-center">
@@ -264,7 +264,7 @@
                 <!-- Boîte avec texte -->
                 <div class="bg-black border-2 border-[#0A4DA6] rounded-2xl p-6 shadow-lg shadow-[#0A4DA6]/20">
                     <p class="text-white text-lg leading-relaxed">
-                        PLONGEZ DANS UNE EXPÉRIENCE UNIQUE DE 72 HEURES OÙ VOUS POURREZ :
+                        PLONGEZ DANS UNE EXPÉRIENCE UNIQUE DE 96 HEURES OÙ VOUS POURREZ :
                     </p>
                     <ul class="mt-4 space-y-3">
                         <li class="flex items-center text-[#93C5FD]">
@@ -585,7 +585,7 @@
                                             </li>
                                             <li class="flex items-center">
                                                 <span class="text-green-400 mr-2">✓</span>
-                                                Validation du formulaire d'inscription sous 72h
+                                                Validation du formulaire d'inscription sous 96h
                                             </li>
                                         </ul>
                                     </div>

@@ -15,6 +15,17 @@ use chillerlan\QRCode\QROptions;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         /**
+         * VÉRIFICATION DU NOMBRE D'ÉQUIPES
+         */
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM equipes");
+        $stmt->execute();
+        $nombre_equipes = $stmt->fetchColumn();
+        
+        if ($nombre_equipes >= 30) {
+            throw new Exception("Désolé, le nombre maximum d'équipes (30) a été atteint. Les inscriptions sont closes.");
+        }
+
+        /**
          * GÉNÉRATION D'UN MATRICULE UNIQUE
          */
         function generateMatricule()
@@ -39,6 +50,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } while (!isMatriculeUnique($pdo, $matricule));
 
         /**
+         * VÉRIFICATION DE L'UNICITÉ DES EMAILS
+         */
+        function isEmailUnique($pdo, $email) {
+            $stmt = $pdo->prepare("SELECT COUNT(*) FROM membres WHERE email = ?");
+            $stmt->execute([$email]);
+            return $stmt->fetchColumn() == 0;
+        }
+
+        // Vérification des emails
+        $emails = [$_POST['chef_email']];
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($_POST["membre{$i}_email"])) {
+                $emails[] = $_POST["membre{$i}_email"];
+            }
+        }
+
+        // Vérifier si les emails sont uniques
+        foreach ($emails as $email) {
+            if (!isEmailUnique($pdo, $email)) {
+                throw new Exception("L'adresse email '$email' est déjà utilisée par un autre membre.");
+            }
+        }
+
+        /**
          * VALIDATION DES MEMBRES DE L'ÉQUIPE
          */
         $total_membres = 1; // Inclut le chef d'équipe
@@ -47,8 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $total_membres++;
             }
         }
-
-        
         if ($total_membres !== 4) {
             throw new Exception("L'équipe doit être composée exactement de 4 personnes.");
         }
@@ -333,3 +366,4 @@ $emailContent = "
         exit();
     }
 }
+

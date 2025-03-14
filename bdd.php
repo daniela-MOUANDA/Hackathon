@@ -1,47 +1,24 @@
 <?php
-
-
-$host = '77.37.35.61';
-$dbname = 'u419234883_hackathon';
-$username = 'u419234883_hackathon';
-$password = 'Hackathon2025';
-
-
-
-
-// $host = '127.0.0.1';
-// $dbname = 'u419234883_hackathon';
-// $username = 'u419234883_hackathon';
-// $password = 'Hackathon2025';
-
-
-// $host = 'localhost';
-// $dbname = 'hackathon';
-// $username = 'root';
-// $password = '';
-
-
-// $host = 'mysql-portail-inptic.alwaysdata.net';
-// $dbname = 'portail-inptic_hackathon';
-// $username = '397445_hackathon';
-// $password = 'Jeparle@1';
-
-
-
-
-
+require_once 'config.php'; // Chargement des variables sensibles
 
 try {
-    // Création d'une nouvelle connexion PDO avec encodage UTF-8
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-
-    // Configuration des attributs PDO
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  
+    // Création d'une connexion PDO sécurisée avec des options avancées
+    $pdo = new PDO(
+        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",
+        DB_USER,
+        DB_PASS,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Activer le mode exception
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // Récupération des données sous forme de tableau associatif
+            PDO::ATTR_EMULATE_PREPARES => false, // Désactiver l'émulation des requêtes préparées
+        ]
+    );
 
 } catch (PDOException $e) {
-    // En cas d'échec, afficher l'erreur
-    echo "Erreur de connexion : " . $e->getMessage();
-
+    // Enregistrer l'erreur dans un fichier de log au lieu de l'afficher
+    error_log("Erreur de connexion : " . $e->getMessage(), 3, __DIR__ . 'errors.log');
+    
+    // Message d'erreur générique pour éviter de divulguer des informations sensibles
+    die("Une erreur interne est survenue. Contactez l'administrateur.");
 }
 ?>

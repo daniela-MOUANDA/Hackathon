@@ -103,11 +103,39 @@
             <h1 class="text-4xl md:text-6xl font-bold mb-6" style="color: #59CD97">
                 Innovation Days 2025
             </h1>
+            <style>
+  .cyber-theme-banner {
+
+    padding: 1.5rem;
+    width: 100%;
+  }
+  
+  .cyber-theme-text {
+    font-family: 'Arial', sans-serif;
+    font-weight: 800;
+    color: white;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+</style>
+
+<div class="cyber-theme-banner">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="cyber-theme-text text-2xl sm:text-3xl md:text-4xl">
+      <div class="mb-1">THÈME</div>
+      <div class="mb-1">CYBERSÉCURITÉ :</div>
+      <div class="mb-1">RELEVER LE DÉFI DE LA SÉCURITÉ</div>
+      <div>NUMÉRIQUE AU GABON</div>
+    </h2>
+  </div>
+</div>
             <p class="text-xl md:text-2xl mb-4 text-white">
-                72 Heures pour Innover
+                96 Heures pour Innover
             </p>
             <p class="text-lg md:text-xl mb-8 text-white">
-                23-25 Mars 2025 • INPTIC
+                24-27 Mars 2025 • INPTIC
             </p>
 
             <div class="countdown-wrapper">
@@ -138,79 +166,174 @@
         </div>
     </section>
 
-    <!-- Partie du code de la barre des partenaires -->
-    <!-- <section id="partenaires-hero">
-        <div class="container mx-auto"> -->
-    <!-- Swiper -->
-    <!-- <div class="swiper partenairesSwiper">
-                <div class="swiper-wrapper"> -->
-    <!-- Partenaire 1 -->
-    <!-- <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://cdn-webportal.airtelstream.net/website/gabon/assets/images/airtel-french-logo.svg" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
-                        </div>
-                    </div> -->
-    <!-- Partenaire 2 -->
-    <!-- <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://www.ubagroup.com/nigeria/wp-content/uploads/sites/3/2018/06/UBA-Logo.svg" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
-                        </div>
-                    </div> -->
-    <!-- Partenaire 3 -->
-    <!-- <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://www.moov-africa.ga/PublishingImages/icon/logo.png" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
-                        </div>
-                    </div> -->
-    <!-- Partenaire 4 -->
-    <!-- <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://www.arcep.ga/assets/img/logo.png" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
-                        </div>
-                    </div> -->
-    <!-- Partenaire 5 -->
-    <!-- <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://aninf.ga/wp-content/uploads/2024/07/logo_ANINF-1.png" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
-                        </div>
-                    </div> -->
+    <!-- Section des partenaires -->
+    <section id="collaborateurs-hero" class="fixed bottom-0 left-0 w-full bg-black bg-opacity-80 z-50 py-2 sm:py-3 md:py-4 transition-all duration-500 ease-in-out transform">
+        <div class="container mx-auto overflow-hidden px-2 sm:px-4">
+            <div class="logos-slide flex items-center animate-scroll">
+                <!-- Premier ensemble de logos -->
+                <div class="flex items-center justify-around min-w-full gap-8">
 
-    <!-- Dupliquer les slides pour créer une boucle fluide -->
-    <!-- Partenaires répétés pour le défilement continu -->
-    <!-- <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://cdn-webportal.airtelstream.net/website/gabon/assets/images/airtel-french-logo.svg" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/logoinptic.png" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://www.ubagroup.com/nigeria/wp-content/uploads/sites/3/2018/06/UBA-Logo.svg" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/s.jpg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                         </div>
+                    </div>
+
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/drone.jpeg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://www.moov-africa.ga/PublishingImages/icon/logo.png" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/s1.jpeg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://www.arcep.ga/assets/img/logo.png" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/arceplogo.png" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="flex justify-center items-center h-10">
-                            <img src="https://aninf.ga/wp-content/uploads/2024/07/logo_ANINF-1.png" alt="Logo Partenaire" class="max-h-12 max-w-full object-contain transition-all duration-300">
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/th.jpg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
                         </div>
-                    </div> -->
-    <!-- </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/logo-spin.png" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/gra.jpg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                </div>
+                <!-- Deuxième ensemble de logos (copie pour le défilement infini) -->
+                <div class="flex items-center justify-around min-w-full gap-8">
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/logoinptic.png" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/s.jpg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/drone.jpeg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/s1.jpeg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/arceplogo.png" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/gra.jpg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/th.jpg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/logo-spin.png" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section> -->
+    </section>
+    <style>
+        /* Mise à jour du style pour l'animation de défilement */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-scroll {
+            animation: scroll 30s linear infinite;
+            /* Ralentissement de l'animation */
+        }
+
+        /* Ajustements responsifs */
+        @media (max-width: 640px) {
+            .animate-scroll {
+                animation: scroll 20s linear infinite;
+            }
+
+            .logos-slide {
+                gap: 4;
+            }
+        }
+
+        /* Assurer que les logos ne se chevauchent pas */
+        .logos-slide>div {
+            flex-shrink: 0;
+        }
+    </style>
+
+    <!-- Scipt pour l'integration du chatbot -->
+    
+    <script>
+        (function() {
+            const userId = "12345"; // Remplacez par un identifiant utilisateur unique ou dynamique
+
+            // Appeler l'API PHP pour obtenir le token
+            fetch(`generate_token.php?userId=${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.token) {
+                        // Configurer le chatbot avec le token
+                        window.chatbase = (...args) => {
+                            if (!window.chatbase.q) {
+                                window.chatbase.q = [];
+                            }
+                            window.chatbase.q.push(args);
+                        };
+
+                        window.chatbase("setToken", data.token);
+
+                        // Charger le script Chatbase
+                        const script = document.createElement("script");
+                        script.src = "https://www.chatbase.co/embed.min.js";
+                        script.id = "e4vVNflJvDOuEyl-JO6fg";
+                        script.domain = "www.chatbase.co";
+                        document.body.appendChild(script);
+                    } else {
+                        console.error("Échec de la récupération du token");
+                    }
+                })
+                .catch(error => console.error("Erreur :", error));
+        })();
+    </script>
 
     <style>
         /* Style pour la barre de navigation */
         .nav-link {
-            color: white;
+
             font-size: 1rem;
             padding: 0.5rem 1rem;
             transition: color 0.3s ease;
@@ -225,7 +348,7 @@
 
         /* Style pour la barre des partenaires */
         #partenaires-hero {
-            background-color: rgba(7, 7, 7, 0.8);
+            background-color: rgba(17, 17, 17, 0.8);
             position: fixed;
             top: 80px;
             left: 0;
@@ -233,112 +356,51 @@
             z-index: 30;
             overflow: hidden;
             padding: 10px 0;
+
         }
 
-        /* Style pour le Swiper */
-        .swiper {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
+        /* Styles pour le défilement des partenaires */
 
-        .swiper-wrapper {
-            display: flex;
-            animation: scrolling 5s linear infinite;
-        }
-
-        .swiper-slide {
-            flex: 0 0 auto;
-            width: auto;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 30px;
-        }
-
-        .swiper-slide img {
-            max-height: 50px;
-            transition: transform 0.3s ease;
-        }
-
-        .swiper-slide img:hover {
-            transform: scale(1.1);
-        }
-
-        @keyframes scrolling {
+        @keyframes scroll {
             0% {
                 transform: translateX(0);
             }
 
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-100%);
             }
         }
 
-        /* Styles responsives */
-        @media (max-width: 767px) {
+        .animate-scroll {
+            animation: scroll 15s linear infinite;
+        }
 
-            /* Menu mobile */
-            #mobile-menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: black;
-                z-index: 40;
-            }
+        #collaborateurs-hero {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-            /* Partenaires sur mobile */
-            .swiper-wrapper {
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-            }
+        #collaborateurs-hero.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100%);
+        }
 
-            .swiper-slide {
-                width: auto !important;
-                flex: 0 0 auto !important;
-                margin-right: 20px;
-            }
-
-            .swiper-slide img {
-                max-height: 50px;
-            }
-
-            /* Autres ajustements mobiles */
-            .text-4xl {
-                font-size: 2rem;
-            }
-
-            .text-xl {
-                font-size: 1.25rem;
-            }
-
-            .text-lg {
-                font-size: 1rem;
-            }
-
-            .countdown-wrapper {
-                scale: 0.8;
-                margin-bottom: 6px;
-            }
-
-            .countdown-item {
-                padding: 1rem;
-            }
-
-            .countdown-item .text-4xl {
-                font-size: 2rem;
-            }
-
-            .inline-block {
-                font-size: 1rem;
-                padding: 0.5rem 2rem;
+        /* Styles responsifs */
+        @media (max-width: 640px) {
+            .animate-scroll {
+                animation: scroll 10s linear infinite;
             }
         }
 
+        @media (max-width: 480px) {
+            .animate-scroll {
+                animation: scroll 8s linear infinite;
+            }
+        }
 
-        /* Ajoutez ces styles à votre section style existante */
         /* Améliorations du compte à rebours */
         .countdown-item {
             width: 100px;
@@ -387,6 +449,11 @@
                 gap: 0.5rem;
                 /* Espacement réduit sur mobile */
             }
+
+            .mx-12 {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
         }
 
         /* Ajustements responsifs supplémentaires */
@@ -403,14 +470,6 @@
             .countdown-item .text-sm {
                 font-size: 0.75rem;
             }
-
-            .swiper-slide img {
-                max-height: 50px;
-            }
-
-            #partenaires-hero {
-                padding: 5px 0;
-            }
         }
 
         /* Très petits écrans */
@@ -422,10 +481,6 @@
 
             .countdown-item .text-4xl {
                 font-size: 1.25rem;
-            }
-
-            .swiper-slide img {
-                max-height: 18px;
             }
         }
 
@@ -487,9 +542,24 @@
                 }
             });
         });
-    </script>
 
-    </section>
+        // Script pour la section des partenaires
+        let lastScrollTop = 0;
+        let isScrolling;
+        const partnersSection = document.getElementById('collaborateurs-hero');
+
+        window.addEventListener('scroll', function() {
+            clearTimeout(isScrolling);
+
+            if (!partnersSection.classList.contains('hidden')) {
+                partnersSection.classList.add('hidden');
+            }
+
+            isScrolling = setTimeout(function() {
+                partnersSection.classList.remove('hidden');
+            }, 100);
+        });
+    </script>
 
     <section id="apropos" class="py-20 px-6 ">
         <div class="container mx-auto">
@@ -508,7 +578,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-center text-[#CCFF00] mb-4">Durée</h3>
                     <div class="text-white text-center">
-                        <p class="mb-2">23 - 25 Mars, 2025</p>
+                        <p class="mb-2">24 - 27 Mars, 2025</p>
                         <p>8:00 - 17:00 GMT</p>
                     </div>
                 </div>
@@ -718,95 +788,122 @@
         </script>
     </section>
 
-    <!-- Récompenses Section -->
-    <section id="recompenses" class="py-20  px-6 bg-[#78cad2]">
-        <div class="container mx-auto ">
-            <h3 class="text-4xl font-extrabold text-white mb-16 text-center" data-aos="fade-up">Récompenses</h3>
 
-            <div class="grid lg:grid-cols-3 sm:grid-cols-1 gap-12">
 
-                <div class="bg-gray-600 p-8 rounded-lg shadow-lg hover:bg-gray-500 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-2xl font-semibold text-[#78cad2] mb-4">Formation & Mentorat</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-center">
-                            <span class="mr-2 text-[#78cad2]">✨</span>
-                            Programme d'incubation
-                        </li>
-                        <li class="flex items-center">
-                            <span class="mr-2 text-[#78cad2]">✨</span>
-                            Formations gratuites
-                        </li>
-                        <li class="flex items-center">
-                            <span class="mr-2 text-[#78cad2]">✨</span>
-                            Accès aux conférences
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-gray-600 p-6 rounded-lg shadow-lg hover:bg-gray-500 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-2xl font-semibold text-[#78cad2] mb-4">Opportunités</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-center">
-                            <span class="mr-2 text-[#78cad2]">🌍</span>
-                            Voyages d'études
-                        </li>
-                        <li class="flex items-center">
-                            <span class="mr-2 text-[#78cad2]">📚</span>
-                            Abonnements spécialisés
-                        </li>
-                        <li class="flex items-center">
-                            <span class="mr-2 text-[#78cad2]">🚀</span>
-                            Accompagnement post-hackathon
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-gray-600 p-8 rounded-lg shadow-lg hover:bg-gray-500 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-2xl font-semibold text-[#78cad2] mb-4">Cadeaux Tech</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-center">
-                            <span class="mr-2 text-[#78cad2]">💻</span>
-                            Ordinateurs
-                        </li>
-                        <li class="flex items-center">
-                            <span class="mr-2 text-[#78cad2]">📱</span>
-                            Tablettes
-                        </li>
-                        <li class="flex items-center">
-                            <span class="mr-2 text-[#78cad2]">⌚</span>
-                            Montres connectées
-                        </li>
-                    </ul>
-                </div>
+
+
+
+
+<!-- Récompenses Section -->
+<section id="recompenses" class="py-20 px-6 bg-[#78cad2]">
+    <div class="container mx-auto">
+        <h3 class="text-4xl font-extrabold text-white mb-16 text-center" data-aos="fade-up">Récompenses</h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <div class="bg-gray-600 p-8 rounded-lg shadow-lg hover:bg-gray-500 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-2xl font-semibold text-[#78cad2] mb-4 text-center">Formation & Mentorat</h3>
+                <ul class="space-y-3 text-gray-300 text-left">
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">✨</span>
+                        Programme d'incubation
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">✨</span>
+                        Formations gratuites
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">✨</span>
+                        Accès aux conférences
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-gray-600 p-6 rounded-lg shadow-lg hover:bg-gray-500 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-2xl font-semibold text-[#78cad2] mb-4 text-center">Opportunités</h3>
+                <ul class="space-y-3 text-gray-300 text-left">
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">📚</span>
+                        Abonnements spécialisés
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">🚀</span>
+                        Accompagnement post-hackathon
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-gray-600 p-8 rounded-lg shadow-lg hover:bg-gray-500 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="text-2xl font-semibold text-[#78cad2] mb-4 text-center">Cadeaux Tech</h3>
+                <ul class="space-y-3 text-gray-300 text-left">
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">💻</span>
+                        Ordinateurs
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">📱</span>
+                        Tablettes
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">⌚</span>
+                        Montres connectées
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-
-    <!-- Informations pratiques -->
-    <section id="infos" class="py-20 px-6 bg-[#78cad2]">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Informations pratiques</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-gray-600 p-6 rounded-lg" data-aos="fade-right">
-                    <h3 class="text-xl font-bold mb-4">Lieu et horaires</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li>📍 INPTIC (Feu rouge Gros bouquet)</li>
-                        <li>📅 23-25 Mars 2024</li>
-                        <li>⏰ 8h00 à 17h00</li>
-                        <li>🍽️ Restauration fournie</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-600 p-6 rounded-lg" data-aos="fade-left">
-                    <h3 class="text-xl font-bold mb-4">Processus de soumission</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li>✅ Prototype fonctionnel</li>
-                        <li>📊 Présentation détaillée</li>
-                        <li>📝 Documentation technique</li>
-                        <li>💡 Spécifications et diagrammes</li>
-                    </ul>
-                </div>
+<!-- Informations pratiques -->
+<section id="infos" class="py-20 px-6 bg-[#78cad2]">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Informations pratiques</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bg-gray-600 p-6 rounded-lg" data-aos="fade-right">
+                <h3 class="text-xl font-bold mb-4 text-center">Lieu et horaires</h3>
+                <ul class="space-y-3 text-gray-300 text-left">
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">📍</span>
+                        INPTIC (Feu rouge Gros bouquet)
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">📅</span>
+                        24-27 Mars 2024
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">⏰</span>
+                        8h00 à 17h00
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">🍽️</span>
+                        Restauration fournie
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-gray-600 p-6 rounded-lg" data-aos="fade-left">
+                <h3 class="text-xl font-bold mb-4 text-center">Processus de soumission</h3>
+                <ul class="space-y-3 text-gray-300 text-left">
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">✅</span>
+                        Prototype fonctionnel
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">📊</span>
+                        Présentation détaillée
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">📝</span>
+                        Documentation technique
+                    </li>
+                    <li class="flex items-center">
+                        <span class="mr-3 text-[#78cad2]">💡</span>
+                        Spécifications et diagrammes
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
 
 
 
@@ -817,90 +914,236 @@
 
 
     <!-- Section Programme -->
-    <section id="programme" class="py-20 px-6 bg-gray-900">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-u">Programme</h2>
+    <section id="programme" class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-[#0A0F1C] relative overflow-hidden">
+        <!-- Titre Programme avec effet -->
+        <div class="container mx-auto relative z-10">
+            <div class="relative mb-16">
+                <!-- Titre en arrière-plan -->
+                <div class="absolute top-0 left-0 w-full text-center opacity-10 select-none pointer-events-none">
+                    <span class="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] font-bold text-white uppercase tracking-widest">
 
-            <!-- Timeline des 3 jours -->
-            <div class="grid md:grid-cols-3 gap-8">
+                    </span>
+                </div>
+
+                <!-- Titre principal -->
+                <h2 class="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white uppercase tracking-[0.2em]">
+                    Programme
+                    <div class="w-16 sm:w-20 md:w-24 h-1 bg-[#78cad2] mx-auto mt-4 sm:mt-6"></div>
+                </h2>
+            </div>
+
+            <!-- Timeline des 4 jours -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                 <!-- Jour 1 -->
-                <div class="bg-black p-8 rounded-xl border border-blue-500 timeline-day">
-                    <h3 class="text-2xl font-bold text-blue-500 mb-6">Jour 1: Lancement</h3>
-                    <ul class="space-y-6">
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">08:00</span>
-                            <h4 class="text-white font-bold mb-2">Accueil et Inscription</h4>
-                            <p class="text-gray-300">Accueil des participants et finalisation des inscriptions</p>
+                <div class="timeline-card group p-4 sm:p-6 md:p-8">
+                    <div class="flex items-center justify-between mb-4 sm:mb-6">
+                        <h3 class="text-xs sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Lancement</h3>
+                        <span class="text-xs sm:text-sm font-medium text-[#78cad2]">24 Mars</span>
+                    </div>
+                    <ul class="space-y-4 sm:space-y-6 md:space-y-8">
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">08:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Accueil et Inscription</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Accueil des participants et finalisation des inscriptions</p>
                         </li>
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">09:30</span>
-                            <h4 class="text-white font-bold mb-2">Cérémonie d'ouverture</h4>
-                            <p class="text-gray-300">Présentation du déroulement, introduction des mentors et des juges</p>
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:30</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Cérémonie d'ouverture</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Présentation du déroulement et des mentors</p>
                         </li>
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">11:00</span>
-                            <h4 class="text-white font-bold mb-2">Formation des Équipes</h4>
-                            <p class="text-gray-300">Constitution des équipes et networking</p>
-                        </li>
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">14:00</span>
-                            <h4 class="text-white font-bold mb-2">Présentation du Défi</h4>
-                            <p class="text-gray-300">Annonce de la thématique et des objectifs</p>
-                        </li>
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">15:00</span>
-                            <h4 class="text-white font-bold mb-2">Début du Hackathon</h4>
-                            <p class="text-gray-300">Lancement officiel des travaux</p>
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Formation des Équipes</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Constitution des équipes et networking</p>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Jour 2 -->
-                <div class="bg-black p-8 rounded-xl border border-blue-500 timeline-day">
-                    <h3 class="text-2xl font-bold text-blue-500 mb-6">Jour 2: Développement</h3>
-                    <ul class="space-y-6">
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">09:00</span>
-                            <h4 class="text-white font-bold mb-2">Sessions de Mentorat</h4>
-                            <p class="text-gray-300">Accompagnement personnalisé par des experts</p>
+                <div class="timeline-card group p-4 sm:p-6 md:p-8">
+                    <div class="flex items-center justify-between mb-4 sm:mb-6">
+                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Innovation</h3>
+                        <span class="text-xs sm:text-sm font-medium text-[#78cad2]">25 Mars</span>
+                    </div>
+                    <ul class="space-y-4 sm:space-y-6 md:space-y-8">
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Ateliers Design Thinking</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Séances de créativité et d'idéation</p>
                         </li>
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">11:00</span>
-                            <h4 class="text-white font-bold mb-2">Ateliers Techniques</h4>
-                            <p class="text-gray-300">Formation sur les APIs, UX/UI et bonnes pratiques</p>
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Sessions de Mentorat</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Accompagnement personnalisé par des experts</p>
                         </li>
-
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">16:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Validation des Concepts</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Présentation des idées aux mentors</p>
+                        </li>
                     </ul>
                 </div>
 
                 <!-- Jour 3 -->
-                <div class="bg-black p-8 rounded-xl border border-blue-500 timeline-day">
-                    <h3 class="text-2xl font-bold text-blue-500 mb-6">Jour 3: Finalisation</h3>
-                    <ul class="space-y-6">
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">09:00</span>
-                            <h4 class="text-white font-bold mb-2">Finalisation des Projets</h4>
-                            <p class="text-gray-300">Dernières touches aux prototypes</p>
+                <div class="timeline-card group p-4 sm:p-6 md:p-8">
+                    <div class="flex items-center justify-between mb-4 sm:mb-6">
+                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Développement</h3>
+                        <span class="text-xs sm:text-sm font-medium text-[#78cad2]">26 Mars</span>
+                    </div>
+                    <ul class="space-y-4 sm:space-y-6 md:space-y-8">
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Sprint de Développement</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Développement intensif des prototypes</p>
                         </li>
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">14:00</span>
-                            <h4 class="text-white font-bold mb-2">Présentations Finales</h4>
-                            <p class="text-gray-300">Pitch des projets devant le jury</p>
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Ateliers Techniques</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Formation sur les APIs et UX/UI</p>
                         </li>
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">16:00</span>
-                            <h4 class="text-white font-bold mb-2">Délibération du Jury</h4>
-                            <p class="text-gray-300">Évaluation selon les critères établis</p>
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">16:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Revue de Code</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Sessions de debug avec les mentors</p>
                         </li>
-                        <li class="timeline-item">
-                            <span class="text-purple-400 font-bold">17:30</span>
-                            <h4 class="text-white font-bold mb-2">Cérémonie de Clôture</h4>
-                            <p class="text-gray-300">Annonce des gagnants et remise des prix</p>
+                    </ul>
+                </div>
+
+                <!-- Jour 4 -->
+                <div class="timeline-card group p-4 sm:p-6 md:p-8">
+                    <div class="flex items-center justify-between mb-4 sm:mb-6">
+                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Finalisation</h3>
+                        <span class="text-xs sm:text-sm font-medium text-[#78cad2]">27 Mars</span>
+                    </div>
+                    <ul class="space-y-4 sm:space-y-6 md:space-y-8">
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Finalisation</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Dernières touches aux projets</p>
+                        </li>
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Pitch Final</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Présentation devant le jury</p>
+                        </li>
+                        <li class="timeline-item pl-4 sm:pl-6">
+                            <div class="flex items-center mb-2 sm:mb-3">
+                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">17:30</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Cérémonie de Clôture</h4>
+                            <p class="text-sm sm:text-base text-gray-400">Remise des prix et célébration</p>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+
+        <style>
+            /* Styles de base pour la timeline-card */
+            .timeline-card {
+                position: relative;
+                background: linear-gradient(145deg, rgba(17, 24, 39, 0.6), rgba(10, 15, 28, 0.8));
+                border-radius: 0.75rem;
+                transition: all 0.4s ease;
+                border-left: 4px solid transparent;
+                backdrop-filter: blur(10px);
+                height: 100%;
+            }
+
+            /* Effet de survol amélioré */
+            .timeline-card:hover {
+                transform: translateY(-5px);
+                border-left: 4px solid #78cad2;
+                background: linear-gradient(145deg, rgba(17, 24, 39, 0.8), rgba(10, 15, 28, 0.95));
+            }
+
+            /* Style pour les items de la timeline */
+            .timeline-item {
+                position: relative;
+                opacity: 1 !important;
+                /* Forcer l'opacité à 1 pour éviter les effets de fade */
+                transform: none !important;
+                /* Désactiver les transformations */
+            }
+
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0.5rem;
+                width: 2px;
+                height: calc(100% + 1rem);
+                background: linear-gradient(to bottom, #78cad2 0%, transparent 100%);
+                opacity: 0.2;
+            }
+
+            .timeline-item:last-child::before {
+                display: none;
+            }
+
+            /* Adaptation du texte pour les petits écrans */
+            @media (max-width: 480px) {
+                .timeline-card h3 {
+                    font-size: 1rem;
+                }
+
+                .timeline-card h4 {
+                    font-size: 0.875rem;
+                }
+
+                .timeline-card p {
+                    font-size: 0.75rem;
+                }
+            }
+
+            /* Ajustements pour les tablettes */
+            @media (min-width: 768px) and (max-width: 1024px) {
+                .grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            /* Ajustements pour les grands écrans */
+            @media (min-width: 1280px) {
+                .timeline-card {
+                    min-height: 450px;
+                }
+            }
+
+            /* Animation fluide pour les transitions */
+            .timeline-card {
+                transition: all 0.3s ease-in-out;
+            }
+
+            /* Désactiver les animations AOS */
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+        </style>
     </section>
 
     <!-- Section Formulaire avec nouveau style -->
@@ -908,10 +1151,11 @@
 
     <!-- Section des questions frequentes -->
 
-    <?php include 'sections/questions.php';  ?>
-    <!-- Section Partenaires -->
 
-    <?php include 'sections/partenaire.php';  ?>
+    <!-- Section des membres de l'inptic -->
+    <?php include 'sections/members.php'; ?>
+
+
 
     <footer class="py-10 bg-black text-white">
         <div class="container mx-auto px-4">
@@ -925,9 +1169,10 @@
                 <!-- Liens sociaux -->
                 <div class="flex space-x-6 justify-center md:justify-end">
                     <a href="https://www.facebook.com/share/19yadQcZ1c/" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.675 0H1.325C0.593 0 0 0.593 0 1.325v21.351C0 23.407 0.593 24 1.325 24h11.495v-9.294H9.837v-3.622h2.983V8.413c0-2.951 1.803-4.557 4.436-4.557 1.262 0 2.345.093 2.66.135v3.084h-1.828c-1.433 0-1.711.681-1.711 1.679v2.201h3.422l-.446 3.622h-2.976V24h5.833c.729 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0z" />
                         </svg>
+
                         <span class="ml-2 hidden sm:inline">Facebook</span>
                     </a>
                     <a href="https://youtube.com/@inpticgabonofficiel?si=b850Blht_rC328d7" target="_blank" class="text-white hover:text-[#CCFF00] transition-colors duration-300 flex items-center">
@@ -972,8 +1217,8 @@
             // Date actuelle
             const now = new Date();
 
-            // Date de l'événement (25 Mars 2025 à 18h00)
-            const eventDate = new Date('2025-03-25T18:00:00');
+            // Date de l'événement (24 Mars 2025 à 18h00)+2
+            const eventDate = new Date('2025-03-26T18:00:00');
 
             // Calcul de la différence en millisecondes
             const timeLeft = eventDate - now;
