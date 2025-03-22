@@ -117,6 +117,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             throw new Exception("Composition d'équipe invalide: 2 développeurs, 1 technicien réseau, 1 marketeur requis.");
         }
 
+        
+
         /**
          * VALIDATION ET TRAITEMENT DU DOCUMENT JUSTIFICATIF
          */

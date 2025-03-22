@@ -100,71 +100,304 @@
         </video>
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600/80 to-purple-600/80 z-10"></div>
         <div class="text-center relative z-20 px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6" style="color: #59CD97">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate__animated animate__fadeInDown" style="color: #59CD97">
                 Innovation Days 2025
             </h1>
             <style>
-  .cyber-theme-banner {
+                .cyber-theme-banner {
+                    padding: 1.5rem;
+                    width: 100%;
+                }
+                
+                .cyber-theme-text {
+                    font-family: 'Arial', sans-serif;
+                    font-weight: 800;
+                    color: white;
+                    font-style: italic;
+                    letter-spacing: 0.05em;
+                    line-height: 1.2;
+                    text-transform: uppercase;
+                }
 
-    padding: 1.5rem;
-    width: 100%;
-  }
-  
-  .cyber-theme-text {
-    font-family: 'Arial', sans-serif;
-    font-weight: 800;
-    color: white;
-    font-style: italic;
-    letter-spacing: 0.05em;
-    line-height: 1.2;
-    text-transform: uppercase;
-  }
-</style>
+                /* Ajout des animations */
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
 
-<div class="cyber-theme-banner">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="cyber-theme-text text-2xl sm:text-3xl md:text-4xl">
-      <div class="mb-1">THÈME</div>
-      <div class="mb-1">CYBERSÉCURITÉ :</div>
-      <div class="mb-1">RELEVER LE DÉFI DE LA SÉCURITÉ</div>
-      <div>NUMÉRIQUE AU GABON</div>
-    </h2>
-  </div>
-</div>
-            <p class="text-xl md:text-2xl mb-4 text-white">
+                @keyframes slideInUp {
+                    from {
+                        transform: translateY(50px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+
+                @keyframes pulse {
+                    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(89, 205, 151, 0.7); }
+                    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(89, 205, 151, 0); }
+                    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(89, 205, 151, 0); }
+                }
+
+                @keyframes float {
+                    0% { transform: translateY(0px); }
+                    50% { transform: translateY(-10px); }
+                    100% { transform: translateY(0px); }
+                }
+
+                @keyframes glowing {
+                    0% { box-shadow: 0 0 5px #59CD97; }
+                    50% { box-shadow: 0 0 20px #59CD97; }
+                    100% { box-shadow: 0 0 5px #59CD97; }
+                }
+
+                .animate-fadeIn {
+                    animation: fadeIn 1.5s ease-out forwards;
+                }
+
+                .animate-slideInUp {
+                    animation: slideInUp 1s ease-out forwards;
+                }
+
+                .animate-pulse-custom {
+                    animation: pulse 2s infinite;
+                }
+
+                .animate-float {
+                    animation: float 3s ease-in-out infinite;
+                }
+
+                .btn-inscription {
+                    background-color: #ff0000;
+                    color: white;
+                    font-weight: bold;
+                    padding: 0.75rem 1.5rem;
+                    border-radius: 9999px;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+                }
+
+                .btn-inscription:hover {
+                    background-color: #cc0000;
+                    transform: scale(1.05);
+                }
+
+                .btn-inscription::before {
+                    content: "";
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: rotate(45deg);
+                    transition: all 0.5s;
+                    opacity: 0;
+                }
+
+                .btn-inscription:hover::before {
+                    animation: shine 1.5s;
+                }
+
+                @keyframes shine {
+                    0% { opacity: 0; transform: translateX(-100%) rotate(45deg); }
+                    100% { opacity: 0.7; transform: translateX(100%) rotate(45deg); }
+                }
+
+                .countdown-item {
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 10px;
+                    padding: 1rem;
+                    min-width: 80px;
+                    backdrop-filter: blur(5px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    transition: all 0.3s ease;
+                }
+
+                .countdown-item:hover {
+                    transform: translateY(-5px);
+                    background: rgba(255, 255, 255, 0.2);
+                }
+
+                .notification-badge {
+                    position: absolute;
+                    top: -10px;
+                    right: -10px;
+                    background-color: red;
+                    color: white;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 12px;
+                    font-weight: bold;
+                    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+                }
+
+                @keyframes bounce {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-5px); }
+                }
+            </style>
+
+            <div class="cyber-theme-banner animate-fadeIn" style="animation-delay: 0.5s; opacity: 0;">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="cyber-theme-text text-2xl sm:text-3xl md:text-4xl">
+                        <div class="mb-1">THÈME</div>
+                        <div class="mb-1">CYBERSÉCURITÉ :</div>
+                        <div class="mb-1">RELEVER LE DÉFI DE LA SÉCURITÉ</div>
+                        <div>NUMÉRIQUE AU GABON</div>
+                    </h2>
+                </div>
+            </div>
+
+            <p class="text-xl md:text-2xl mb-4 text-white animate-slideInUp" style="animation-delay: 0.8s; opacity: 0;">
                 96 Heures pour Innover
             </p>
-            <p class="text-lg md:text-xl mb-8 text-white">
+            <p class="text-lg md:text-xl mb-8 text-white animate-slideInUp" style="animation-delay: 1s; opacity: 0;">
                 24-27 Mars 2025 • INPTIC
             </p>
 
-            <div class="countdown-wrapper">
+            <div class="countdown-wrapper animate-fadeIn" style="animation-delay: 1.2s; opacity: 0;">
                 <div class="flex justify-center gap-4 mb-12" id="countdown">
-                    <div class="countdown-item">
+                    <div class="countdown-item animate-float" style="animation-delay: 0s">
                         <div class="text-4xl font-bold" id="days">00</div>
                         <div class="text-sm text-purple-200">Jours</div>
                     </div>
-                    <div class="countdown-item">
+                    <div class="countdown-item animate-float" style="animation-delay: 0.2s">
                         <div class="text-4xl font-bold" id="hours">00</div>
                         <div class="text-sm text-purple-200">Heures</div>
                     </div>
-                    <div class="countdown-item">
+                    <div class="countdown-item animate-float" style="animation-delay: 0.4s">
                         <div class="text-4xl font-bold" id="minutes">00</div>
                         <div class="text-sm text-purple-200">Minutes</div>
                     </div>
-                    <div class="countdown-item">
+                    <div class="countdown-item animate-float" style="animation-delay: 0.6s">
                         <div class="text-4xl font-bold" id="seconds">00</div>
                         <div class="text-sm text-purple-200">Secondes</div>
                     </div>
                 </div>
             </div>
 
-            <a href="#inscription"
-                class="inline-block bg-green-600 px-8 py-3 rounded-full font-bold hover:bg-green-800 hover:text-white transition-all animate-pulse-zoom">
-                Inscription
-            </a>
+            <div class="relative inline-block animate-slideInUp" style="animation-delay: 1.5s; opacity: 0;">
+                <a href="#inscription" class="btn-inscription relative group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    Je m'inscris maintenant
+                </a>
+                <div class="notification-badge" style="background-color: #ff0000; top: -8px; right: -8px;">
+                    <span>1</span>
+                </div>
+            </div>
         </div>
     </section>
+
+<!-- Script pour les animations -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animation des éléments au chargement
+        const animatedElements = document.querySelectorAll('[class*="animate-"]');
+        animatedElements.forEach(element => {
+            if (element.style.opacity === '0') {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, parseFloat(element.style.animationDelay) * 1000);
+            }
+        });
+
+        // Le code du compte à rebours a été retiré
+
+        // Animation pour le bouton d'inscription lorsqu'il est en bas de page
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop && st > 300) {
+                // Descente de page après 300px
+                const floatingButton = document.createElement('div');
+                floatingButton.className = 'fixed bottom-6 right-6 z-50 transform transition-transform hover:scale-110';
+                floatingButton.innerHTML = `
+                    <a href="#inscription" class="btn-inscription flex items-center shadow-lg">
+                        <span>Inscrivez-vous</span>
+                    </a>
+                `;
+                
+                // Vérifier si le bouton n'existe pas déjà
+                if (!document.querySelector('.fixed.bottom-6.right-6')) {
+                    document.body.appendChild(floatingButton);
+                    
+                    // Animation d'apparition
+                    floatingButton.style.animation = 'slideInUp 0.5s ease-out forwards';
+                }
+            } else if (st <= 300) {
+                // Retour en haut de page
+                const floatingButton = document.querySelector('.fixed.bottom-6.right-6');
+                if (floatingButton) {
+                    floatingButton.style.animation = 'slideInDown 0.5s ease-out forwards';
+                    setTimeout(() => {
+                        floatingButton.remove();
+                    }, 500);
+                }
+            }
+            lastScrollTop = st <= 0 ? 0 : st;
+        }, false);
+
+        // Effet de pop-up après quelques secondes
+        setTimeout(() => {
+            const popupContainer = document.createElement('div');
+            popupContainer.className = 'fixed bottom-4 left-4 bg-white rounded-lg shadow-xl p-4 z-50 max-w-sm animate-fadeIn';
+            popupContainer.innerHTML = `
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-green-100 rounded-full p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-900">Places limitées !</p>
+                        <p class="mt-1 text-sm text-gray-500">Plus que quelques jours pour s'inscrire à l'Innovation Days 2025.</p>
+                        <div class="mt-2">
+                            <a href="#inscription" class="text-sm font-medium text-green-600 hover:text-green-500">S'inscrire maintenant</a>
+                        </div>
+                    </div>
+                    <button type="button" class="ml-2 text-gray-400 hover:text-gray-500" id="closePopup">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(popupContainer);
+            
+            document.getElementById('closePopup').addEventListener('click', function() {
+                popupContainer.remove();
+            });
+            
+            // Auto-fermeture après 10 secondes
+            setTimeout(() => {
+                if (document.body.contains(popupContainer)) {
+                    popupContainer.classList.add('animate-fadeOut');
+                    setTimeout(() => {
+                        if (document.body.contains(popupContainer)) {
+                            popupContainer.remove();
+                        }
+                    }, 1000);
+                }
+            }, 10000);
+        }, 5000);
+    });
+</script>
 
     <!-- Section des partenaires -->
     <section id="collaborateurs-hero" class="fixed bottom-0 left-0 w-full bg-black bg-opacity-80 z-50 py-2 sm:py-3 md:py-4 transition-all duration-500 ease-in-out transform">
@@ -214,6 +447,11 @@
                             <img src="assets/gra.jpg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
                         </div>
                     </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/ax.jpg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
                 </div>
                 <!-- Deuxième ensemble de logos (copie pour le défilement infini) -->
                 <div class="flex items-center justify-around min-w-full gap-8">
@@ -255,6 +493,11 @@
                     <div class="flex-shrink-0 px-4">
                         <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
                             <img src="assets/logo-spin.png" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 px-4">
+                        <div class="w-24 h-16 sm:w-28 sm:h-20 md:w-36 md:h-20">
+                            <img src="assets/ax.jpg" alt="Logo Collaborateur" class="h-full w-auto object-contain hover:scale-110 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
@@ -934,131 +1177,256 @@
 
             <!-- Timeline des 4 jours -->
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-                <!-- Jour 1 -->
-                <div class="timeline-card group p-4 sm:p-6 md:p-8">
-                    <div class="flex items-center justify-between mb-4 sm:mb-6">
-                        <h3 class="text-xs sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Lancement</h3>
-                        <span class="text-xs sm:text-sm font-medium text-[#78cad2]">24 Mars</span>
-                    </div>
-                    <ul class="space-y-4 sm:space-y-6 md:space-y-8">
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">08:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Accueil et Inscription</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Accueil des participants et finalisation des inscriptions</p>
-                        </li>
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:30</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Cérémonie d'ouverture</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Présentation du déroulement et des mentors</p>
-                        </li>
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Formation des Équipes</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Constitution des équipes et networking</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Jour 2 -->
-                <div class="timeline-card group p-4 sm:p-6 md:p-8">
-                    <div class="flex items-center justify-between mb-4 sm:mb-6">
-                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Innovation</h3>
-                        <span class="text-xs sm:text-sm font-medium text-[#78cad2]">25 Mars</span>
-                    </div>
-                    <ul class="space-y-4 sm:space-y-6 md:space-y-8">
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Ateliers Design Thinking</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Séances de créativité et d'idéation</p>
-                        </li>
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Sessions de Mentorat</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Accompagnement personnalisé par des experts</p>
-                        </li>
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">16:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Validation des Concepts</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Présentation des idées aux mentors</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Jour 3 -->
-                <div class="timeline-card group p-4 sm:p-6 md:p-8">
-                    <div class="flex items-center justify-between mb-4 sm:mb-6">
-                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Développement</h3>
-                        <span class="text-xs sm:text-sm font-medium text-[#78cad2]">26 Mars</span>
-                    </div>
-                    <ul class="space-y-4 sm:space-y-6 md:space-y-8">
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Sprint de Développement</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Développement intensif des prototypes</p>
-                        </li>
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Ateliers Techniques</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Formation sur les APIs et UX/UI</p>
-                        </li>
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">16:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Revue de Code</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Sessions de debug avec les mentors</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Jour 4 -->
-                <div class="timeline-card group p-4 sm:p-6 md:p-8">
-                    <div class="flex items-center justify-between mb-4 sm:mb-6">
-                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Finalisation</h3>
-                        <span class="text-xs sm:text-sm font-medium text-[#78cad2]">27 Mars</span>
-                    </div>
-                    <ul class="space-y-4 sm:space-y-6 md:space-y-8">
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Finalisation</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Dernières touches aux projets</p>
-                        </li>
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Pitch Final</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Présentation devant le jury</p>
-                        </li>
-                        <li class="timeline-item pl-4 sm:pl-6">
-                            <div class="flex items-center mb-2 sm:mb-3">
-                                <span class="text-base sm:text-lg font-mono text-[#78cad2]">17:30</span>
-                            </div>
-                            <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Cérémonie de Clôture</h4>
-                            <p class="text-sm sm:text-base text-gray-400">Remise des prix et célébration</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Jour 1 -->
+    <div class="timeline-card group p-4 sm:p-6 md:p-8">
+        <div class="flex items-center justify-between mb-4 sm:mb-6">
+            <h3 class="text-xs sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Ouverture</h3>
+            <span class="text-xs sm:text-sm font-medium text-[#78cad2]">24 Mars</span>
         </div>
+        <ul class="space-y-4 sm:space-y-6 md:space-y-8">
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">08:00 - 09:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Accueil et enregistrement</h4>
+                <p class="text-sm sm:text-base text-gray-400">Vérification des équipes</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00 - 09:30</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Installation</h4>
+                <p class="text-sm sm:text-base text-gray-400">Installation des équipes dans la salle dédiée</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:30 - 10:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Discours d'ouverture</h4>
+                <p class="text-sm sm:text-base text-gray-400">Par le Directeur Général de l'INPTIC</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">10:00 - 10:30</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Explication du programme</h4>
+                <p class="text-sm sm:text-base text-gray-400">Règles et critères d'évaluation</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">10:30 - 13:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Début des travaux</h4>
+                <p class="text-sm sm:text-base text-gray-400">Mentorat et coaching technique</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">13:00 - 14:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Pause déjeuner</h4>
+                <p class="text-sm sm:text-base text-gray-400">Restauration</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00 - 17:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Poursuite des travaux</h4>
+                <p class="text-sm sm:text-base text-gray-400">Accompagnement des mentors</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">17:00 - 18:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Session Q&R</h4>
+                <p class="text-sm sm:text-base text-gray-400">Questions-Réponses avec les mentors</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">18:00 - 20:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Travail libre</h4>
+                <p class="text-sm sm:text-base text-gray-400">Fin officielle de la journée</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Jour 2 -->
+    <div class="timeline-card group p-4 sm:p-6 md:p-8">
+        <div class="flex items-center justify-between mb-4 sm:mb-6">
+            <h3 class="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Première sélection</h3>
+            <span class="text-xs sm:text-sm font-medium text-[#78cad2]">25 Mars</span>
+        </div>
+        <ul class="space-y-4 sm:space-y-6 md:space-y-8">
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">08:00 - 09:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Point d'étape</h4>
+                <p class="text-sm sm:text-base text-gray-400">Suivi de l'avancement des projets</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00 - 11:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Première sélection</h4>
+                <p class="text-sm sm:text-base text-gray-400">Élimination de 60% des équipes</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">11:00 - 13:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Coaching approfondi</h4>
+                <p class="text-sm sm:text-base text-gray-400">Conseils personnalisés aux équipes retenues</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">13:00 - 14:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Pause déjeuner</h4>
+                <p class="text-sm sm:text-base text-gray-400">Restauration</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00 - 16:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Ateliers pratiques</h4>
+                <p class="text-sm sm:text-base text-gray-400">Amélioration des projets avec les mentors</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">16:00 - 17:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Session Q&R</h4>
+                <p class="text-sm sm:text-base text-gray-400">Questions-Réponses avec le jury</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">17:00 - 18:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Travail libre</h4>
+                <p class="text-sm sm:text-base text-gray-400">Fin officielle de la journée</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Jour 3 -->
+    <div class="timeline-card group p-4 sm:p-6 md:p-8">
+        <div class="flex items-center justify-between mb-4 sm:mb-6">
+            <h3 class="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Demi-finale</h3>
+            <span class="text-xs sm:text-sm font-medium text-[#78cad2]">26 Mars</span>
+        </div>
+        <ul class="space-y-4 sm:space-y-6 md:space-y-8">
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">08:00 - 09:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Accueil</h4>
+                <p class="text-sm sm:text-base text-gray-400">Enregistrement des participants</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00 - 11:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Deuxième sélection</h4>
+                <p class="text-sm sm:text-base text-gray-400">Élimination de 30% des équipes restantes</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">11:00 - 13:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Coaching intensif</h4>
+                <p class="text-sm sm:text-base text-gray-400">Sessions de feedback détaillées</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">13:00 - 14:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Pause déjeuner</h4>
+                <p class="text-sm sm:text-base text-gray-400">Restauration</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00 - 16:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Finalisation</h4>
+                <p class="text-sm sm:text-base text-gray-400">Préparation aux présentations finales</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">16:00 - 17:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Session Q&R</h4>
+                <p class="text-sm sm:text-base text-gray-400">Questions-Réponses avec le jury</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">17:00 - 18:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Préparation finale</h4>
+                <p class="text-sm sm:text-base text-gray-400">Fin officielle de la journée</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Jour 4 -->
+    <div class="timeline-card group p-4 sm:p-6 md:p-8">
+        <div class="flex items-center justify-between mb-4 sm:mb-6">
+            <h3 class="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">Finale</h3>
+            <span class="text-xs sm:text-sm font-medium text-[#78cad2]">27 Mars</span>
+        </div>
+        <ul class="space-y-4 sm:space-y-6 md:space-y-8">
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">08:00 - 09:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Accueil</h4>
+                <p class="text-sm sm:text-base text-gray-400">Installation des équipes finalistes</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">09:00 - 12:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Présentation finale</h4>
+                <p class="text-sm sm:text-base text-gray-400">Projets devant le jury et démonstrations</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">12:00 - 13:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Délibération</h4>
+                <p class="text-sm sm:text-base text-gray-400">Sélection des équipes gagnantes</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">13:00 - 14:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Pause déjeuner</h4>
+                <p class="text-sm sm:text-base text-gray-400">Restauration</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">14:00 - 15:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Remise des prix</h4>
+                <p class="text-sm sm:text-base text-gray-400">Annonce des résultats et cérémonie</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">15:00 - 16:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Discours de clôture</h4>
+                <p class="text-sm sm:text-base text-gray-400">Remerciements aux participants et partenaires</p>
+            </li>
+            <li class="timeline-item pl-4 sm:pl-6">
+                <div class="flex items-center mb-2 sm:mb-3">
+                    <span class="text-base sm:text-lg font-mono text-[#78cad2]">16:00 - 17:00</span>
+                </div>
+                <h4 class="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white group-hover:text-[#78cad2] transition-colors">Networking</h4>
+                <p class="text-sm sm:text-base text-gray-400">Échanges entre participants, mentors et jury</p>
+            </li>
+        </ul>
+    </div>
+</div>
 
         <style>
             /* Styles de base pour la timeline-card */

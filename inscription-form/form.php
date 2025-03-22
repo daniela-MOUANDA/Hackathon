@@ -201,22 +201,48 @@
 
                         <!-- Étape 6 - Validation finale -->
                         <div class="form-step hidden" id="step6">
-                            <h4 class="text-xl font-bold text-[#CCFF00] mb-4">Validation finale</h4>
-                            <div class="space-y-4">
-                                <div class="form-group">
-                                    <label class="block text-sm font-bold text-[#CCFF00] mb-2">Document justificatif de l'équipe*</label>
-                                    <input type="file" name="doc_justificatif" accept=".pdf,.doc,.docx" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
-                                    <p class="text-sm text-gray-400 mt-1">Format: PDF, DOC. Max: 5MB</p>
-                                </div>
+    <h4 class="text-xl font-bold text-[#CCFF00] mb-4">Validation finale</h4>
+    <div class="space-y-4">
+        <!-- Case à cocher pour indiquer si c'est une start-up -->
+        <div class="flex items-center space-x-3">
+            <input type="checkbox" id="is_startup" name="is_startup" class="w-5 h-5 border-2 border-gray-700 rounded bg-gray-900 text-[#CCFF00] focus:ring-[#CCFF00] focus:ring-opacity-50">
+            <label class="text-sm text-gray-300">
+                Cette équipe est une start-up
+            </label>
+        </div>
+        
+        <div class="form-group">
+            <label class="block text-sm font-bold text-[#CCFF00] mb-2" id="doc_label">Document justificatif de l'équipe  (facultatif pour les étudiants)</label>
+            <input type="file" name="doc_justificatif" id="doc_justificatif" accept=".pdf,.doc,.docx" class="w-full px-4 py-3 rounded-lg bg-gray-900 border-2 border-gray-700 text-white focus:border-[#CCFF00] focus:ring-2 focus:ring-[#CCFF00] focus:ring-opacity-50 transition-all">
+            <p class="text-sm text-gray-400 mt-1">Format: PDF, DOC. Max: 5MB</p>
+        </div>
 
-                                <div class="flex items-center space-x-3">
-                                    <input type="checkbox" required class="w-5 h-5 border-2 border-gray-700 rounded bg-gray-900 text-[#CCFF00] focus:ring-[#CCFF00] focus:ring-opacity-50">
-                                    <label class="text-sm text-gray-300">
-                                        J'accepte les <a href="#" class="text-[#CCFF00] hover:underline">conditions d'utilisation</a>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+        <div class="flex items-center space-x-3">
+            <input type="checkbox" required class="w-5 h-5 border-2 border-gray-700 rounded bg-gray-900 text-[#CCFF00] focus:ring-[#CCFF00] focus:ring-opacity-50">
+            <label class="text-sm text-gray-300">
+                J'accepte les <a href="#" class="text-[#CCFF00] hover:underline">conditions d'utilisation</a>
+            </label>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const isStartupCheckbox = document.getElementById('is_startup');
+    const docJustificatifInput = document.getElementById('doc_justificatif');
+    const docLabel = document.getElementById('doc_label');
+    
+    isStartupCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            docJustificatifInput.setAttribute('required', 'required');
+            docLabel.innerHTML = 'Document justificatif de l\'équipe (obligatoire pour les start-ups)*';
+        } else {
+            docJustificatifInput.removeAttribute('required');
+            docLabel.innerHTML = 'Document justificatif de l\'équipe';
+        }
+    });
+});
+</script>
 
                         <!-- Boutons de navigation -->
                         <div class="flex flex-col md:flex-row justify-between gap-4 mt-6">
