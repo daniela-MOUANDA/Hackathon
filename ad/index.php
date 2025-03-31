@@ -199,6 +199,8 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         include("./add_user.php");
                     }elseif ($_GET['page'] == "annonce") {
                         include("./views/annonce.php");
+                    }elseif ($_GET['page'] == "gagnant") {
+                        include("./views/gagnant.php");
                     }
                 }
                 ?>

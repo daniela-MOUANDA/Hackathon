@@ -26,6 +26,8 @@
 
                                     <li><a href="index.php?page=annonce"><i class="fa fa-bullhorn fa-fw"></i> Annonce</a></li>
                                     <li><a href="index.php?page=statsVisite"><i class="fa fa-briefcase fa-fw"></i>Visiteurs</a></li>
+                                    <li><a href="index.php?page=gagnant"><i class="fa fa-trophy fa-fw"></i>Gagnant</a></li>
+
                                 </ul>
                             </li>
                             <!-- Sous-section Préinscription -->
